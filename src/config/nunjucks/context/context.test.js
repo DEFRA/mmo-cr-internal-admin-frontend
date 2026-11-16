@@ -72,7 +72,7 @@ describe('context and cache', () => {
               href: '/about'
             }
           ],
-          serviceName: 'cdp-node-frontend-template',
+          serviceName: 'mmo-cr-internal-admin-frontend',
           serviceUrl: '/'
         })
       })
@@ -161,7 +161,7 @@ describe('context and cache', () => {
               href: '/about'
             }
           ],
-          serviceName: 'cdp-node-frontend-template',
+          serviceName: 'mmo-cr-internal-admin-frontend',
           serviceUrl: '/'
         })
       })
