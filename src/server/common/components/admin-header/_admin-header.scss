@@ -7,6 +7,17 @@
   background-color: govuk-colour('black');
 }
 
+// The prototype Sign in page uses the GOV.UK header, which has a 1px
+// transparent bottom border
+.app-admin-header--public {
+  border-bottom: 1px solid transparent;
+
+  // The prototype keeps the service name at 24px on small screens
+  .app-admin-header__service {
+    font-size: 24px;
+  }
+}
+
 .app-admin-header__bar {
   display: flex;
   align-items: center;

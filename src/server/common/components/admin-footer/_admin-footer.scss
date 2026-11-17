@@ -13,6 +13,16 @@
   background-color: #f3f2f1;
 }
 
+// The prototype Sign in page uses a tighter footer: 15px top / 35px bottom
+.app-admin-footer--compact {
+  padding-top: govuk-spacing(3);
+  padding-bottom: 35px;
+}
+
+.app-admin-footer__licence {
+  text-wrap: balance;
+}
+
 .app-admin-footer__meta {
   display: flex;
   align-items: center;

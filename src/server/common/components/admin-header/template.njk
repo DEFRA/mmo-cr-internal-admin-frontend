@@ -1,4 +1,4 @@
-<header class="app-admin-header" data-testid="app-admin-header">
+<header class="app-admin-header {{- ' ' + params.classes if params.classes }}" data-testid="app-admin-header">
   <div class="govuk-width-container {{ params.containerClasses }}">
     <div class="app-admin-header__bar">
       <a href="{{ params.homeHref | default('/') }}" class="app-admin-header__service">{{ params.serviceName }}</a>

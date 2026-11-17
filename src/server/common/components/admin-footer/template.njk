@@ -1,4 +1,4 @@
-<footer class="app-admin-footer" data-testid="app-admin-footer">
+<footer class="app-admin-footer {{- ' ' + params.classes if params.classes }}" data-testid="app-admin-footer">
   <div class="govuk-width-container {{ params.containerClasses }}">
     <div class="app-admin-footer__meta">
       {% if params.showLicenceLogo %}
