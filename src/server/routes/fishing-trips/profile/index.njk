@@ -1,0 +1,159 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  {{ appPageHeading({ caption: caption, text: "Trip " + trip.tripId }) }}
+
+  {% if notice %}
+    <div class="govuk-inset-text app-inset-text--profile" data-testid="trip-version-notice">
+      {% if notice.dateTime %}
+        {{ notice.text }} {{ notice.dateTime | formatDate("d MMMM yyyy, HH:mm") }}.
+      {% else %}
+        {{ notice.text }} <a class="govuk-link" href="{{ notice.href }}">{{ notice.linkText }}</a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <h2 class="govuk-heading-m">Trip information</h2>
+
+  {% set vesselHtml %}
+    {% if trip.vesselId %}<a class="govuk-link" href="/vessels/{{ trip.vesselId }}">{{ trip.vesselName }}</a>{% else %}{{ trip.vesselName }}{% endif %}
+  {% endset %}
+  {% set creatorHtml %}
+    {% if creatorHref %}<a class="govuk-link" href="{{ creatorHref }}">{{ trip.createdBy }}</a>{% else %}{{ trip.createdBy }}{% endif %}
+  {% endset %}
+
+  {% set mainRows = [
+      { key: { text: "Status" }, value: { html: govukTag(view.status | tripStatusTag) } },
+      { key: { text: "Vessel name" }, value: { html: vesselHtml } },
+      { key: { text: "PLN" }, value: { text: trip.pln } },
+      { key: { text: "Trip start date" }, value: { text: trip.tripStartDate | formatDate("d MMMM yyyy") } },
+      { key: { text: "Trip end date" }, value: { text: trip.tripEndDate | formatDate("d MMMM yyyy") } },
+      { key: { text: "Departure port" }, value: { text: trip.departurePort } },
+      { key: { text: "Return port" }, value: { text: trip.returnPort } },
+      { key: { text: "Created by" }, value: { html: creatorHtml } },
+      { key: { text: "User role" }, value: { text: trip.userRole } }
+  ] %}
+
+  {% set otherRows = [
+    { key: { text: "Retained catch" }, value: { text: view.retainedCatch } },
+    { key: { text: "Admin port" }, value: { text: trip.adminPort } },
+    { key: { text: "Port code" }, value: { text: trip.portCode } },
+    { key: { text: "Created on" }, value: { text: trip.createdOn | formatDate("d MMMM yyyy, HH:mm") } },
+    { key: { text: "Received on" }, value: { text: trip.receivedOn | formatDate("d MMMM yyyy, HH:mm") } },
+    { key: { text: "Late submission" }, value: { text: trip.lateSubmission } },
+    { key: { text: "Submission method" }, value: { text: methodLabel } }
+  ] %}
+  {% if view.amendment %}
+    {% set otherRows = otherRows.concat([{ key: { text: "Amendment reason" }, value: { text: view.amendment.reason } }]) %}
+  {% endif %}
+
+  {# Layout testing Option 2 shows all the trip information in one list #}
+  {% if showAllInformation %}
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9 app-summary-list--profile",
+      attributes: { "data-testid": "trip-information" },
+      rows: mainRows.concat(otherRows)
+    }) }}
+  {% else %}
+    {{ govukSummaryList({
+      classes: "govuk-!-margin-bottom-9 app-summary-list--profile",
+      attributes: { "data-testid": "trip-information" },
+      rows: mainRows
+    }) }}
+
+    {% set otherHtml %}
+      {{ govukSummaryList({ classes: "app-summary-list--profile", rows: otherRows }) }}
+    {% endset %}
+    {{ govukDetails({ summaryText: "Other trip information", html: otherHtml }) }}
+  {% endif %}
+
+  {{ govukButton({ text: "Amend catch recording", href: "/fishing-trips/" + trip.tripId + "/amend", isStartButton: true }) }}
+
+  {% set catchHtml %}
+    <h2 class="govuk-heading-l">Catch breakdown</h2>
+    {% for gear in view.gears %}
+      <h3 class="govuk-heading-s">Gear {{ loop.index }}: {{ gear.name }}</h3>
+      <p class="govuk-body"><strong>Measurements:</strong> {{ gear.measurements }}</p>
+      <p class="govuk-body"><strong>Subrectangle:</strong> {{ gear.subrectangle }}</p>
+      <div class="app-table-scroll app-table-scroll--wrap" role="region" aria-label="Catches using gear {{ loop.index }}: {{ gear.name }}" tabindex="0">
+        <table class="govuk-table" data-testid="catch-table">
+          <caption class="govuk-visually-hidden">Catches using gear {{ loop.index }}: {{ gear.name }}</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              {% for column in gear.columns %}<th scope="col" class="govuk-table__header">{{ column }}</th>{% endfor %}
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            {% for row in gear.rows %}
+              <tr class="govuk-table__row">
+                {% for cell in row %}<td class="govuk-table__cell">{{ cell }}</td>{% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="govuk-body">No catch recorded for this trip.</p>
+    {% endfor %}
+  {% endset %}
+
+  {% set historyHtml %}
+    <h2 class="govuk-heading-l">History</h2>
+    <table class="govuk-table" data-testid="trip-history">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date and time</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+          <th scope="col" class="govuk-table__header">Performed by</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for event in history %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ event.dateTime | formatDate("d MMMM yyyy, HH:mm") }}</td>
+            <td class="govuk-table__cell">{{ event.action }}</td>
+            <td class="govuk-table__cell">{{ event.performedBy }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if historyPagination %}
+      {{ govukPagination(historyPagination | assign({ landmarkLabel: "History pagination" })) }}
+    {% endif %}
+    <p class="govuk-body">
+      <a class="govuk-link" href="/audit-log?s={{ trip.tripId }}">View all history for this trip</a>
+    </p>
+  {% endset %}
+
+  {% set notesHtml %}
+    <h2 class="govuk-heading-l">Notes</h2>
+    {{ appNotes({
+      action: "/fishing-trips/" + trip.tripId + "/notes",
+      crumb: crumb,
+      notes: trip.notes,
+      numbered: true,
+      listFirst: true,
+      bordered: true,
+      emptyText: "No notes recorded for this trip."
+    }) }}
+  {% endset %}
+
+  {{ govukTabs({
+    classes: "app-profile-tabs app-profile-tabs--tight",
+    items: [
+      { label: "Catch breakdown", id: "catch-breakdown", panel: { html: catchHtml } },
+      { label: "History", id: "history", panel: { html: historyHtml } },
+      { label: "Notes", id: "notes", panel: { html: notesHtml } }
+    ]
+  }) }}
+
+  <div class="app-tab-actions" data-testid="trip-actions">
+    {% if view.kind != "original" %}
+      {{ govukButton({ text: "View original record", href: "/fishing-trips/" + trip.tripId + "?version=original", classes: "govuk-button--secondary" }) }}
+    {% endif %}
+    {% if hasAmendments %}
+      {{ govukButton({ text: "View amended records", href: "/fishing-trips/" + trip.tripId + "/versions", classes: "govuk-button--secondary" }) }}
+    {% endif %}
+    {{ govukButton({ text: "Download PDF", href: "/fishing-trips/" + trip.tripId + "/pdf", classes: "govuk-button--secondary" }) }}
+  </div>
+{% endblock %}

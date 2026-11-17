@@ -1,0 +1,145 @@
+{% extends 'layouts/page.njk' %}
+
+{% set notProvided = "Not provided" %}
+
+{% block content %}
+  {{ appPageHeading({ caption: "User profile", text: user.fullName }) }}
+
+  {% if banner %}
+    {{ appSuccessBanner(banner) }}
+  {% endif %}
+
+  {% set emailHtml %}
+    {% if user.email %}<a class="govuk-link" href="mailto:{{ user.email }}">{{ user.email }}</a>{% else %}{{ notProvided }}{% endif %}
+  {% endset %}
+
+  {% set addressLines = [user.address.line1, user.address.line2, user.address.town, user.address.postcode] | select %}
+  {% set addressHtml %}
+    {% if addressLines | length %}{% for line in addressLines %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}{% else %}{{ notProvided }}{% endif %}
+  {% endset %}
+
+  {% set statusHtml %}
+    {{ govukTag(user.status | userStatusTag) }}
+    <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+      {% if user.status == "deactivated" %}
+        <a class="govuk-link" href="/users/{{ user.id }}/reactivate">Reactivate user</a>
+      {% else %}
+        <a class="govuk-link" href="/users/{{ user.id }}/deactivate">Deactivate user</a>
+      {% endif %}
+    </p>
+  {% endset %}
+
+  {% set rows = [
+    { key: { text: "Full name" }, value: { text: user.fullName } },
+    { key: { text: "User ID" }, value: { text: user.id } },
+    { key: { text: "Email address" }, value: { html: emailHtml } },
+    { key: { text: "Phone number" }, value: { text: user.telephone or notProvided } },
+    { key: { text: "Postal address" }, value: { html: addressHtml } }
+  ] %}
+  {% if user.createdInPortal %}
+    {% set rows = rows.concat([{ key: { text: "Assisted digital support" }, value: { text: "Yes" if user.assistedDigital == "yes" else "No" } }]) %}
+  {% endif %}
+  {% set rows = rows.concat([
+    { key: { text: "Administration" }, value: { text: user.administration } },
+    { key: { text: "Status" }, value: { html: statusHtml } }
+  ]) %}
+  {% if user.createdInPortal %}
+    {% set rows = rows.concat([
+      { key: { text: "Invitation email" }, value: { text: user.invitationEmail } },
+      { key: { text: "Created on" }, value: { text: user.createdOn | formatDate("d MMMM yyyy") } }
+    ]) %}
+  {% endif %}
+
+  {{ govukSummaryList({ rows: rows, classes: "app-summary-list--profile" }) }}
+
+  {{ govukButton({ text: "Amend user", href: "/users/" + user.id + "/amend", classes: "govuk-button--secondary" }) }}
+  <div>
+    {{ govukButton({ text: "Access catch recording", href: "/users/" + user.id + "/access-catch-recording", isStartButton: true }) }}
+  </div>
+
+  {% set vesselsHtml %}
+    <h2 class="govuk-heading-l">Vessels</h2>
+    <div class="govuk-button-group">
+      {{ govukButton({ text: "Add a vessel", href: "/users/" + user.id + "/vessels/add" }) }}
+      {{ govukButton({ text: "Remove a vessel", href: "/users/" + user.id + "/vessels/remove", classes: "govuk-button--warning" }) }}
+    </div>
+    {% if vessels.length %}
+      <table class="govuk-table" data-testid="user-vessels">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Vessel</th>
+            <th scope="col" class="govuk-table__header">Vessel reference</th>
+            <th scope="col" class="govuk-table__header">User role</th>
+            <th scope="col" class="govuk-table__header">Linked on</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for link in vessels %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a class="govuk-link" href="/vessels/{{ link.vessel.id }}">{{ link.vessel.name }}</a></td>
+              <td class="govuk-table__cell">{{ link.vessel.pln }}</td>
+              <td class="govuk-table__cell">{{ link.role }}</td>
+              <td class="govuk-table__cell">{{ link.linkedOn | formatDate("d MMMM yyyy") }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="govuk-body">No vessels linked to this user.</p>
+    {% endif %}
+  {% endset %}
+
+  {% set tripsHtml %}
+    <h2 class="govuk-heading-l">Fishing trips</h2>
+    <p class="govuk-body">No fishing trips recorded for this user.</p>
+    <p class="govuk-body">
+      <a class="govuk-link" href="/fishing-trips?created-by={{ user.fullName | urlencode }}">View all fishing trips for {{ user.fullName }}</a>
+    </p>
+  {% endset %}
+
+  {% set historyHtml %}
+    <h2 class="govuk-heading-l">History</h2>
+    {% if user.history.length %}
+      <table class="govuk-table" data-testid="user-history">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date and time</th>
+            <th scope="col" class="govuk-table__header">Action</th>
+            <th scope="col" class="govuk-table__header">Performed by</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for event in user.history %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{ event.dateTime | formatDate("d MMMM yyyy, HH:mm") }}</td>
+              <td class="govuk-table__cell">{{ event.action }}</td>
+              <td class="govuk-table__cell">{{ event.performedBy }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="govuk-body">No history recorded for this user.</p>
+    {% endif %}
+  {% endset %}
+
+  {% set notesHtml %}
+    <h2 class="govuk-heading-l">Notes</h2>
+    {{ appNotes({
+      action: "/users/" + user.id + "/notes",
+      crumb: crumb,
+      notes: user.notes,
+      emptyText: "No notes recorded for this user."
+    }) }}
+  {% endset %}
+
+  {{ govukTabs({
+    classes: "app-profile-tabs",
+    items: [
+      { label: "Vessels", id: "vessel-roles", panel: { html: vesselsHtml } },
+      { label: "Fishing trips", id: "fishing-trips", panel: { html: tripsHtml } },
+      { label: "History", id: "history", panel: { html: historyHtml } },
+      { label: "Notes", id: "notes", panel: { html: notesHtml } }
+    ]
+  }) }}
+{% endblock %}

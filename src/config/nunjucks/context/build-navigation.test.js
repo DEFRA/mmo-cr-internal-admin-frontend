@@ -1,39 +1,41 @@
 import { buildNavigation } from './build-navigation.js'
 
-function mockRequest(options) {
-  return { ...options }
-}
-
 describe('#buildNavigation', () => {
-  test('Should provide expected navigation details', () => {
-    expect(
-      buildNavigation(mockRequest({ path: '/non-existent-path' }))
-    ).toEqual([
-      {
-        current: false,
-        text: 'Home',
-        href: '/'
-      },
-      {
-        current: false,
-        text: 'About',
-        href: '/about'
-      }
+  test('Should list the admin sections with none current on other paths', () => {
+    const navigation = buildNavigation({ path: '/' })
+
+    expect(navigation.map((item) => item.text)).toEqual([
+      'Users',
+      'Vessels',
+      'Fishing trips',
+      'Trip breakdown',
+      'Audit log',
+      'Banner message'
+    ])
+    expect(navigation.some((item) => item.current)).toBe(false)
+  })
+
+  test('Should mark the section current for its child pages', () => {
+    const navigation = buildNavigation({ path: '/users/1235/amend' })
+
+    expect(navigation.find((item) => item.current)).toEqual({
+      text: 'Users',
+      href: '/users',
+      current: true
+    })
+  })
+
+  test('Should mark Fishing trips current for the trip layout pages', () => {
+    const navigation = buildNavigation({ path: '/trip-layouts/archive' })
+
+    expect(navigation.filter((item) => item.current)).toEqual([
+      { text: 'Fishing trips', href: '/fishing-trips', current: true }
     ])
   })
 
-  test('Should provide expected highlighted navigation details', () => {
-    expect(buildNavigation(mockRequest({ path: '/' }))).toEqual([
-      {
-        current: true,
-        text: 'Home',
-        href: '/'
-      },
-      {
-        current: false,
-        text: 'About',
-        href: '/about'
-      }
-    ])
+  test('Should not treat a path prefix as the same section', () => {
+    const navigation = buildNavigation({ path: '/usersettings' })
+
+    expect(navigation.some((item) => item.current)).toBe(false)
   })
 })

@@ -1,0 +1,28 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ appPageHeading({ caption: "User account", text: "Reactivate " + user.fullName + "?" }) }}
+
+      <p class="govuk-body">They will be able to access the service again. Their user record, vessel links and trip history will be kept.</p>
+
+      {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-6",
+        rows: [
+          { key: { text: "Name" }, value: { text: user.fullName } },
+          { key: { text: "User ID" }, value: { text: user.id } },
+          { key: { text: "Current status" }, value: { text: statusText } }
+        ]
+      }) }}
+
+      <form method="post" action="/users/{{ user.id }}/reactivate" novalidate>
+        <input type="hidden" name="crumb" value="{{ crumb }}">
+        <div class="govuk-button-group">
+          {{ govukButton({ text: "Reactivate user", preventDoubleClick: true }) }}
+          {{ govukButton({ text: "Cancel", href: "/users/" + user.id, classes: "govuk-button--secondary" }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

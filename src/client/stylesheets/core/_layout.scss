@@ -1,0 +1,160 @@
+@use 'govuk-frontend' as *;
+
+// Signed-in admin pages use the full browser width with 30px gutters (designs C2/U1)
+.app-width-container--wide {
+  max-width: none;
+
+  @include govuk-media-query($from: tablet) {
+    margin-right: govuk-spacing(6);
+    margin-left: govuk-spacing(6);
+  }
+}
+
+// Portal home uses GDS Transport, matching the prototype (brief C1)
+.app-font-gds-transport,
+.app-font-gds-transport * {
+  font-family: 'GDS Transport', arial, sans-serif;
+}
+
+.app-main-wrapper--portal-home {
+  @include govuk-media-query($from: tablet) {
+    padding-top: govuk-spacing(7);
+  }
+}
+
+// Footer as on the prototype portal home: 19px at all sizes, black links and
+// the GOV.UK Frontend v5 spacing (25px above, 15px below)
+.app-footer--text-links {
+  padding-top: 25px;
+  padding-bottom: 15px;
+  font-size: 19px;
+  line-height: 25px;
+}
+
+.app-footer--text-links .govuk-footer__link {
+  @include govuk-link-style-text;
+}
+
+// Users-style list tables: fixed columns, no wrapping (as in the prototype)
+.app-table-scroll {
+  margin-bottom: 16px;
+  overflow-x: auto;
+
+  .govuk-table {
+    min-width: 1200px;
+    margin-bottom: 0;
+    table-layout: fixed;
+  }
+
+  .govuk-table__header,
+  .govuk-table__cell {
+    white-space: nowrap;
+  }
+
+  // Columns sized to their content (prototype Audit log)
+  .app-table--auto {
+    min-width: 0;
+    table-layout: auto;
+  }
+
+  // Wider list tables (prototype Fishing trips) scroll inside the container.
+  // Text wraps rather than spilling into the next column ("Submission method",
+  // longer names); the trip ID stays on one line.
+  .app-table--wide {
+    min-width: 1280px;
+
+    .govuk-table__header,
+    .govuk-table__cell {
+      white-space: normal;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      white-space: nowrap;
+    }
+  }
+
+  .app-table__cell--wrap {
+    white-space: normal;
+  }
+
+  // Trip breakdown: 12 narrow columns that wrap, with the trip ID kept on one line
+  .app-table--breakdown {
+    min-width: 1380px;
+
+    .govuk-table__header,
+    .govuk-table__cell {
+      padding-right: 8px;
+      padding-left: 8px;
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      padding-right: 0;
+      white-space: nowrap;
+      overflow-wrap: normal;
+    }
+  }
+
+  &:focus {
+    @include govuk-focused-text;
+  }
+}
+
+// Column widths for list tables (percent of table width)
+@each $width in (5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 22) {
+  .app-col--#{$width} {
+    width: $width * 1%;
+  }
+}
+
+// Tables that keep normal GOV.UK sizing and wrapping inside a scroll region
+.app-table-scroll--wrap {
+  .govuk-table {
+    min-width: 0;
+    margin-bottom: govuk-spacing(6);
+    table-layout: auto;
+  }
+
+  .govuk-table__header,
+  .govuk-table__cell {
+    white-space: normal;
+  }
+}
+
+.app-table-scroll + .govuk-pagination {
+  margin-top: 32px;
+}
+
+.app-secondary-text {
+  color: $govuk-secondary-text-colour;
+}
+
+// Profile summary lists are 760px wide in the prototype
+.app-summary-list--profile,
+.app-inset-text--profile,
+.app-form--profile {
+  box-sizing: border-box;
+  max-width: 760px;
+}
+
+// Action buttons under a tab table (16px apart, as in the prototype)
+.app-tab-actions .govuk-button {
+  margin-right: 10px;
+}
+
+.app-profile-tabs {
+  margin-top: govuk-spacing(2);
+}
+
+.app-profile-tabs--tight {
+  margin-top: govuk-spacing(1);
+}
+
+// Picker width used by the prototype for vessel and user search
+.app-autocomplete--one-half .autocomplete__wrapper {
+  @include govuk-font($size: 19);
+  max-width: 390px;
+}

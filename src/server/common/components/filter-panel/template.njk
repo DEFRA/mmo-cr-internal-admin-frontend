@@ -1,0 +1,100 @@
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{#
+  Filters toggle and floating panel. Must sit inside a GET <form>.
+  groups: [{ type: "checkboxes" | "text" | "date" | "date-range" | "number-range", name, legend, hint, items, value, inline, parts }]
+  date-range values: { from: { day, month, year }, to: { day, month, year } }
+  number-range parts: [{ key, text, value }], each named "{name}-{key}"
+#}
+<details class="app-filter" data-module="app-filter" data-testid="app-filter" {%- if params.open %} open{% endif %}>
+  <summary class="app-filter__toggle">Filters</summary>
+  <div class="app-filter__panel">
+    <div class="app-filter__header">
+      <h2 class="govuk-heading-m app-filter__title">Filters</h2>
+      <button type="button" class="app-filter__close" data-filter-close hidden>
+        <span aria-hidden="true">x</span><span class="govuk-visually-hidden">Close filters</span>
+      </button>
+    </div>
+    <div class="app-filter__options">
+      {% for group in params.groups %}
+        {% set groupId = (params.idPrefix + "-" if params.idPrefix else "") + group.name %}
+        {% if group.type == "text" %}
+          {{ govukInput({
+            id: groupId,
+            name: group.name,
+            value: group.value,
+            label: { text: group.legend, classes: "govuk-label--s" },
+            hint: { text: group.hint } if group.hint
+          }) }}
+        {% elif group.type == "date-range" %}
+          <div class="govuk-form-group app-filter__date-range">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">{{ group.legend }}</legend>
+              <div class="app-filter__date-range-parts">
+              {% for part in [{ key: "from", text: "From" }, { key: "to", text: "To" }] %}
+                {% set partValue = group.value[part.key] or {} %}
+                {{ govukDateInput({
+                  id: groupId + "-" + part.key,
+                  namePrefix: group.name + "-" + part.key,
+                  formGroup: { classes: "govuk-!-margin-bottom-0" },
+                  fieldset: { legend: { text: part.text, classes: "govuk-fieldset__legend--s" } },
+                  items: [
+                    { name: "day", label: "Day", classes: "govuk-input--width-2", value: partValue.day },
+                    { name: "month", label: "Month", classes: "govuk-input--width-2", value: partValue.month },
+                    { name: "year", label: "Year", classes: "govuk-input--width-4", value: partValue.year }
+                  ]
+                }) }}
+              {% endfor %}
+              </div>
+            </fieldset>
+          </div>
+        {% elif group.type == "number-range" %}
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">{{ group.legend }}</legend>
+              <div class="app-filter__number-range">
+                {% for part in group.parts %}
+                  {{ govukInput({
+                    id: groupId + "-" + part.key,
+                    name: group.name + "-" + part.key,
+                    value: part.value,
+                    inputmode: "decimal",
+                    classes: "govuk-input--width-5",
+                    label: { text: part.text },
+                    formGroup: { classes: "govuk-!-margin-bottom-0" }
+                  }) }}
+                {% endfor %}
+              </div>
+            </fieldset>
+          </div>
+        {% elif group.type == "date" %}
+          {{ govukDateInput({
+            id: groupId,
+            namePrefix: group.name,
+            fieldset: { legend: { text: group.legend, classes: "govuk-fieldset__legend--s" } },
+            items: [
+              { name: "day", label: "Day", classes: "govuk-input--width-2", value: group.value.day },
+              { name: "month", label: "Month", classes: "govuk-input--width-2", value: group.value.month },
+              { name: "year", label: "Year", classes: "govuk-input--width-4", value: group.value.year }
+            ]
+          }) }}
+        {% else %}
+          {{ govukCheckboxes({
+            idPrefix: groupId,
+            name: group.name,
+            classes: "app-checkboxes--inline" if group.inline,
+            fieldset: { legend: { text: group.legend, classes: "govuk-fieldset__legend--s" } },
+            items: group.items
+          }) }}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="govuk-button-group app-filter__actions">
+      {{ govukButton({ text: "Apply filters" }) }}
+      {{ govukButton({ text: "Clear filters", href: params.clearHref, classes: "govuk-button--secondary app-filter__clear" }) }}
+    </div>
+  </div>
+</details>

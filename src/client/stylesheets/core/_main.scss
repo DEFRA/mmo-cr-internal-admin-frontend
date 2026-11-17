@@ -1,4 +1,4 @@
-@use "govuk-frontend" as *;
+@use 'govuk-frontend' as *;
 
 // Example namespaced custom element style CSS classes
 
@@ -6,4 +6,23 @@
   display: block;
   padding-top: govuk-spacing(4);
   padding-bottom: govuk-spacing(3);
+}
+
+// Keep the footer at the bottom of the window on short admin pages, as in the
+// prototype. Only the wide admin container is stretched: the standard container
+// centres itself with auto margins, which a flex layout would shrink to fit.
+.govuk-template__body:has(> .app-width-container--wide) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  > .app-width-container--wide {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+  }
+
+  > .app-width-container--wide > .govuk-main-wrapper {
+    flex: 1 0 auto;
+  }
 }

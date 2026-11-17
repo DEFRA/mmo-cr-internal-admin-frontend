@@ -1,0 +1,48 @@
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{#
+  params: action, crumb, notes (newest first), emptyText, id,
+          numbered (prefix "Note N ·", where Note 1 is the oldest),
+          listFirst (show notes above the form, as on the vessel profile),
+          bordered (ruled notes with the form 60px below, as on the trip profile)
+#}
+{% set notesForm %}
+  <form method="post" action="{{ params.action }}" class="{{ 'app-notes__form--bordered' if params.bordered else ('govuk-!-margin-top-9' if params.listFirst) }}" novalidate>
+    <input type="hidden" name="crumb" value="{{ params.crumb }}">
+    {{ govukTextarea({
+      name: "note",
+      id: params.id | default("note"),
+      label: { text: "Add a note", classes: "govuk-label--s" },
+      rows: 4
+    }) }}
+    {{ govukButton({ text: "Save note", preventDoubleClick: true }) }}
+  </form>
+{% endset %}
+
+{% set notesList %}
+  {% if params.notes and params.notes.length %}
+    <ul class="govuk-list app-notes__list {{- ' app-notes__list--first' if params.listFirst }}{{- ' app-notes__list--bordered' if params.bordered }}">
+      {% for note in params.notes %}
+        <li class="app-notes__item">
+          <p class="govuk-body-s app-notes__meta">
+            {% if params.numbered %}<strong>Note {{ params.notes.length - loop.index0 }}</strong> · {% endif %}<strong>{{ note.author }}</strong> ({{ note.role }}) &mdash; {{ note.dateTime | formatDate("d MMMM yyyy, HH:mm") }}
+          </p>
+          <p class="govuk-body app-notes__text">{{ note.text }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="govuk-body">{{ params.emptyText }}</p>
+  {% endif %}
+{% endset %}
+
+<div class="app-notes" data-testid="app-notes">
+  {% if params.listFirst %}
+    {{ notesList | safe }}
+    {{ notesForm | safe }}
+  {% else %}
+    {{ notesForm | safe }}
+    {{ notesList | safe }}
+  {% endif %}
+</div>

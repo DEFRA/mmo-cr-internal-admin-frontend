@@ -1,0 +1,88 @@
+@use 'govuk-frontend' as *;
+
+// Measurements taken from the prototype header (153px high at desktop)
+.app-admin-header {
+  @include govuk-font($size: 16);
+  color: govuk-colour('white');
+  background-color: govuk-colour('black');
+}
+
+.app-admin-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: govuk-spacing(6);
+  padding: govuk-spacing(4) 0;
+}
+
+.app-admin-header__service {
+  @include govuk-font($size: 24, $weight: bold);
+  color: govuk-colour('white');
+  line-height: 1;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    color: govuk-colour('white');
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    @include govuk-focused-text;
+  }
+}
+
+.app-admin-header__account {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.app-admin-header__account-name {
+  @include govuk-typography-weight-bold;
+  line-height: 17px;
+}
+
+.app-admin-header__link {
+  @include govuk-link-common;
+  @include govuk-link-style-inverse;
+  line-height: 16px;
+}
+
+.app-admin-header__nav {
+  padding: govuk-spacing(3) 0;
+  border-top: 1px solid #505a5f;
+}
+
+.app-admin-header__nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: govuk-spacing(2) govuk-spacing(6);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 16px;
+  list-style: none;
+}
+
+.app-admin-header__nav-item {
+  margin: 0;
+}
+
+.app-admin-header__nav-link {
+  @include govuk-link-common;
+  @include govuk-link-style-inverse;
+}
+
+.app-admin-header__nav-link--current {
+  @include govuk-typography-weight-bold;
+  padding-bottom: 4px;
+  border-bottom: 3px solid govuk-colour('white');
+}

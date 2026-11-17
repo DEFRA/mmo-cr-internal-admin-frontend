@@ -44,7 +44,7 @@ export const config = convict({
   serviceName: {
     doc: 'Applications Service Name',
     format: String,
-    default: 'mmo-cr-internal-admin-frontend'
+    default: 'Web Administration Portal'
   },
   root: {
     doc: 'Project root',

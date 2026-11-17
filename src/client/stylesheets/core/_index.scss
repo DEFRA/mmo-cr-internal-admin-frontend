@@ -1,2 +1,5 @@
-@use "header";
-@use "main";
+// import custom partial styles
+@use 'header';
+@use 'main';
+@use 'layout';
+@use 'v5-colours';

@@ -1,0 +1,32 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  {{ appPageHeading({ caption: "Trip " + trip.tripId, text: "Version history" }) }}
+
+  <p class="govuk-body">Select a version to view its details or download a PDF.</p>
+
+  <div class="app-table-scroll app-table-scroll--wrap" role="region" aria-label="Version history for trip {{ trip.tripId }}" tabindex="0">
+    <table class="govuk-table" data-testid="trip-versions">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Version</th>
+          <th scope="col" class="govuk-table__header">Date and time</th>
+          <th scope="col" class="govuk-table__header">Submitted or amended by</th>
+          <th scope="col" class="govuk-table__header">Reason for amendment</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for version in versions %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a class="govuk-link" href="{{ version.href }}">{{ version.label }}</a></td>
+            <td class="govuk-table__cell">{{ version.dateTime | formatDate("d MMMM yyyy, HH:mm") }}</td>
+            <td class="govuk-table__cell">{{ version.by }}</td>
+            <td class="govuk-table__cell">{{ version.reason }}</td>
+            <td class="govuk-table__cell"><a class="govuk-link" href="/fishing-trips/{{ trip.tripId }}/pdf">Download PDF<span class="govuk-visually-hidden"> for {{ version.label }}</span></a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

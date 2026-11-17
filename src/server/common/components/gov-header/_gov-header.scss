@@ -1,0 +1,46 @@
+@use 'govuk-frontend' as *;
+
+.app-gov-header__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.app-gov-header__logo {
+  // Below the desktop breakpoint the logo takes the whole row, so the service
+  // name sits on its own line underneath, as in the prototype
+  flex-basis: 100%;
+
+  @include govuk-media-query($from: desktop) {
+    flex-basis: auto;
+    width: 33.33%;
+    margin-bottom: 0;
+  }
+}
+
+.app-gov-header__service-name {
+  @include govuk-font($size: 24, $weight: bold);
+  margin: 0 0 15px;
+  color: govuk-colour('white');
+  font-family: 'GDS Transport', arial, sans-serif;
+  text-decoration: none;
+
+  // From desktop it sits beside the logo, 4px below centre
+  @include govuk-media-query($from: desktop) {
+    margin: 8px 0 0 govuk-spacing(3);
+  }
+
+  &:link,
+  &:visited {
+    color: govuk-colour('white');
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+  }
+
+  &:focus {
+    @include govuk-focused-text;
+  }
+}

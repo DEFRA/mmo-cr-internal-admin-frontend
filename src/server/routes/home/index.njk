@@ -1,17 +1,88 @@
+{# Portal home keeps the standard GOV.UK header and footer shown in screenshot C1.
+   As in the prototype, every link on this page opens in a new tab. #}
+{% set containerClasses = "app-width-container--standard" %}
+{% set bodyClasses = "app-font-gds-transport" %}
+{% set mainClasses = "app-main-wrapper--portal-home" %}
 {% extends 'layouts/page.njk' %}
 
+{% block header %}
+  {{ appGovHeader({ homepageUrl: "/", serviceName: "Web Admin Portal", serviceUrl: "/" }) }}
+{% endblock %}
+
 {% block content %}
-  {{ appHeading({
-    text: heading,
-    caption: "mmo-cr-internal-admin-frontend"
-  }) }}
+  <p class="govuk-caption-l">Back office</p>
+  <h1 class="govuk-heading-xl">Web Administration Portal</h1>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <div class="govuk-body" data-testid="app-page-body">
-        <p></p>
-      </div>
-    </div>
-  </div>
+  <table class="govuk-table" data-testid="portal-sections">
+    <caption class="govuk-table__caption govuk-table__caption--m">Back-office sections</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Section</th>
+        <th scope="col" class="govuk-table__header">Description</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      {% for section in sections %}
+        <tr class="govuk-table__row">
+          {% if section.isTripLayouts %}
+            <th scope="row" class="govuk-table__header">
+              Trip details layout<br>
+              <a class="govuk-link" href="/trip-layouts/archive" target="_blank" rel="noopener">Archive<span class="govuk-visually-hidden"> (opens in new tab)</span></a>
+            </th>
+            <td class="govuk-table__cell">
+              <p class="govuk-body">Compare two trip detail layouts using the same Pots and Trammel net example.</p>
+              <div class="govuk-inset-text govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+                <a class="govuk-link" href="/trip-layouts/option-1" target="_blank" rel="noopener">Option 1 (concise information)<span class="govuk-visually-hidden"> (opens in new tab)</span></a> |
+                <a class="govuk-link" href="/trip-layouts/option-2" target="_blank" rel="noopener">Option 2 (all information shown)<span class="govuk-visually-hidden"> (opens in new tab)</span></a>.
+              </div>
+            </td>
+          {% else %}
+            <th scope="row" class="govuk-table__header">
+              <a class="govuk-link" href="{{ section.href }}" target="_blank" rel="noopener">{{ section.text }}<span class="govuk-visually-hidden"> (opens in new tab)</span></a>
+            </th>
+            <td class="govuk-table__cell">
+              {% if section.isParagraph %}<p class="govuk-body">{{ section.description }}</p>{% else %}{{ section.description }}{% endif %}
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
+  <h2 class="govuk-heading-l">Role-based access</h2>
+  <table class="govuk-table" data-testid="portal-roles">
+    <caption class="govuk-table__caption govuk-table__caption--m">Web admin staff</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Role</th>
+        <th scope="col" class="govuk-table__header">Status</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      {% for role in roles %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">
+            <a class="govuk-link" href="/role-preview/{{ role.key }}" target="_blank" rel="noopener">{{ role.name }}<span class="govuk-visually-hidden"> (opens in new tab)</span></a>
+          </th>
+          <td class="govuk-table__cell">
+            {{ govukTag({ text: role.status, classes: "govuk-tag--green" if role.status == "Available" else "govuk-tag--blue" }) }}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block footer %}
+  <footer class="govuk-template__footer">
+    {{ govukFooter({
+      classes: "app-footer--text-links",
+      meta: {
+        visuallyHiddenTitle: "Footer links",
+        items: [
+          { href: "/clear-data", text: "Clear data" }
+        ]
+      }
+    }) }}
+  </footer>
 {% endblock %}

@@ -1,4 +1,33 @@
+@use 'settings/typography-scale' as app-typography;
+
+// Admin pages use the prototype's Helvetica Neue/Arial stack. The GDS
+// Transport font face is still loaded for the portal home (see _layout.scss).
 @forward 'pkg:govuk-frontend' with (
   $govuk-assets-path: '../../../node_modules/govuk-frontend/dist/govuk/assets/',
-  $govuk-global-styles: true
+  $govuk-global-styles: true,
+  $govuk-font-family: (
+    'HelveticaNeue',
+    'Helvetica Neue',
+    arial,
+    helvetica,
+    sans-serif
+  ),
+  $govuk-include-default-font-face: true,
+  $govuk-typography-scale: app-typography.$scale,
+  // The prototype is built on the GOV.UK Frontend v5 colour palette. These
+  // restore its functional colours (links, borders, muted text and so on);
+  // buttons and tags are matched in core/_v5-colours.scss.
+  $govuk-functional-colours: (
+      'brand': #1d70b8,
+      'link': #1d70b8,
+      'link-visited': #4c2c92,
+      'link-hover': #003078,
+      'link-active': #0b0c0c,
+      'secondary-text': #505a5f,
+      'border': #b1b4b6,
+      'hover': #b1b4b6,
+      'success': #00703c,
+      'error': #d4351c
+    ),
+  $govuk-button-background-colour: #00703c
 );

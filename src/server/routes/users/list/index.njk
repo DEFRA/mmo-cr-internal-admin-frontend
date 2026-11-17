@@ -1,0 +1,68 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Users</h1>
+
+  {{ govukButton({ text: "Create a new user", href: "/users/create" }) }}
+
+  {{ appListSearch({
+    action: "/users",
+    id: "search-users",
+    label: "Search users",
+    hint: [
+      "Search by name, email or telephone number",
+      "Deactivated users are hidden unless you search for them or select Deactivated."
+    ],
+    value: search,
+    filters: filters
+  }) }}
+
+  {% if users.length %}
+    <div class="app-table-scroll" role="region" aria-label="Users table, scroll to see more columns" tabindex="0">
+      <table class="govuk-table app-table" data-testid="users-table">
+        <colgroup>
+          <col class="app-col--14">
+          <col class="app-col--22">
+          <col class="app-col--16">
+          <col class="app-col--13">
+          <col class="app-col--10">
+          <col class="app-col--14">
+          <col class="app-col--11">
+        </colgroup>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Email</th>
+            <th scope="col" class="govuk-table__header">Telephone number</th>
+            <th scope="col" class="govuk-table__header">Administration</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">Assisted digital</th>
+            <th scope="col" class="govuk-table__header">Created on</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for user in users %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a class="govuk-link" href="/users/{{ user.id }}">{{ user.fullName }}</a></td>
+              <td class="govuk-table__cell">{{ user.email or "Not provided" }}</td>
+              <td class="govuk-table__cell">{{ user.telephone or "Not provided" }}</td>
+              <td class="govuk-table__cell">{{ user.administration }}</td>
+              <td class="govuk-table__cell">{{ govukTag(user.status | userStatusTag) }}</td>
+              <td class="govuk-table__cell">{{ "Yes" if user.assistedDigital == "yes" else "No" }}</td>
+              <td class="govuk-table__cell">
+                {{ user.channel }}<br>
+                <span class="app-secondary-text">{{ user.createdOn | formatDate("d MMMM yyyy") }}</span>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if pagination %}
+      {{ govukPagination(pagination) }}
+    {% endif %}
+  {% else %}
+    <p class="govuk-body" data-testid="users-empty">No users found.</p>
+  {% endif %}
+{% endblock %}

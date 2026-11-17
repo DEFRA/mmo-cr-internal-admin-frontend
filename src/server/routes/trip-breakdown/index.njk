@@ -1,0 +1,79 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Trip breakdown</h1>
+
+  {{ govukButton({ text: "Export trip data", href: exportHref, classes: "govuk-button--secondary" }) }}
+
+  {{ appListSearch({
+    action: "/trip-breakdown",
+    id: "search-trip-breakdown",
+    label: "Search trip breakdown",
+    hint: ["Search by trip ID, vessel, PLN or species"],
+    value: search,
+    filters: filters
+  }) }}
+
+  {% if entries.length %}
+    <div class="app-table-scroll" role="region" aria-label="Trip breakdown table, scroll to see more columns" tabindex="0">
+      <table class="govuk-table app-table app-table--breakdown" data-testid="breakdown-table">
+        <colgroup>
+          <col class="app-col--6">
+          <col class="app-col--13">
+          <col class="app-col--5">
+          <col class="app-col--8">
+          <col class="app-col--8">
+          <col class="app-col--7">
+          <col class="app-col--6">
+          <col class="app-col--8">
+          <col class="app-col--8">
+          <col class="app-col--14">
+          <col class="app-col--9">
+          <col class="app-col--8">
+        </colgroup>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Trip end date</th>
+            <th scope="col" class="govuk-table__header">Trip ID</th>
+            <th scope="col" class="govuk-table__header">PLN</th>
+            <th scope="col" class="govuk-table__header">Vessel name</th>
+            <th scope="col" class="govuk-table__header">Departure date</th>
+            <th scope="col" class="govuk-table__header">Departure port</th>
+            <th scope="col" class="govuk-table__header">Return port</th>
+            <th scope="col" class="govuk-table__header">Species</th>
+            <th scope="col" class="govuk-table__header">FAO code</th>
+            <th scope="col" class="govuk-table__header">Gear type</th>
+            <th scope="col" class="govuk-table__header">Weight (kg)</th>
+            <th scope="col" class="govuk-table__header">Retained weight (kg)</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for entry in entries %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{ entry.tripEndDate | formatDate("d MMMM yyyy") }}</td>
+              <td class="govuk-table__cell">
+                {% if entry.tripId in tripsWithProfiles %}<a class="govuk-link" href="/fishing-trips/{{ entry.tripId }}">{{ entry.tripId }}</a>{% else %}{{ entry.tripId }}{% endif %}
+              </td>
+              <td class="govuk-table__cell">{{ entry.pln }}</td>
+              <td class="govuk-table__cell">{{ entry.vesselName }}</td>
+              <td class="govuk-table__cell">{{ entry.departureDate | formatDate("d MMMM yyyy") }}</td>
+              <td class="govuk-table__cell">{{ entry.departurePort }}</td>
+              <td class="govuk-table__cell">{{ entry.returnPort }}</td>
+              <td class="govuk-table__cell">{{ entry.species }}</td>
+              <td class="govuk-table__cell">{{ entry.faoCode }}</td>
+              <td class="govuk-table__cell">{{ entry.gearType }}</td>
+              <td class="govuk-table__cell">{{ entry.weight }}</td>
+              <td class="govuk-table__cell">{{ entry.retainedWeight or "–" }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if pagination %}
+      {{ govukPagination(pagination) }}
+    {% endif %}
+  {% else %}
+    <p class="govuk-body" data-testid="breakdown-empty">No catch entries match your search or filters.</p>
+  {% endif %}
+{% endblock %}

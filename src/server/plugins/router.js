@@ -1,7 +1,17 @@
 import inert from '@hapi/inert'
 
 import { home } from '../routes/home/index.js'
-import { about } from '../routes/about/index.js'
+import { signIn } from '../routes/sign-in/index.js'
+import { signOut } from '../routes/sign-out/index.js'
+import { rolePreview } from '../routes/role-preview/index.js'
+import { users } from '../routes/users/index.js'
+import { vessels } from '../routes/vessels/index.js'
+import { fishingTrips } from '../routes/fishing-trips/index.js'
+import { tripBreakdown } from '../routes/trip-breakdown/index.js'
+import { auditLog } from '../routes/audit-log/index.js'
+import { bannerMessage } from '../routes/banner-message/index.js'
+import { tripLayouts } from '../routes/trip-layouts/index.js'
+import { placeholder } from '../routes/placeholder/index.js'
 import { health } from '../routes/health/index.js'
 import { cookies } from '../routes/cookies/controller.js'
 import { serveStaticFiles } from './serve-static-files.js'
@@ -18,7 +28,20 @@ export const router = {
       await server.register([cookies])
 
       // Application specific routes, add your own routes here
-      await server.register([home, about])
+      await server.register([
+        signIn,
+        signOut,
+        home,
+        rolePreview,
+        users,
+        vessels,
+        fishingTrips,
+        tripBreakdown,
+        auditLog,
+        bannerMessage,
+        tripLayouts,
+        placeholder
+      ])
 
       // Static assets
       if (!config.get('isProduction') && !config.get('isTest')) {

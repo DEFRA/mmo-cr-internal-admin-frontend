@@ -1,0 +1,15 @@
+{% from "govuk/macros/logo.njk" import govukLogo %}
+
+{# GOV.UK header with the service name in the blue bar, as on the prototype portal home #}
+<header class="govuk-header app-gov-header" data-testid="app-gov-header">
+  <div class="govuk-header__container govuk-width-container app-gov-header__container">
+    <div class="govuk-header__logo app-gov-header__logo">
+      <a href="{{ params.homepageUrl | default('/') }}" class="govuk-header__homepage-link">
+        {{ govukLogo({ classes: "govuk-header__logotype", ariaLabelText: "GOV.UK" }) | trim }}
+      </a>
+    </div>
+    {% if params.serviceName %}
+      <a href="{{ params.serviceUrl | default('/') }}" class="app-gov-header__service-name">{{ params.serviceName }}</a>
+    {% endif %}
+  </div>
+</header>

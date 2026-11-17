@@ -1,0 +1,27 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Banner message</h1>
+
+  {% if banner %}
+    {{ appSuccessBanner(banner) }}
+  {% endif %}
+
+  <h2 class="govuk-heading-l">Current service message</h2>
+  <div class="govuk-inset-text app-inset-text--profile" data-testid="current-service-message">
+    {{ currentMessage }}
+  </div>
+
+  <h2 class="govuk-heading-l">New Service message</h2>
+  <form method="post" action="/banner-message" class="app-form--profile" novalidate>
+    <input type="hidden" name="crumb" value="{{ crumb }}">
+    {{ govukTextarea({
+      name: "service-message",
+      id: "service-message",
+      label: { text: "Service message" },
+      rows: 5,
+      value: newMessage
+    }) }}
+    {{ govukButton({ text: "Save message", preventDoubleClick: true }) }}
+  </form>
+{% endblock %}
