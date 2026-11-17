@@ -140,15 +140,15 @@ Requires Node.js 18+ (built-in `fetch`). No dependencies, no install.
 
 ## Options
 
-| Flag              | Effect                                                        |
+| Flag | Effect |
 | ----------------- | ------------------------------------------------------------- | --- | ------------------ | --------------------------------------------- |
-| `--outline`       | List pages/frames only; no downloads (use to confirm scope)   |
-| `--nodes a-b,c-d` | Restrict to specific node ids                                 |
-| `--no-assets`     | Sanitised node tree only; skip image/asset downloads          |     | `--geometry`       | Include raw vector path data (off by default) |
-| `--batch <n>`     | Frame node-trees fetched per request when expanding a section |     | `--format png,svg` | Override rendered image formats               |
-| `--scale <n>`     | Override render scale (0.01–4)                                |
-| `--depth <n>`     | Cap node-tree depth for very large nodes                      |
-| `--out [path]`    | Write under a chosen dir instead of `.cache/`                 |
+| `--outline` | List pages/frames only; no downloads (use to confirm scope) |
+| `--nodes a-b,c-d` | Restrict to specific node ids |
+| `--no-assets` | Sanitised node tree only; skip image/asset downloads | | `--geometry` | Include raw vector path data (off by default) |
+| `--batch <n>` | Frame node-trees fetched per request when expanding a section | | `--format png,svg` | Override rendered image formats |
+| `--scale <n>` | Override render scale (0.01–4) |
+| `--depth <n>` | Cap node-tree depth for very large nodes |
+| `--out [path]` | Write under a chosen dir instead of `.cache/` |
 
 Errors are printed to stderr as redacted JSON: `{ "error": "...", "code": "..." }`.
 
