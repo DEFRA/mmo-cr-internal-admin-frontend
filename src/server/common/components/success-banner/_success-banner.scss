@@ -1,0 +1,19 @@
+@use 'govuk-frontend' as *;
+
+// Success banner without the coloured title bar, as shown in the designs
+.app-success-banner {
+  background-color: govuk-colour('white');
+
+  .govuk-notification-banner__content {
+    padding: govuk-spacing(4) govuk-spacing(4) govuk-spacing(2);
+  }
+
+  .govuk-notification-banner__heading {
+    @include govuk-font($size: 24, $weight: bold);
+  }
+}
+
+// Equal padding above and below the title (prototype Banner message)
+.app-success-banner--padded .govuk-notification-banner__content {
+  padding-bottom: govuk-spacing(4);
+}

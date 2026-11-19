@@ -60,19 +60,11 @@ describe('context and cache', () => {
           assetPath: '/public/assets',
           breadcrumbs: [],
           getAssetPath: expect.any(Function),
-          navigation: [
-            {
-              current: true,
-              text: 'Home',
-              href: '/'
-            },
-            {
-              current: false,
-              text: 'About',
-              href: '/about'
-            }
-          ],
-          serviceName: 'mmo-cr-internal-admin-frontend',
+          navigation: expect.arrayContaining([
+            { current: false, text: 'Users', href: '/users' }
+          ]),
+          adminUser: null,
+          serviceName: 'Web Administration Portal',
           serviceUrl: '/'
         })
       })
@@ -149,19 +141,11 @@ describe('context and cache', () => {
           assetPath: '/public/assets',
           breadcrumbs: [],
           getAssetPath: expect.any(Function),
-          navigation: [
-            {
-              current: true,
-              text: 'Home',
-              href: '/'
-            },
-            {
-              current: false,
-              text: 'About',
-              href: '/about'
-            }
-          ],
-          serviceName: 'mmo-cr-internal-admin-frontend',
+          navigation: expect.arrayContaining([
+            { current: false, text: 'Users', href: '/users' }
+          ]),
+          adminUser: null,
+          serviceName: 'Web Administration Portal',
           serviceUrl: '/'
         })
       })

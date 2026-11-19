@@ -1,0 +1,142 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  {{ appPageHeading({ caption: "Vessel details", text: vessel.name }) }}
+
+  {% if banner %}
+    {{ appSuccessBanner(banner) }}
+  {% endif %}
+
+  {{ govukSummaryList({
+    classes: "govuk-!-margin-bottom-9 app-summary-list--profile",
+    rows: [
+      { key: { text: "Vessel name" }, value: { text: vessel.name } },
+      { key: { text: "PLN" }, value: { text: vessel.pln } },
+      { key: { text: "RSS" }, value: { text: vessel.rss } },
+      { key: { text: "Administration" }, value: { text: vessel.administration } },
+      { key: { text: "CFR number" }, value: { text: vessel.cfr } },
+      { key: { text: "Admin port" }, value: { text: vessel.adminPort } },
+      { key: { text: "Port code" }, value: { text: vessel.portCode } },
+      { key: { text: "Vessel type" }, value: { text: vessel.vesselType } },
+      { key: { text: "Status" }, value: { text: statusText } }
+    ]
+  }) }}
+
+  {% set usersHtml %}
+    <h2 class="govuk-heading-l">Users</h2>
+    <table class="govuk-table" data-testid="vessel-users">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">User ID</th>
+          <th scope="col" class="govuk-table__header">Role</th>
+          <th scope="col" class="govuk-table__header">Linked on</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for link in users %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a class="govuk-link" href="/users/{{ link.user.id }}">{{ link.user.fullName }}</a></td>
+            <td class="govuk-table__cell">{{ link.user.id }}</td>
+            <td class="govuk-table__cell">{{ link.role }}</td>
+            <td class="govuk-table__cell">{{ link.linkedOn | formatDate("d MMMM yyyy") }}</td>
+          </tr>
+        {% else %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" colspan="4">No users are linked to this vessel.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="app-tab-actions">
+      {{ govukButton({ text: "Add user", href: "/vessels/" + vessel.id + "/users/add" }) }}
+      {{ govukButton({ text: "Remove user", href: "/vessels/" + vessel.id + "/users/remove", classes: "govuk-button--warning" }) }}
+    </div>
+  {% endset %}
+
+  {% set tripsHtml %}
+    <h2 class="govuk-heading-l">Fishing trips</h2>
+    <form method="get" action="/vessels/{{ vessel.id }}#fishing-trips" class="app-filter-bar" novalidate>
+      {{ appFilterPanel(tripFilters) }}
+    </form>
+    <table class="govuk-table" data-testid="vessel-trips">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Trip end date</th>
+          <th scope="col" class="govuk-table__header">Trip ID</th>
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for trip in trips %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ trip.endDate | formatDate("d MMMM yyyy") }}</td>
+            <td class="govuk-table__cell">
+              {% if trip.tripId in tripsWithProfiles %}<a class="govuk-link" href="/fishing-trips/{{ trip.tripId }}">{{ trip.tripId }}</a>{% else %}{{ trip.tripId }}{% endif %}
+            </td>
+            <td class="govuk-table__cell">{{ trip.user }}</td>
+            <td class="govuk-table__cell">{{ govukTag(trip.status | tripStatusTag) }}</td>
+          </tr>
+        {% else %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" colspan="4">No fishing trips recorded for {{ vessel.name }}.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p class="govuk-body">
+      <a class="govuk-link" href="/fishing-trips?vessel={{ vessel.name | urlencode }}">View all fishing trips for {{ vessel.name }}</a>
+    </p>
+  {% endset %}
+
+  {% set historyHtml %}
+    <h2 class="govuk-heading-l">History</h2>
+    <table class="govuk-table" data-testid="vessel-history">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date and time</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+          <th scope="col" class="govuk-table__header">Performed by</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for event in history %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ event.dateTime | formatDate("d MMMM yyyy, HH:mm") }}</td>
+            <td class="govuk-table__cell">{{ event.action }}</td>
+            <td class="govuk-table__cell">{{ event.performedBy }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if historyPagination %}
+      {{ govukPagination(historyPagination | assign({ landmarkLabel: "History pagination" })) }}
+    {% endif %}
+    <p class="govuk-body">
+      <a class="govuk-link" href="/audit-log?s={{ vessel.pln | urlencode }}">View all history for {{ vessel.name }}</a>
+    </p>
+  {% endset %}
+
+  {% set notesHtml %}
+    <h2 class="govuk-heading-l">Notes</h2>
+    {{ appNotes({
+      action: "/vessels/" + vessel.id + "/notes",
+      crumb: crumb,
+      notes: vessel.notes,
+      numbered: true,
+      listFirst: true,
+      emptyText: "No notes recorded for " + vessel.name + "."
+    }) }}
+  {% endset %}
+
+  {{ govukTabs({
+    classes: "app-profile-tabs",
+    items: [
+      { label: "Users", id: "users", panel: { html: usersHtml } },
+      { label: "Fishing trips", id: "fishing-trips", panel: { html: tripsHtml } },
+      { label: "History", id: "history", panel: { html: historyHtml } },
+      { label: "Notes", id: "notes", panel: { html: notesHtml } }
+    ]
+  }) }}
+{% endblock %}

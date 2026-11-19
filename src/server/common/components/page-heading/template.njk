@@ -1,0 +1,6 @@
+<div class="app-page-heading" data-testid="app-page-heading">
+  {% if params.caption %}
+    <span class="govuk-caption-l" data-testid="app-page-heading-caption">{{ params.caption }}</span>
+  {% endif %}
+  <h1 class="govuk-heading-{{ params.size | default('xl') }}" data-testid="app-page-heading-title">{{ params.text }}</h1>
+</div>

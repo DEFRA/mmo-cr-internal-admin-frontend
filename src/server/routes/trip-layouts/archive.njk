@@ -1,0 +1,16 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-caption-l">Trip details layout testing</p>
+      <h1 class="govuk-heading-xl">Archived layouts</h1>
+      <p class="govuk-body">These earlier layout options are kept for reference and are not part of the current selection.</p>
+      <ul class="govuk-list govuk-list--bullet" data-testid="archived-layouts">
+        {% for layout in layouts %}
+          <li><a class="govuk-link" href="{{ layout.href }}" target="_blank" rel="noopener">{{ layout.text }}<span class="govuk-visually-hidden"> (opens in new tab)</span></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

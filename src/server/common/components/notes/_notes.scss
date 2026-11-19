@@ -1,0 +1,39 @@
+@use 'govuk-frontend' as *;
+
+.app-notes__list {
+  margin-top: govuk-spacing(6);
+}
+
+.app-notes__item {
+  margin-bottom: govuk-spacing(4);
+}
+
+.app-notes__meta {
+  margin-bottom: govuk-spacing(1);
+}
+
+.app-notes__list--first {
+  margin-top: 0;
+}
+
+// Trip profile notes (prototype .catch-records-note)
+.app-notes__list--bordered {
+  .app-notes__item {
+    margin-bottom: 0;
+    padding: govuk-spacing(3) 0;
+    border-bottom: 1px solid $govuk-border-colour;
+  }
+
+  .app-notes__meta {
+    margin-bottom: 5px;
+    color: $govuk-secondary-text-colour;
+  }
+
+  .app-notes__text {
+    margin-bottom: 20px;
+  }
+}
+
+.app-notes__form--bordered {
+  margin-top: 60px;
+}

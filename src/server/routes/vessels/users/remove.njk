@@ -1,0 +1,46 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errorList %}
+        {{ govukErrorSummary({ titleText: "There is a problem", errorList: errorList }) }}
+      {% endif %}
+
+      {{ appPageHeading({ caption: "Vessel " + vessel.pln, text: "Remove a user from " + vessel.name }) }}
+
+      <p class="govuk-body">Choose the user to remove from this vessel. Their user account will not be deleted.</p>
+
+      {% if links.length %}
+        {% set userItems = [] %}
+        {% for link in links %}
+          {% set userItems = userItems.concat([{
+            value: link.user.id,
+            text: link.user.fullName + " (" + link.role + ", user ID " + link.user.id + ")",
+            checked: values["user-id"] == link.user.id
+          }]) %}
+        {% endfor %}
+
+        <form method="post" action="/vessels/{{ vessel.id }}/users/remove" novalidate>
+          <input type="hidden" name="crumb" value="{{ crumb }}">
+
+          {{ govukRadios({
+            name: "user-id",
+            idPrefix: "user-id",
+            fieldset: { legend: { text: "Select a user", classes: "govuk-fieldset__legend--s" } },
+            items: userItems,
+            errorMessage: { text: fieldErrors["user-id"] } if fieldErrors["user-id"]
+          }) }}
+
+          <div class="govuk-button-group">
+            {{ govukButton({ text: "Remove user from vessel", classes: "govuk-button--warning", preventDoubleClick: true }) }}
+            {{ govukButton({ text: "Cancel", href: "/vessels/" + vessel.id + "#users", classes: "govuk-button--secondary" }) }}
+          </div>
+        </form>
+      {% else %}
+        <p class="govuk-body" data-testid="no-users-to-remove">There are no users linked to this vessel.</p>
+        {{ govukButton({ text: "Return to vessel", href: "/vessels/" + vessel.id + "#users" }) }}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

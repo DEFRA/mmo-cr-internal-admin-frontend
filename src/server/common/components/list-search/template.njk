@@ -1,0 +1,29 @@
+{% from "filter-panel/macro.njk" import appFilterPanel %}
+
+{% set searchId = params.id | default("search") %}
+<form method="get" action="{{ params.action }}" class="app-list-search" data-testid="app-list-search" novalidate>
+  <div class="govuk-form-group app-list-search__group">
+    <label class="govuk-label govuk-label--s" for="{{ searchId }}">{{ params.label }}</label>
+    {% if params.hint %}
+      <div class="govuk-hint" id="{{ searchId }}-hint">
+        {% for line in params.hint %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}
+      </div>
+    {% endif %}
+    <div class="app-list-search__row">
+      <div class="app-list-search__input-wrapper">
+        <input class="govuk-input app-list-search__input" id="{{ searchId }}" name="{{ params.name | default('s') }}" type="search" value="{{ params.value }}" {%- if params.hint %} aria-describedby="{{ searchId }}-hint"{% endif %}>
+        <button type="submit" class="app-list-search__submit" data-module="govuk-button">
+          <span class="govuk-visually-hidden">{{ params.label }}</span>
+          <svg class="app-list-search__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" width="28" height="28">
+            <circle cx="11.5" cy="11.5" r="8" fill="none" stroke="currentColor" stroke-width="3"/>
+            <line x1="17.5" y1="17.5" x2="24.5" y2="24.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      {% if params.filters %}
+        {{ appFilterPanel(params.filters) }}
+      {% endif %}
+    </div>
+  </div>
+</form>

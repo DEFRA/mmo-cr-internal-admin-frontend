@@ -1,0 +1,73 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Fishing trips</h1>
+
+  <p class="govuk-body"><a class="govuk-link" href="/trip-breakdown">View trip breakdown (catch by species)</a></p>
+
+  {{ appListSearch({
+    action: "/fishing-trips",
+    id: "search-trips",
+    label: "Search fishing trips",
+    hint: ["Search by trip ID, vessel name, PLN, RSS or status"],
+    value: search,
+    filters: filters
+  }) }}
+
+  {% if trips.length %}
+    <div class="app-table-scroll" role="region" aria-label="Fishing trips table, scroll to see more columns" tabindex="0">
+      <table class="govuk-table app-table app-table--wide" data-testid="trips-table">
+        <colgroup>
+          <col class="app-col--11">
+          <col class="app-col--16">
+          <col class="app-col--7">
+          <col class="app-col--10">
+          <col class="app-col--10">
+          <col class="app-col--7">
+          <col class="app-col--10">
+          <col class="app-col--10">
+          <col class="app-col--10">
+          <col class="app-col--9">
+        </colgroup>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Trip end date</th>
+            <th scope="col" class="govuk-table__header">Trip ID</th>
+            <th scope="col" class="govuk-table__header">PLN</th>
+            <th scope="col" class="govuk-table__header">Vessel Name</th>
+            <th scope="col" class="govuk-table__header">Created by</th>
+            <th scope="col" class="govuk-table__header app-table__cell--wrap">Retained catch</th>
+            <th scope="col" class="govuk-table__header">Admin port</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">Submission method</th>
+            <th scope="col" class="govuk-table__header app-table__cell--wrap">Created on</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for trip in trips %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{ trip.tripEndDate | formatDate("d MMMM yyyy") }}</td>
+              <td class="govuk-table__cell">
+                {% if trip.hasProfile %}<a class="govuk-link" href="/fishing-trips/{{ trip.tripId }}">{{ trip.tripId }}</a>{% else %}{{ trip.tripId }}{% endif %}
+              </td>
+              <td class="govuk-table__cell">{{ trip.pln }}</td>
+              <td class="govuk-table__cell">{{ trip.vesselName }}</td>
+              <td class="govuk-table__cell">{{ trip.createdBy }}</td>
+              <td class="govuk-table__cell app-table__cell--wrap">{{ trip.retainedCatch }}</td>
+              <td class="govuk-table__cell">{{ trip.adminPort }}</td>
+              <td class="govuk-table__cell">{{ govukTag(trip.status | tripStatusTag) }}</td>
+              <td class="govuk-table__cell">{{ govukTag(trip.submissionMethod | submissionMethodTag) }}</td>
+              <td class="govuk-table__cell app-table__cell--wrap">{{ trip.createdOn | formatDate("d MMMM yyyy, HH:mm") }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if pagination %}
+      {{ govukPagination(pagination) }}
+    {% endif %}
+  {% else %}
+    <p class="govuk-body" data-testid="trips-empty">No fishing trips match your filters.</p>
+  {% endif %}
+{% endblock %}

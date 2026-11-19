@@ -1,0 +1,27 @@
+<header class="app-admin-header {{- ' ' + params.classes if params.classes }}" data-testid="app-admin-header">
+  <div class="govuk-width-container {{ params.containerClasses }}">
+    <div class="app-admin-header__bar">
+      <a href="{{ params.homeHref | default('/') }}" class="app-admin-header__service">{{ params.serviceName }}</a>
+      {% if params.user %}
+        <div class="app-admin-header__account" data-testid="app-admin-header-account">
+          <strong class="app-admin-header__account-name">{{ params.user.name }}</strong>
+          <span class="app-admin-header__account-line">{{ params.user.email }}</span>
+          <span class="app-admin-header__account-line">Role: {{ params.user.role }}</span>
+          <a href="{{ params.signOutHref | default('/sign-out') }}" class="app-admin-header__link">Sign out</a>
+        </div>
+      {% endif %}
+    </div>
+    {% if params.navigation and params.navigation.length %}
+      <nav class="app-admin-header__nav" aria-label="{{ params.serviceName }} sections">
+        <ul class="app-admin-header__nav-list">
+          {% for item in params.navigation %}
+            <li class="app-admin-header__nav-item">
+              <a href="{{ item.href }}" class="app-admin-header__nav-link {%- if item.current %} app-admin-header__nav-link--current{% endif %}"
+                {%- if item.current %} aria-current="page"{% endif %}>{{ item.text }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+  </div>
+</header>

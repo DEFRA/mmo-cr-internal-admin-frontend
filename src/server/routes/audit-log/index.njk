@@ -1,0 +1,55 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Audit log</h1>
+
+  {{ appListSearch({
+    action: "/audit-log",
+    id: "search-audit-log",
+    label: "Search audit log",
+    hint: ["Search by user, PLN, fishing trip or staff member"],
+    value: search,
+    filters: filters
+  }) }}
+
+  {% if entries.length %}
+    <div class="app-table-scroll" role="region" aria-label="Audit log table, scroll to see more columns" tabindex="0">
+      <table class="govuk-table app-table app-table--auto" data-testid="audit-log-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date and time</th>
+            <th scope="col" class="govuk-table__header">Record type</th>
+            <th scope="col" class="govuk-table__header">Record reference</th>
+            <th scope="col" class="govuk-table__header">Action</th>
+            <th scope="col" class="govuk-table__header">User role</th>
+            <th scope="col" class="govuk-table__header">User ID</th>
+            <th scope="col" class="govuk-table__header">Performed by</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for entry in entries %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{ entry.dateTime | formatDate("d MMMM yyyy, HH:mm") }}</td>
+              <td class="govuk-table__cell">{{ entry.recordTypeText }}</td>
+              <td class="govuk-table__cell">
+                {% if entry.referenceHref %}<a class="govuk-link" href="{{ entry.referenceHref }}">{{ entry.reference }}</a>{% else %}{{ entry.reference }}{% endif %}
+              </td>
+              <td class="govuk-table__cell">{{ entry.action }}</td>
+              <td class="govuk-table__cell">{{ entry.userRole or "–" }}</td>
+              <td class="govuk-table__cell">
+                {% if entry.userHref %}<a class="govuk-link" href="{{ entry.userHref }}">{{ entry.userId }}</a>{% else %}{{ entry.userId }}{% endif %}
+              </td>
+              <td class="govuk-table__cell">{{ entry.performedBy }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if pagination %}
+      {{ govukPagination(pagination) }}
+    {% endif %}
+  {% else %}
+    <p class="govuk-body" data-testid="audit-log-empty">No audit log entries match your search or filters.</p>
+  {% endif %}
+{% endblock %}

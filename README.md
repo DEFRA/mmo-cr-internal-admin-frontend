@@ -10,6 +10,7 @@ Core delivery platform Node.js Frontend Template.
   - [Node.js](#nodejs)
 - [Server-side Caching](#server-side-caching)
 - [Redis](#redis)
+- [Web Administration Portal UI (walkthrough)](#web-administration-portal-ui-walkthrough)
 - [Local Development](#local-development)
   - [Setup](#setup)
   - [Development](#development)
@@ -70,6 +71,37 @@ HTTPS_PROXY=...
 NO_PROXY=...
 
 No additional proxy configuration is required in the service.
+
+## Web Administration Portal UI (walkthrough)
+
+The admin UI is being built section by section from
+[the implementation brief](design/plans/admin-ui-implementation-brief.md) and the
+screenshots in [`design/admin-screens/`](design/admin-screens/). It uses mock data
+and a mock sign-in ([ADR 0001](docs/adr/0001-mock-sign-in-and-session-mock-data.md)).
+
+- Start the app (`npm run dev`) and sign in at `/sign-in` with any email address and
+  password. Use `PORT=3001 npm run dev` if port 3000 is already in use.
+- Implemented: sign in and out, portal home, the **Users** section (list with
+  search, filters and pagination, create, confirmation, profile tabs, amend,
+  deactivate, add or remove a vessel, notes), the **Vessels** section (list with
+  search, filters, pagination and CSV export, vessel profile with Users, Fishing
+  trips, History and Notes tabs, add or remove a user) and the **Fishing trips**
+  section (list with search, date range and other filters, trip details with Catch
+  breakdown, History and Notes tabs, original and amended versions, version history)
+  and the **Trip breakdown** page (catch by species with search, filters, pagination
+  and CSV export) and the **Audit log** (search, date, staff member and record type
+  filters, with links to the user, vessel or trip) and **Banner message** (view and
+  update the service message).
+- The trip details layout **Archive** page lists the earlier layout options; each
+  opens the current trip details page, as the archived variants are not built.
+  **Option 1** opens the example trip with its Pots and Trammel net gears only, and
+  **Option 2** does the same with "Other trip information" shown in the main list.
+- Deactivated users can be reactivated from their profile (their previous status is
+  restored).
+- Amend catch recording, Download PDF and Access catch recording show a "not
+  available yet" page: they have no destination in the prototype yet.
+- Seed data: `src/server/common/mock-data/admin/`. Changes are kept in your session.
+  Select **Clear data** in the portal home footer to reset them.
 
 ## Local Development
 

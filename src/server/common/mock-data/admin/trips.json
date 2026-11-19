@@ -1,0 +1,1329 @@
+[
+  {
+    "tripId": "J12345202608301410",
+    "tripEndDate": "2026-08-30T00:00:00.000",
+    "pln": "PZ45",
+    "rss": "X10002",
+    "vesselName": "Northern Star",
+    "vesselId": "northern-star",
+    "createdBy": "Alice Wilson",
+    "retainedCatch": "Yes",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-08-30T14:10:00.000",
+    "hasProfile": true,
+    "tripStartDate": "2026-08-30T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-08-30T14:18:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Longlines not specified",
+          "measurements": "250 hooks and lines used, 40 hooks left in the water",
+          "subrectangle": "36E6",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Cod", "COD", "36.00", "30.00", "2.00", "6.00"],
+            ["Ling", "LIN", "18.00", "16.00", "\u2013", "2.00"]
+          ]
+        }
+      ]
+    },
+    "history": [
+      {
+        "dateTime": "2026-08-30T14:18:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-30T14:14:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-30T14:10:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      }
+    ],
+    "notes": [],
+    "amendments": [],
+    "gears": [
+      {
+        "name": "Longlines not specified",
+        "measurements": "250 hooks and lines used, 40 hooks left in the water",
+        "subrectangle": "36E6",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Cod", "COD", "36.00", "30.00", "2.00", "6.00"],
+          ["Ling", "LIN", "18.00", "16.00", "\u2013", "2.00"]
+        ]
+      }
+    ]
+  },
+  {
+    "tripId": "I12345202608281410",
+    "tripEndDate": "2026-08-28T00:00:00.000",
+    "pln": "PZ45",
+    "rss": "X10002",
+    "vesselName": "Northern Star",
+    "vesselId": "northern-star",
+    "createdBy": "Alice Wilson",
+    "retainedCatch": "Yes",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-08-28T14:10:00.000",
+    "hasProfile": true,
+    "tripStartDate": "2026-08-28T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-08-28T14:18:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Hooks and lines (not specified)",
+          "measurements": "120 hooks hauled, 20 hooks left in the water",
+          "subrectangle": "36E5",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Cod", "COD", "25.00", "22.00", "1.00", "3.00"],
+            ["Haddock", "HAD", "15.00", "14.00", "\u2013", "1.00"]
+          ]
+        }
+      ]
+    },
+    "history": [
+      {
+        "dateTime": "2026-08-28T14:18:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-28T14:14:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-28T14:10:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      }
+    ],
+    "notes": [],
+    "amendments": [],
+    "gears": [
+      {
+        "name": "Hooks and lines (not specified)",
+        "measurements": "120 hooks hauled, 20 hooks left in the water",
+        "subrectangle": "36E5",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Cod", "COD", "25.00", "22.00", "1.00", "3.00"],
+          ["Haddock", "HAD", "15.00", "14.00", "\u2013", "1.00"]
+        ]
+      }
+    ]
+  },
+  {
+    "tripId": "H12345202608261410",
+    "tripEndDate": "2026-08-26T00:00:00.000",
+    "pln": "PZ45",
+    "rss": "X10002",
+    "vesselName": "Northern Star",
+    "vesselId": "northern-star",
+    "createdBy": "Alice Wilson",
+    "retainedCatch": "Yes",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-08-26T14:10:00.000",
+    "hasProfile": true,
+    "tripStartDate": "2026-08-26T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-08-26T14:18:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Handlines and pole lines (mechanised)",
+          "measurements": "2 rods and lines used, 8 hooks left in the water",
+          "subrectangle": "30E9",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Herring", "HER", "30.00", "25.00", "1.00", "5.00"],
+            ["Mackerel", "MAC", "20.00", "17.00", "\u2013", "3.00"]
+          ]
+        }
+      ]
+    },
+    "history": [
+      {
+        "dateTime": "2026-08-26T14:18:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-26T14:14:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-26T14:10:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      }
+    ],
+    "notes": [],
+    "amendments": [],
+    "gears": [
+      {
+        "name": "Handlines and pole lines (mechanised)",
+        "measurements": "2 rods and lines used, 8 hooks left in the water",
+        "subrectangle": "30E9",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Herring", "HER", "30.00", "25.00", "1.00", "5.00"],
+          ["Mackerel", "MAC", "20.00", "17.00", "\u2013", "3.00"]
+        ]
+      }
+    ]
+  },
+  {
+    "tripId": "G12345202608241410",
+    "tripEndDate": "2026-08-24T00:00:00.000",
+    "pln": "PZ45",
+    "rss": "X10002",
+    "vesselName": "Northern Star",
+    "vesselId": "northern-star",
+    "createdBy": "Alice Wilson",
+    "retainedCatch": "Yes",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-08-24T14:10:00.000",
+    "hasProfile": true,
+    "tripStartDate": "2026-08-24T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-08-24T14:18:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Handlines and pole lines (hand operated)",
+          "measurements": "4 rods and lines used, 12 hooks left in the water",
+          "subrectangle": "30E8",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Pollack", "POL", "12.00", "10.00", "2.00"],
+            ["European seabass", "BSS", "8.00", "7.00", "1.00"]
+          ]
+        }
+      ]
+    },
+    "history": [
+      {
+        "dateTime": "2026-08-24T14:18:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-24T14:14:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-24T14:10:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      }
+    ],
+    "notes": [],
+    "amendments": [],
+    "gears": [
+      {
+        "name": "Handlines and pole lines (hand operated)",
+        "measurements": "4 rods and lines used, 12 hooks left in the water",
+        "subrectangle": "30E8",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Pollack", "POL", "12.00", "10.00", "2.00"],
+          ["European seabass", "BSS", "8.00", "7.00", "1.00"]
+        ]
+      }
+    ]
+  },
+  {
+    "tripId": "F34245202608221410",
+    "tripEndDate": "2026-08-22T00:00:00.000",
+    "pln": "PZ45",
+    "rss": "X10002",
+    "vesselName": "Northern Star",
+    "vesselId": "northern-star",
+    "createdBy": "Alice Wilson",
+    "retainedCatch": "Yes",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-08-22T14:10:00.000",
+    "hasProfile": true,
+    "tripStartDate": "2026-08-22T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-08-22T14:21:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Gillnets (drift)",
+          "measurements": "100 mm mesh, 120 m of net hauled, 24 m of net left in the water",
+          "subrectangle": "30E8",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Herring", "HER", "35.00", "30.00", "1.00", "5.00"],
+            ["Cod", "COD", "18.00", "15.00", "\u2013", "3.00"]
+          ]
+        }
+      ]
+    },
+    "history": [
+      {
+        "dateTime": "2026-08-22T14:21:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-22T14:14:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-22T14:10:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      }
+    ],
+    "notes": [],
+    "amendments": [],
+    "gears": [
+      {
+        "name": "Gillnets (drift)",
+        "measurements": "100 mm mesh, 120 m of net hauled, 24 m of net left in the water",
+        "subrectangle": "30E8",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Herring", "HER", "35.00", "30.00", "1.00", "5.00"],
+          ["Cod", "COD", "18.00", "15.00", "\u2013", "3.00"]
+        ]
+      }
+    ]
+  },
+  {
+    "tripId": "E45352202608201402",
+    "tripEndDate": "2026-08-20T00:00:00.000",
+    "pln": "PZ45",
+    "rss": "X10002",
+    "vesselName": "Northern Star",
+    "vesselId": "northern-star",
+    "createdBy": "Alice Wilson",
+    "retainedCatch": "Yes",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-08-20T14:02:00.000",
+    "hasProfile": true,
+    "tripStartDate": "2026-08-20T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-08-20T14:12:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Seine nets (not specified)",
+          "measurements": "100 mm mesh, shot 2 times, 75 m of net left in the water",
+          "subrectangle": "36E5",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Herring", "HER", "40.00", "32.00", "2.00", "8.00"],
+            ["Mackerel", "MAC", "25.00", "20.00", "\u2013", "5.00"]
+          ]
+        }
+      ]
+    },
+    "history": [
+      {
+        "dateTime": "2026-08-20T14:12:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-20T14:06:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-20T14:02:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      }
+    ],
+    "notes": [],
+    "amendments": [],
+    "gears": [
+      {
+        "name": "Seine nets (not specified)",
+        "measurements": "100 mm mesh, shot 2 times, 75 m of net left in the water",
+        "subrectangle": "36E5",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Herring", "HER", "40.00", "32.00", "2.00", "8.00"],
+          ["Mackerel", "MAC", "25.00", "20.00", "\u2013", "5.00"]
+        ]
+      }
+    ]
+  },
+  {
+    "tripId": "D12345202608181401",
+    "tripEndDate": "2026-08-18T00:00:00.000",
+    "pln": "PZ45",
+    "rss": "X10002",
+    "vesselName": "Northern Star",
+    "vesselId": "northern-star",
+    "createdBy": "Alice Wilson",
+    "retainedCatch": "Yes",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-08-18T14:01:00.000",
+    "hasProfile": true,
+    "tripStartDate": "2026-08-18T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-08-18T14:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Dredge",
+          "measurements": "2 dredges, shot 3 times",
+          "subrectangle": "30E8",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["King scallop", "SCE", "24.00", "18.00", "2.00", "6.00"],
+            ["Queen scallop", "QSC", "12.00", "9.00", "1.00", "3.00"]
+          ]
+        }
+      ]
+    },
+    "history": [
+      {
+        "dateTime": "2026-08-18T14:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-18T14:04:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-18T14:01:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      }
+    ],
+    "notes": [],
+    "amendments": [],
+    "gears": [
+      {
+        "name": "Dredge",
+        "measurements": "2 dredges, shot 3 times",
+        "subrectangle": "30E8",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["King scallop", "SCE", "24.00", "18.00", "2.00", "6.00"],
+          ["Queen scallop", "QSC", "12.00", "9.00", "1.00", "3.00"]
+        ]
+      }
+    ]
+  },
+  {
+    "tripId": "A12345202606171701",
+    "tripEndDate": "2026-06-16T00:00:00.000",
+    "pln": "PZ1",
+    "rss": "X10001",
+    "vesselName": "Lady Jane",
+    "vesselId": "lady-jane",
+    "createdBy": "John Smith",
+    "retainedCatch": "No",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "helpline",
+    "createdOn": "2026-06-17T17:01:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "B43254202606161654",
+    "tripEndDate": "2026-06-16T00:00:00.000",
+    "pln": "RX5",
+    "rss": "",
+    "vesselName": "Gone Fishin'",
+    "vesselId": null,
+    "createdBy": "Joe Bloggs",
+    "retainedCatch": "No",
+    "adminPort": "Hastings",
+    "status": "submitted",
+    "submissionMethod": "web",
+    "createdOn": "2026-06-16T16:54:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "C54235202606161532",
+    "tripEndDate": "2026-06-15T00:00:00.000",
+    "pln": "SW123",
+    "rss": "",
+    "vesselName": "Wallaby Way",
+    "vesselId": null,
+    "createdBy": "Paul Smith",
+    "retainedCatch": "Yes",
+    "adminPort": "Milford Haven",
+    "status": "late",
+    "submissionMethod": "app",
+    "createdOn": "2026-06-16T15:32:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "B23441202606151456",
+    "tripEndDate": "2026-06-15T00:00:00.000",
+    "pln": "NS22",
+    "rss": "",
+    "vesselName": "Susie",
+    "vesselId": null,
+    "createdBy": "John Smith",
+    "retainedCatch": "No",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-06-15T14:56:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "A45352202606151201",
+    "tripEndDate": "2026-06-15T00:00:00.000",
+    "pln": "WY43",
+    "rss": "Q12345",
+    "vesselName": "Quatro",
+    "vesselId": "quatro",
+    "createdBy": "Peter Petrelli",
+    "retainedCatch": "Yes",
+    "adminPort": "Milford Haven",
+    "status": "amended",
+    "submissionMethod": "app",
+    "createdOn": "2026-06-15T12:01:00.000",
+    "hasProfile": true,
+    "tripStartDate": "2026-06-15T00:00:00.000",
+    "departurePort": "Milford Haven",
+    "returnPort": "Milford Haven",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBMLF",
+    "receivedOn": "2026-06-15T12:01:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Bottom otter trawl",
+          "measurements": "80 mm mesh, 2 trawl nets",
+          "subrectangle": "36E5",
+          "columns": ["Species", "FAO code", "Weight (kg)"],
+          "rows": [["Spinous spider crab", "SCR", "14.00"]]
+        }
+      ]
+    },
+    "history": [
+      {
+        "dateTime": "2026-06-16T09:15:00.000",
+        "action": "Amendment 3: Added 3 kg retained weight omitted from the original submission",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-15T14:20:00.000",
+        "action": "Amendment 2: Updated the weight to 16 kg following a call with Peter",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-15T13:45:00.000",
+        "action": "Amendment 1: Corrected the reported weight to 15 kg",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-15T12:01:00.000",
+        "action": "Trip created",
+        "performedBy": "Peter Petrelli"
+      }
+    ],
+    "notes": [
+      {
+        "author": "Lucy Harper",
+        "role": "Helpline Team",
+        "dateTime": "2026-06-16T09:05:00.000",
+        "text": "Peter confirmed that 3 kg was retained. Added the retained weight to the trip record."
+      },
+      {
+        "author": "Lucy Harper",
+        "role": "Helpline Team",
+        "dateTime": "2026-06-15T14:10:00.000",
+        "text": "Peter called back to correct the weight to 16 kg. Updated the record following his confirmation."
+      },
+      {
+        "author": "Lucy Harper",
+        "role": "Helpline Team",
+        "dateTime": "2026-06-15T13:35:00.000",
+        "text": "Spoke with Peter Petrelli by phone. He confirmed the original weight for spinous spider crab should be 15 kg."
+      }
+    ],
+    "amendments": [
+      {
+        "number": 1,
+        "dateTime": "2026-06-15T13:45:00.000",
+        "amendedBy": "Lucy Harper",
+        "reason": "Corrected the reported weight to 15 kg.",
+        "retainedCatch": "No",
+        "gears": [
+          {
+            "name": "Bottom otter trawl",
+            "measurements": "80 mm mesh, 2 trawl nets",
+            "subrectangle": "36E5",
+            "columns": ["Species", "FAO code", "Weight (kg)"],
+            "rows": [["Spinous spider crab", "SCR", "15.00"]]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "dateTime": "2026-06-15T14:20:00.000",
+        "amendedBy": "Lucy Harper",
+        "reason": "Updated the weight to 16 kg following a call with Peter.",
+        "retainedCatch": "No",
+        "gears": [
+          {
+            "name": "Bottom otter trawl",
+            "measurements": "80 mm mesh, 2 trawl nets",
+            "subrectangle": "36E5",
+            "columns": ["Species", "FAO code", "Weight (kg)"],
+            "rows": [["Spinous spider crab", "SCR", "16.00"]]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "dateTime": "2026-06-16T09:15:00.000",
+        "amendedBy": "Lucy Harper",
+        "reason": "Added 3 kg retained weight omitted from the original submission.",
+        "retainedCatch": "Yes",
+        "gears": [
+          {
+            "name": "Bottom otter trawl",
+            "measurements": "80 mm mesh, 2 trawl nets",
+            "subrectangle": "36E5",
+            "columns": [
+              "Species",
+              "FAO code",
+              "Weight (kg)",
+              "Retained weight (kg)"
+            ],
+            "rows": [["Spinous spider crab", "SCR", "16.00", "3.00"]]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "tripId": "C34245202608171402",
+    "tripEndDate": "2026-08-17T00:00:00.000",
+    "pln": "RX09",
+    "rss": "X10010",
+    "vesselName": "Sea Otter",
+    "vesselId": "sea-otter",
+    "createdBy": "Frank Castle",
+    "retainedCatch": "Yes",
+    "adminPort": "Hastings",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-08-17T14:02:00.000",
+    "hasProfile": true,
+    "tripStartDate": "2026-08-17T00:00:00.000",
+    "departurePort": "Hastings",
+    "returnPort": "Hastings",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBHTG",
+    "receivedOn": "2026-08-17T14:16:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Pots",
+          "measurements": "60 pots deployed, 8 pots left in the water",
+          "subrectangle": "30E8",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Edible crab", "CRE", "18", "14", "1", "4"],
+            ["Whelk", "WHE", "26", "22", "1", "4"]
+          ]
+        },
+        {
+          "name": "Trammel net",
+          "measurements": "80 mm mesh, 240 m of net deployed, 20 m of net left in the water",
+          "subrectangle": "30E9",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Common sole", "SOL", "8", "6", "1", "2"]]
+        },
+        {
+          "name": "Dredge",
+          "measurements": "2 dredges, shot 3 times",
+          "subrectangle": "30E8",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["King scallop", "SCE", "24.00", "18.00", "2.00", "6.00"],
+            ["Queen scallop", "QSC", "12.00", "9.00", "1.00", "3.00"]
+          ]
+        }
+      ]
+    },
+    "history": [
+      {
+        "dateTime": "2026-08-17T14:20:00.000",
+        "action": "Note added",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-08-17T14:16:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-17T14:12:00.000",
+        "action": "Note added",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-08-17T14:10:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Frank Castle"
+      },
+      {
+        "dateTime": "2026-08-17T14:02:00.000",
+        "action": "Trip created",
+        "performedBy": "Frank Castle"
+      }
+    ],
+    "notes": [
+      {
+        "author": "Lucy Harper",
+        "role": "Compliance / Investigations",
+        "dateTime": "2026-08-17T14:20:00.000",
+        "text": "Confirmed retained, below-minimum-size and discarded weights were recorded for each catch."
+      },
+      {
+        "author": "Lucy Harper",
+        "role": "Fishing Vessel Licensing",
+        "dateTime": "2026-08-17T14:12:00.000",
+        "text": "Frank confirmed Sea Otter departed from and returned to Hastings for this trip."
+      }
+    ],
+    "amendments": [],
+    "gears": [
+      {
+        "name": "Pots",
+        "measurements": "60 pots deployed, 8 pots left in the water",
+        "subrectangle": "30E8",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Edible crab", "CRE", "18", "14", "1", "4"],
+          ["Whelk", "WHE", "26", "22", "1", "4"]
+        ]
+      },
+      {
+        "name": "Trammel net",
+        "measurements": "80 mm mesh, 240 m of net deployed, 20 m of net left in the water",
+        "subrectangle": "30E9",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["Common sole", "SOL", "8", "6", "1", "2"]]
+      },
+      {
+        "name": "Dredge",
+        "measurements": "2 dredges, shot 3 times",
+        "subrectangle": "30E8",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["King scallop", "SCE", "24.00", "18.00", "2.00", "6.00"],
+          ["Queen scallop", "QSC", "12.00", "9.00", "1.00", "3.00"]
+        ]
+      }
+    ]
+  },
+  {
+    "tripId": "A12345202606151302",
+    "tripEndDate": "2026-06-14T00:00:00.000",
+    "pln": "PZ1",
+    "rss": "X10001",
+    "vesselName": "Lady Jane",
+    "vesselId": "lady-jane",
+    "createdBy": "John Smith",
+    "retainedCatch": "No",
+    "adminPort": "Newlyn",
+    "status": "amended",
+    "submissionMethod": "automated",
+    "createdOn": "2026-06-15T13:02:00.000",
+    "hasProfile": true,
+    "tripStartDate": "2026-06-14T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-06-14T09:05:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Beam trawl",
+          "measurements": "80 mm mesh, 2 beams",
+          "subrectangle": "36E5",
+          "columns": ["Species", "FAO code", "Weight (kg)"],
+          "rows": [
+            ["Common sole", "SOL", "6.70"],
+            ["John Dory", "JOD", "18.00"]
+          ]
+        },
+        {
+          "name": "Bottom otter trawl",
+          "measurements": "80 mm mesh, 2 trawl nets",
+          "subrectangle": "37F1",
+          "columns": ["Species", "FAO code", "Weight (kg)"],
+          "rows": [
+            ["Lemon sole", "LEM", "12.00"],
+            ["European plaice", "PLE", "19.00"]
+          ]
+        },
+        {
+          "name": "Trammel net",
+          "measurements": "80 mm mesh, 25 m of net left in the water",
+          "subrectangle": "37F1",
+          "columns": ["Species", "FAO code", "Weight (kg)"],
+          "rows": [["Megrim", "MEG", "9.50"]]
+        }
+      ]
+    },
+    "history": [
+      {
+        "dateTime": "2026-06-15T14:20:00.000",
+        "action": "Amendment 1: Corrected catch weight for lemon sole",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-15T13:10:00.000",
+        "action": "Note added",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-15T13:02:00.000",
+        "action": "Trip submitted via automated service",
+        "performedBy": "John Smith"
+      },
+      {
+        "dateTime": "2026-06-14T09:05:00.000",
+        "action": "Trip received",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-14T09:00:00.000",
+        "action": "Trip created",
+        "performedBy": "John Smith"
+      }
+    ],
+    "notes": [
+      {
+        "author": "Lucy Harper",
+        "role": "Helpline Team",
+        "dateTime": "2026-06-15T13:10:00.000",
+        "text": "Queried amendment reason with John Smith by phone; confirmed correction was needed."
+      }
+    ],
+    "amendments": [
+      {
+        "number": 1,
+        "dateTime": "2026-06-15T14:20:00.000",
+        "amendedBy": "Lucy Harper",
+        "reason": "Corrected catch weight for lemon sole",
+        "retainedCatch": "No",
+        "gears": [
+          {
+            "name": "Beam trawl",
+            "measurements": "80 mm mesh, 2 beams",
+            "subrectangle": "36E5",
+            "columns": ["Species", "FAO code", "Weight (kg)"],
+            "rows": [
+              ["Common sole", "SOL", "6.70"],
+              ["John Dory", "JOD", "18.00"]
+            ]
+          },
+          {
+            "name": "Bottom otter trawl",
+            "measurements": "80 mm mesh, 2 trawl nets",
+            "subrectangle": "37F1",
+            "columns": ["Species", "FAO code", "Weight (kg)"],
+            "rows": [
+              ["Lemon sole", "LEM", "22.00"],
+              ["European plaice", "PLE", "19.00"]
+            ]
+          },
+          {
+            "name": "Trammel net",
+            "measurements": "80 mm mesh, 25 m of net left in the water",
+            "subrectangle": "37F1",
+            "columns": ["Species", "FAO code", "Weight (kg)"],
+            "rows": [["Megrim", "MEG", "9.50"]]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "tripId": "A10001202606131200",
+    "tripEndDate": "2026-06-13T00:00:00.000",
+    "pln": "PZ45",
+    "rss": "X10002",
+    "vesselName": "Northern Star",
+    "vesselId": "northern-star",
+    "createdBy": "Alice Wilson",
+    "retainedCatch": "No",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "web",
+    "createdOn": "2026-06-13T12:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "B10002202606121100",
+    "tripEndDate": "2026-06-12T00:00:00.000",
+    "pln": "FR12",
+    "rss": "X10003",
+    "vesselName": "Sea Spray",
+    "vesselId": "sea-spray",
+    "createdBy": "Grace Turner",
+    "retainedCatch": "Yes",
+    "adminPort": "Fraserburgh",
+    "status": "late",
+    "submissionMethod": "helpline",
+    "createdOn": "2026-06-12T11:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "C10003202606111000",
+    "tripEndDate": "2026-06-11T00:00:00.000",
+    "pln": "GY67",
+    "rss": "X10004",
+    "vesselName": "Kingfisher",
+    "vesselId": "kingfisher",
+    "createdBy": "Emma Hughes",
+    "retainedCatch": "No",
+    "adminPort": "Grimsby",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-06-11T10:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "D10004202606100900",
+    "tripEndDate": "2026-06-10T00:00:00.000",
+    "pln": "LT34",
+    "rss": "X10005",
+    "vesselName": "Golden Dawn",
+    "vesselId": "golden-dawn",
+    "createdBy": "Liam Baker",
+    "retainedCatch": "No",
+    "adminPort": "Lowestoft",
+    "status": "amended",
+    "submissionMethod": "web",
+    "createdOn": "2026-06-10T09:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "E10005202606090800",
+    "tripEndDate": "2026-06-09T00:00:00.000",
+    "pln": "MH89",
+    "rss": "X10006",
+    "vesselName": "Celtic Star",
+    "vesselId": "celtic-star",
+    "createdBy": "Noah Evans",
+    "retainedCatch": "Yes",
+    "adminPort": "Milford Haven",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-06-09T08:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "F10006202606080700",
+    "tripEndDate": "2026-06-08T00:00:00.000",
+    "pln": "BA23",
+    "rss": "X10007",
+    "vesselName": "Ocean Voyager",
+    "vesselId": "ocean-voyager",
+    "createdBy": "Olivia Roberts",
+    "retainedCatch": "No",
+    "adminPort": "Kilkeel",
+    "status": "late",
+    "submissionMethod": "helpline",
+    "createdOn": "2026-06-08T07:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "G10007202606070600",
+    "tripEndDate": "2026-06-07T00:00:00.000",
+    "pln": "FR78",
+    "rss": "X10008",
+    "vesselName": "Bonnie Lass",
+    "vesselId": "bonnie-lass",
+    "createdBy": "Ava Walker",
+    "retainedCatch": "No",
+    "adminPort": "Fraserburgh",
+    "status": "submitted",
+    "submissionMethod": "web",
+    "createdOn": "2026-06-07T06:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "H10008202606060500",
+    "tripEndDate": "2026-06-06T00:00:00.000",
+    "pln": "PZ56",
+    "rss": "X10009",
+    "vesselName": "Harvest Moon",
+    "vesselId": "harvest-moon",
+    "createdBy": "Sophia Wright",
+    "retainedCatch": "Yes",
+    "adminPort": "Newlyn",
+    "status": "amended",
+    "submissionMethod": "automated",
+    "createdOn": "2026-06-06T05:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "I10009202606050400",
+    "tripEndDate": "2026-06-05T00:00:00.000",
+    "pln": "RX09",
+    "rss": "X10010",
+    "vesselName": "Sea Otter",
+    "vesselId": "sea-otter",
+    "createdBy": "Mia Green",
+    "retainedCatch": "No",
+    "adminPort": "Hastings",
+    "status": "submitted",
+    "submissionMethod": "web",
+    "createdOn": "2026-06-05T04:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "J10010202606040300",
+    "tripEndDate": "2026-06-04T00:00:00.000",
+    "pln": "SW45",
+    "rss": "X10011",
+    "vesselName": "Fair Wind",
+    "vesselId": "fair-wind",
+    "createdBy": "Ethan Adams",
+    "retainedCatch": "No",
+    "adminPort": "Swansea",
+    "status": "late",
+    "submissionMethod": "helpline",
+    "createdOn": "2026-06-04T03:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "K10011202606030200",
+    "tripEndDate": "2026-06-03T00:00:00.000",
+    "pln": "NS78",
+    "rss": "X10012",
+    "vesselName": "Sunbeam",
+    "vesselId": "sunbeam",
+    "createdBy": "Lucas Nelson",
+    "retainedCatch": "Yes",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-06-03T02:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "L10012202606020100",
+    "tripEndDate": "2026-06-02T00:00:00.000",
+    "pln": "WY12",
+    "rss": "X10013",
+    "vesselName": "Moonlight",
+    "vesselId": "moonlight",
+    "createdBy": "Mason Carter",
+    "retainedCatch": "No",
+    "adminPort": "Milford Haven",
+    "status": "amended",
+    "submissionMethod": "web",
+    "createdOn": "2026-06-02T01:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "M10013202606010000",
+    "tripEndDate": "2026-06-01T00:00:00.000",
+    "pln": "M56",
+    "rss": "X10014",
+    "vesselName": "Atlantic Rose",
+    "vesselId": "atlantic-rose",
+    "createdBy": "Logan Mitchell",
+    "retainedCatch": "No",
+    "adminPort": "Douglas",
+    "status": "submitted",
+    "submissionMethod": "automated",
+    "createdOn": "2026-06-01T00:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "N10014202606172300",
+    "tripEndDate": "2026-06-17T00:00:00.000",
+    "pln": "PZ89",
+    "rss": "X10015",
+    "vesselName": "Cornish Maid",
+    "vesselId": "cornish-maid",
+    "createdBy": "Charlotte Perez",
+    "retainedCatch": "Yes",
+    "adminPort": "Newlyn",
+    "status": "submitted",
+    "submissionMethod": "web",
+    "createdOn": "2026-06-17T23:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "O10015202606182200",
+    "tripEndDate": "2026-06-18T00:00:00.000",
+    "pln": "FR34",
+    "rss": "X10016",
+    "vesselName": "Highland Piper",
+    "vesselId": "highland-piper",
+    "createdBy": "Amelia Rivera",
+    "retainedCatch": "No",
+    "adminPort": "Fraserburgh",
+    "status": "late",
+    "submissionMethod": "helpline",
+    "createdOn": "2026-06-18T22:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "P10016202606192100",
+    "tripEndDate": "2026-06-19T00:00:00.000",
+    "pln": "GY12",
+    "rss": "X10017",
+    "vesselName": "Ocean Drifter",
+    "vesselId": "ocean-drifter",
+    "createdBy": "Harper Cooper",
+    "retainedCatch": "No",
+    "adminPort": "Grimsby",
+    "status": "submitted",
+    "submissionMethod": "app",
+    "createdOn": "2026-06-19T21:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "Q10017202606202000",
+    "tripEndDate": "2026-06-20T00:00:00.000",
+    "pln": "LT67",
+    "rss": "X10018",
+    "vesselName": "Sea Fever",
+    "vesselId": "sea-fever",
+    "createdBy": "Evelyn Reed",
+    "retainedCatch": "Yes",
+    "adminPort": "Lowestoft",
+    "status": "amended",
+    "submissionMethod": "web",
+    "createdOn": "2026-06-20T20:00:00.000",
+    "hasProfile": false
+  },
+  {
+    "tripId": "R10018202606211900",
+    "tripEndDate": "2026-06-21T00:00:00.000",
+    "pln": "MH34",
+    "rss": "X10019",
+    "vesselName": "Welsh Dragon",
+    "vesselId": "welsh-dragon",
+    "createdBy": "Abigail Bailey",
+    "retainedCatch": "No",
+    "adminPort": "Milford Haven",
+    "status": "submitted",
+    "submissionMethod": "automated",
+    "createdOn": "2026-06-21T19:00:00.000",
+    "hasProfile": false
+  }
+]

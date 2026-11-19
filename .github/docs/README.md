@@ -58,14 +58,14 @@ alongside the standardised workflow where required.
 The primary context file is loaded automatically whenever a chat or agent session starts in the workspace
 folder. It contains the following sections.
 
-| Section | Purpose |
-| --- | --- |
-| Project overview and architecture | Repository-specific context such as the technology stack, key directories, commands and integrations. |
-| Standards precedence | Resolves conflicts using the defined standards hierarchy. Any DEFRA deviation requires a governance exception. |
-| Working framework | The single source of truth for the working loop. |
-| Workflow agents | Links the four agents and identifies the skill used for the research stage. |
-| Skills, Prompts | Points developers to user-invocable pieces of work. |
-| DEFRA standards and governance | Defines quality gates, security and PII rules, dependency policy, logging conventions and licence requirements. |
+| Section                           | Purpose                                                                                                         |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Project overview and architecture | Repository-specific context such as the technology stack, key directories, commands and integrations.           |
+| Standards precedence              | Resolves conflicts using the defined standards hierarchy. Any DEFRA deviation requires a governance exception.  |
+| Working framework                 | The single source of truth for the working loop.                                                                |
+| Workflow agents                   | Links the four agents and identifies the skill used for the research stage.                                     |
+| Skills, Prompts                   | Points developers to user-invocable pieces of work.                                                             |
+| DEFRA standards and governance    | Defines quality gates, security and PII rules, dependency policy, logging conventions and licence requirements. |
 
 The framework and governance sections are referenced most often by agents. The remaining sections provide
 repository-specific context that agents use to understand the codebase before acting.
@@ -80,11 +80,11 @@ risk**: do the least work that still delivers the change safely and to standard.
 
 Every request is classified into one of three gears.
 
-| Gear | What it is | How to proceed |
-| --- | --- | --- |
-| **Trivial** | A typo, copy/comment/doc tweak, or a small localised change with no impact on architecture, routing, sessions/caching, auth, security or accessibility. | Fast path: **Read → Implement → Test → Summarise**. Skip the Planner, research and review. No approval gate. |
-| **Standard** | A normal feature, page, route or fix with **no** new architecture, auth, session/cache strategy or security surface. | **Lightweight inline plan** (Objective · Plan · Files · Validation · Risks) — no heavyweight Planner. Get approval, implement and test. A single research pass runs only if something is genuinely uncertain. Review is not run by default. |
-| **Complex** | New architecture, routing/session/cache strategy, external integration, auth, a security surface, or multi-item delivery (e.g. a JIRA epic). | Full loop with the **Planner** and its full plan → approval → implement → test. Review still opt-in. |
+| Gear         | What it is                                                                                                                                              | How to proceed                                                                                                                                                                                                                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Trivial**  | A typo, copy/comment/doc tweak, or a small localised change with no impact on architecture, routing, sessions/caching, auth, security or accessibility. | Fast path: **Read → Implement → Test → Summarise**. Skip the Planner, research and review. No approval gate.                                                                                                                                |
+| **Standard** | A normal feature, page, route or fix with **no** new architecture, auth, session/cache strategy or security surface.                                    | **Lightweight inline plan** (Objective · Plan · Files · Validation · Risks) — no heavyweight Planner. Get approval, implement and test. A single research pass runs only if something is genuinely uncertain. Review is not run by default. |
+| **Complex**  | New architecture, routing/session/cache strategy, external integration, auth, a security surface, or multi-item delivery (e.g. a JIRA epic).            | Full loop with the **Planner** and its full plan → approval → implement → test. Review still opt-in.                                                                                                                                        |
 
 #### Examples — what triggers each gear
 
@@ -118,17 +118,17 @@ Every request is classified into one of three gears.
 Automatic triage is only the default. **You can force a gear** — an explicit instruction wins over the
 automatic classification.
 
-| To force… | Say something like… |
-| --- | --- |
-| **Trivial** fast path | "Treat this as trivial", "just make the change, no plan needed". |
+| To force…                | Say something like…                                                      |
+| ------------------------ | ------------------------------------------------------------------------ |
+| **Trivial** fast path    | "Treat this as trivial", "just make the change, no plan needed".         |
 | **Standard** inline plan | "Do a lightweight/standard plan", "skip the planner, just a short plan". |
-| **Complex** full plan | "Force the full plan", "use the planner", "run a full plan and review". |
-| **A review** | "Review this", or answer **Yes** to the end-of-work review offer. |
+| **Complex** full plan    | "Force the full plan", "use the planner", "run a full plan and review".  |
+| **A review**             | "Review this", or answer **Yes** to the end-of-work review offer.        |
 
 Rules the agents follow:
 
-- **Escalation is always honoured** — you can ask for *more* rigour on anything.
-- **De-escalation is honoured with a caveat** — if you ask for a *lighter* path than the risk warrants, the
+- **Escalation is always honoured** — you can ask for _more_ rigour on anything.
+- **De-escalation is honoured with a caveat** — if you ask for a _lighter_ path than the risk warrants, the
   agent complies but first flags the risk in one line. It will **not** drop the approval gate, WCAG 2.2 AA
   or security for a change that genuinely touches architecture, auth, sessions/caching, data correctness or
   a security surface.
@@ -169,10 +169,10 @@ agents in agent mode and how agents refer to one another.
 
 ### Orchestrator
 
-| Property | Value |
-| --- | --- |
-| File | `<prefix>-orchestrator.agent.md` |
-| Tools | Read, search, todo, agent. **No** edit or execute access. |
+| Property       | Value                                                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| File           | `<prefix>-orchestrator.agent.md`                                                                                          |
+| Tools          | Read, search, todo, agent. **No** edit or execute access.                                                                 |
 | When to invoke | Complex, multi-step work needing planning, coordination and a formal approval gate; or JIRA epic / multi-ticket delivery. |
 
 **Responsibilities**
@@ -198,10 +198,10 @@ agents in agent mode and how agents refer to one another.
 
 ### Planner
 
-| Property | Value |
-| --- | --- |
-| File | `<prefix>-planner.agent.md` |
-| Tools | Read, search, web, agent. **No** edit or execute access. |
+| Property       | Value                                                                                                                   |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| File           | `<prefix>-planner.agent.md`                                                                                             |
+| Tools          | Read, search, web, agent. **No** edit or execute access.                                                                |
 | When to invoke | Called by the Orchestrator for **Complex** work. Not normally invoked directly, and not used for Standard/Trivial work. |
 
 **Responsibilities**
@@ -233,10 +233,10 @@ Parallel steps are clearly labelled in the Implementation Plan.
 
 ### Developer
 
-| Property | Value |
-| --- | --- |
-| File | `<prefix>-developer.agent.md` |
-| Tools | Full implementation toolset: edit, execute, VS Code, browser, web, search, todo. |
+| Property       | Value                                                                                                                   |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| File           | `<prefix>-developer.agent.md`                                                                                           |
+| Tools          | Full implementation toolset: edit, execute, VS Code, browser, web, search, todo.                                        |
 | When to invoke | To implement a feature, fix or refactor — ideally from an already-approved plan; or directly for Trivial/Standard work. |
 
 **Responsibilities**
@@ -264,10 +264,10 @@ Parallel steps are clearly labelled in the Implementation Plan.
 
 ### Reviewer
 
-| Property | Value |
-| --- | --- |
-| File | `<prefix>-reviewer.agent.md` |
-| Tools | Read, search, web, todo, agent. **No** edit or execute access. |
+| Property       | Value                                                                                                                       |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| File           | `<prefix>-reviewer.agent.md`                                                                                                |
+| Tools          | Read, search, web, todo, agent. **No** edit or execute access.                                                              |
 | When to invoke | **Optional and on-request only** — when you ask for a review, or answer Yes to the end-of-work offer. Never a default step. |
 
 **Responsibilities**
@@ -301,10 +301,10 @@ pieces of Dev/QA work.
 
 ### deep-research-defra-alignment
 
-| Property | Value |
-| --- | --- |
+| Property       | Value                                                                  |
+| -------------- | ---------------------------------------------------------------------- |
 | User-invocable | No. Used internally by the Planner (Complex) and Developer (Standard). |
-| When used | The **single** research pass of the working framework. |
+| When used      | The **single** research pass of the working framework.                 |
 
 Turns an open question or flagged plan step into a sourced recommendation aligned with DEFRA/GDS standards.
 
@@ -425,15 +425,15 @@ You can also force the answer with a manual override (see below).
 Select `Orchestrator - <Service Name>` in VS Code agent mode. Use it for **Complex** work where an
 incorrect design would be costly to fix, or work spanning multiple files/components/systems.
 
-| Scenario | Why use the Orchestrator |
-| --- | --- |
-| New feature or significant behaviour change | Needs decomposition, dependency ordering and a reviewable plan. |
-| Change to architecture, persistence or external integrations | Higher blast radius — research and an approval gate are essential. |
-| Security-relevant change (auth, secrets, input validation, PII) | Needs careful planning, validation and comprehensive testing. |
-| Work spanning multiple files or components | The Planner sequences phases and identifies components that change together. |
-| A formal written plan is needed for team review | The Planner produces a structured, approval-ready document. |
-| The correct approach is uncertain | The workflow researches options and clarifies requirements first. |
-| A JIRA epic with child tickets | The Orchestrator sequences and delivers one ticket at a time. |
+| Scenario                                                        | Why use the Orchestrator                                                     |
+| --------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| New feature or significant behaviour change                     | Needs decomposition, dependency ordering and a reviewable plan.              |
+| Change to architecture, persistence or external integrations    | Higher blast radius — research and an approval gate are essential.           |
+| Security-relevant change (auth, secrets, input validation, PII) | Needs careful planning, validation and comprehensive testing.                |
+| Work spanning multiple files or components                      | The Planner sequences phases and identifies components that change together. |
+| A formal written plan is needed for team review                 | The Planner produces a structured, approval-ready document.                  |
+| The correct approach is uncertain                               | The workflow researches options and clarifies requirements first.            |
+| A JIRA epic with child tickets                                  | The Orchestrator sequences and delivers one ticket at a time.                |
 
 **How it works**
 
@@ -451,15 +451,15 @@ incorrect design would be costly to fix, or work spanning multiple files/compone
 Select `Developer - <Service Name>` in VS Code agent mode, or use `/develop`. Use it for Trivial or Standard
 changes where the scope is clear.
 
-| Scenario | Gear |
-| --- | --- |
-| Typo, wording fix or comment update | Trivial |
-| Single config value, constant or env-variable reference | Trivial |
-| Missing test for behaviour already implemented and understood | Trivial |
-| Failing test with a known root cause | Trivial |
-| A new page/field/component/filter with no new architecture | Standard |
-| A localised bug fix where cause and solution are understood | Standard |
-| An incremental change following an established local pattern | Standard |
+| Scenario                                                      | Gear     |
+| ------------------------------------------------------------- | -------- |
+| Typo, wording fix or comment update                           | Trivial  |
+| Single config value, constant or env-variable reference       | Trivial  |
+| Missing test for behaviour already implemented and understood | Trivial  |
+| Failing test with a known root cause                          | Trivial  |
+| A new page/field/component/filter with no new architecture    | Standard |
+| A localised bug fix where cause and solution are understood   | Standard |
+| An incremental change following an established local pattern  | Standard |
 
 **How it works**
 
@@ -474,12 +474,12 @@ changes where the scope is clear.
 Triage is automatic by default, but you can **force** any gear in your prompt — the instruction wins over
 the automatic classification:
 
-| To force… | Say something like… |
-| --- | --- |
-| **Trivial** fast path | "Treat this as trivial", "just make the change, no plan needed". |
+| To force…                | Say something like…                                                      |
+| ------------------------ | ------------------------------------------------------------------------ |
+| **Trivial** fast path    | "Treat this as trivial", "just make the change, no plan needed".         |
 | **Standard** inline plan | "Do a lightweight/standard plan", "skip the planner, just a short plan". |
-| **Complex** full plan | "Force the full plan", "use the planner", "run a full plan and review". |
-| **A review** | "Review this", or answer **Yes** to the end-of-work review offer. |
+| **Complex** full plan    | "Force the full plan", "use the planner", "run a full plan and review".  |
+| **A review**             | "Review this", or answer **Yes** to the end-of-work review offer.        |
 
 Notes:
 
@@ -525,6 +525,6 @@ Nit), or a readiness assessment before requesting human review.
 
 ### Repository-specific notes
 
-| Repository | Notable differences |
-| --- | --- |
+| Repository          | Notable differences                                              |
+| ------------------- | ---------------------------------------------------------------- |
 | _(add per service)_ | _(e.g. extra skills, prompts or agents specific to the service)_ |

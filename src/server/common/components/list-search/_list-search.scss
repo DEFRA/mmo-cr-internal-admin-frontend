@@ -1,0 +1,205 @@
+@use 'govuk-frontend' as *;
+
+// Spacing, sizes and fonts measured from the prototype search controls
+.app-list-search__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 19px;
+
+  // The form group clearfix would otherwise become an extra flex item
+  &::after {
+    display: none;
+  }
+}
+
+.app-list-search__row {
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+  gap: govuk-spacing(3);
+}
+
+.app-list-search__input-wrapper {
+  display: flex;
+  flex: 1;
+  gap: govuk-spacing(2);
+}
+
+.app-list-search__input {
+  flex: 1;
+  height: 44px;
+  color: $govuk-text-colour;
+  // The prototype styles this in GDS Transport but never loads that font on
+  // admin pages, so it renders in Arial
+  font-family: arial, sans-serif;
+}
+
+.app-list-search__submit {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 44px;
+  border: 0;
+  color: govuk-colour('white');
+  background-color: govuk-colour('blue');
+  cursor: pointer;
+
+  &:hover {
+    background-color: govuk-shade(govuk-colour('blue'), 20%);
+  }
+
+  &:focus {
+    @include govuk-focused-text;
+  }
+}
+
+.app-list-search__icon {
+  width: 28px;
+  height: 28px;
+}
+
+// Outlined "Clear filters" button, as in the prototype
+.app-filter__clear,
+.app-filter__clear:hover {
+  border: 1px solid $govuk-text-colour;
+  background-color: transparent;
+  box-shadow: 0 3px 0 $govuk-text-colour;
+}
+
+.app-filter__toggle {
+  @include govuk-font($size: 19);
+  display: inline-block;
+  box-sizing: border-box;
+  height: 44px;
+  margin-bottom: 0;
+  padding: 9.5px 19px;
+  border: 1px solid $govuk-border-colour;
+  color: $govuk-text-colour;
+  background-color: #f3f2f1;
+  font-family: arial, sans-serif;
+  white-space: nowrap;
+  list-style: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #dbdad9;
+  }
+
+  &:focus {
+    outline: $govuk-focus-width solid $govuk-focus-colour;
+    box-shadow: inset 0 0 0 2px $govuk-text-colour;
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+// Floating filter panel (measured from the prototype: 420px wide, 24px padding,
+// 340px content column, 16px between fields, scrolls after 560px with the
+// action buttons pinned to the bottom)
+.app-filter__panel {
+  position: absolute;
+  z-index: 10;
+  top: 52px;
+  right: 0;
+  box-sizing: border-box;
+  width: 420px;
+  max-width: 100%;
+  max-height: 560px;
+  padding: 24px;
+  overflow-y: auto;
+  border-top: 1px solid $govuk-border-colour;
+  background-color: #f3f2f1;
+  box-shadow: 0 4px 12px rgb(11, 12, 12, 0.18);
+}
+
+.app-filter__header,
+.app-filter__options {
+  max-width: 340px;
+}
+
+.app-filter__header {
+  display: flow-root;
+}
+
+.app-filter__title {
+  margin: 0 0 20px;
+}
+
+.app-filter__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  color: $govuk-text-colour;
+  background: none;
+  font-family: arial, sans-serif;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #dbdad9;
+  }
+
+  &:focus {
+    @include govuk-focused-text;
+  }
+}
+
+.app-filter__options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+
+  .govuk-form-group {
+    margin-bottom: 0;
+  }
+}
+
+.app-filter__actions {
+  display: flex;
+  position: sticky;
+  z-index: 2;
+  bottom: -24px;
+  max-width: 355px;
+  margin: 16px -15px -24px 0;
+  padding: 12px 0 16px;
+  border-top: 1px solid $govuk-border-colour;
+  background-color: #f3f2f1;
+
+  .govuk-button {
+    margin: 0 15px 17px 0;
+  }
+}
+
+// Short option lists (for example Yes/No) sit in two columns, as in the prototype.
+// GOV.UK Frontend v6 no longer has inline checkboxes.
+.app-checkboxes--inline {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 10px;
+
+  .govuk-checkboxes__item {
+    min-width: 0;
+    margin-bottom: 0;
+  }
+}
+
+.app-filter__number-range {
+  display: flex;
+  gap: 16px;
+}
+
+.app-filter__date-range-parts {
+  display: grid;
+  gap: 8px;
+}

@@ -1,0 +1,43 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errorList %}
+        {{ govukErrorSummary({ titleText: "There is a problem", errorList: errorList }) }}
+      {% endif %}
+
+      {{ appPageHeading({ caption: user.fullName, text: "Add a vessel" }) }}
+
+      <form method="post" action="/users/{{ user.id }}/vessels/add" novalidate>
+        <input type="hidden" name="crumb" value="{{ crumb }}">
+
+        {{ govukSelect({
+          id: "vessel",
+          name: "vessel",
+          classes: "govuk-!-width-one-half",
+          label: { text: "Vessel", classes: "govuk-label--s" },
+          hint: { text: "Search by vessel name, PLN or RSS number." },
+          items: vesselOptions | toSelectItems(values.vessel, ""),
+          formGroup: { classes: "app-autocomplete--one-half" },
+          attributes: { "data-module": "app-autocomplete", "data-result-noun": "vessels" },
+          errorMessage: { text: fieldErrors.vessel } if fieldErrors.vessel
+        }) }}
+
+        {{ govukSelect({
+          id: "role",
+          name: "role",
+          classes: "govuk-!-width-one-half",
+          label: { text: "User role on vessel", classes: "govuk-label--s" },
+          items: roles | toSelectItems(values.role),
+          errorMessage: { text: fieldErrors.role } if fieldErrors.role
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({ text: "Add a vessel", preventDoubleClick: true }) }}
+          <a class="govuk-link" href="/users/{{ user.id }}">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

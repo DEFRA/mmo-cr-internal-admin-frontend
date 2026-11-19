@@ -1,0 +1,41 @@
+@use 'govuk-frontend' as *;
+
+// Matches the prototype footer: 19px text, 25px top / 15px bottom padding. The
+// prototype styles it in GDS Transport but never loads that font on admin
+// pages, so it renders in Arial.
+.app-admin-footer {
+  padding: govuk-spacing(5) 0 40px;
+  font-family: arial, sans-serif;
+  font-size: 19px;
+  line-height: 25px;
+  border-top: 10px solid govuk-colour('blue');
+  color: govuk-colour('black');
+  background-color: #f3f2f1;
+}
+
+// The prototype Sign in page uses a tighter footer: 15px top / 35px bottom
+.app-admin-footer--compact {
+  padding-top: govuk-spacing(3);
+  padding-bottom: 35px;
+}
+
+.app-admin-footer__licence {
+  text-wrap: balance;
+}
+
+.app-admin-footer__meta {
+  display: flex;
+  align-items: center;
+  gap: govuk-spacing(3);
+}
+
+.app-admin-footer__logo {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.app-admin-footer__link {
+  @include govuk-link-common;
+  @include govuk-link-style-text;
+}

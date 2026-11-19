@@ -1,0 +1,730 @@
+[
+  {
+    "id": "lady-jane",
+    "name": "Lady Jane",
+    "pln": "PZ1",
+    "rss": "X10001",
+    "administration": "England",
+    "adminPort": "Newlyn",
+    "portCode": "GBNLY",
+    "cfr": "GBR000198765",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [
+      {
+        "tripId": "A12345202606171701",
+        "endDate": "2026-06-16T00:00:00.000",
+        "user": "John Smith",
+        "status": "submitted"
+      },
+      {
+        "tripId": "A12345202606151302",
+        "endDate": "2026-06-14T00:00:00.000",
+        "user": "John Smith",
+        "status": "amended"
+      }
+    ],
+    "history": [
+      {
+        "dateTime": "2026-06-17T10:44:00.000",
+        "action": "Vessel added to user",
+        "performedBy": "Maia Bates"
+      },
+      {
+        "dateTime": "2026-06-17T10:39:00.000",
+        "action": "Vessel removed from user",
+        "performedBy": "Alison Thomas"
+      },
+      {
+        "dateTime": "2026-06-16T15:40:00.000",
+        "action": "Vessel added to user",
+        "performedBy": "Maia Bates"
+      },
+      {
+        "dateTime": "2026-06-16T14:00:00.000",
+        "action": "User details amended",
+        "performedBy": "Maia Bates"
+      },
+      {
+        "dateTime": "2026-06-16T11:30:00.000",
+        "action": "Vessel added to user",
+        "performedBy": "Donna Jennings"
+      },
+      {
+        "dateTime": "2026-06-15T14:20:00.000",
+        "action": "Amendment 1: Corrected catch weight for lemon sole",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-15T13:10:00.000",
+        "action": "Note added",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-15T13:02:00.000",
+        "action": "Trip submitted via automated service",
+        "performedBy": "John Smith"
+      },
+      {
+        "dateTime": "2026-06-14T09:05:00.000",
+        "action": "Trip received",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-14T09:00:00.000",
+        "action": "Trip created",
+        "performedBy": "John Smith"
+      },
+      {
+        "dateTime": "2026-06-01T09:15:00.000",
+        "action": "Vessel added to user",
+        "performedBy": "Maia Bates"
+      },
+      {
+        "dateTime": "2026-05-28T09:00:00.000",
+        "action": "Vessel imported",
+        "performedBy": "System"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "id": "quatro",
+    "name": "Quatro",
+    "pln": "WY43",
+    "rss": "Q12345",
+    "administration": "Wales",
+    "adminPort": "Milford Haven",
+    "portCode": "GBMLF",
+    "cfr": "GBR000100020",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [
+      {
+        "tripId": "A45352202606151201",
+        "endDate": "2026-06-15T00:00:00.000",
+        "user": "Peter Petrelli",
+        "status": "amended"
+      },
+      {
+        "tripId": "E45352202608201402",
+        "endDate": "2026-08-20T00:00:00.000",
+        "user": "Peter Petrelli",
+        "status": "submitted"
+      }
+    ],
+    "history": [
+      {
+        "dateTime": "2026-06-16T09:15:00.000",
+        "action": "Amendment 3: Added 3 kg retained weight omitted from the original submission",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-15T14:20:00.000",
+        "action": "Amendment 2: Updated the weight to 16 kg following a call with Peter",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-15T13:45:00.000",
+        "action": "Amendment 1: Corrected the reported weight to 15 kg",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-15T12:01:00.000",
+        "action": "Trip created",
+        "performedBy": "Peter Petrelli"
+      },
+      {
+        "dateTime": "2026-06-10T09:10:00.000",
+        "action": "Prototype vessel details added",
+        "performedBy": "Maia Bates"
+      },
+      {
+        "dateTime": "2026-06-10T09:05:00.000",
+        "action": "Vessel added to user",
+        "performedBy": "Maia Bates"
+      },
+      {
+        "dateTime": "2026-06-10T09:00:00.000",
+        "action": "Quatro imported",
+        "performedBy": "System"
+      }
+    ],
+    "notes": [
+      {
+        "author": "Maia Bates",
+        "role": "Fishing Vessel Licensing",
+        "dateTime": "2026-06-10T09:10:00.000",
+        "text": "Vessel details reviewed against the latest registration information."
+      }
+    ]
+  },
+  {
+    "id": "obsession",
+    "name": "Obsession",
+    "pln": "FR56",
+    "rss": "RSS456",
+    "administration": "Scotland",
+    "adminPort": "Fraserburgh",
+    "portCode": "FR",
+    "cfr": "GBR000456789",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "morning-star",
+    "name": "Morning Star",
+    "pln": "GY23",
+    "rss": "RSS789",
+    "administration": "England",
+    "adminPort": "Grimsby",
+    "portCode": "GY",
+    "cfr": "GBR000789012",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "sea-bird",
+    "name": "Sea Bird",
+    "pln": "LT89",
+    "rss": "RSS234",
+    "administration": "England",
+    "adminPort": "Lowestoft",
+    "portCode": "LT",
+    "cfr": "GBR000234567",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "ocean-pearl",
+    "name": "Ocean Pearl",
+    "pln": "MH12",
+    "rss": "RSS567",
+    "administration": "Wales",
+    "adminPort": "Milford Haven",
+    "portCode": "MH",
+    "cfr": "GBR000567890",
+    "vesselType": "Fishing vessel",
+    "status": "inactive",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "silver-wave",
+    "name": "Silver Wave",
+    "pln": "BA45",
+    "rss": "RSS890",
+    "administration": "Northern Ireland",
+    "adminPort": "Kilkeel",
+    "portCode": "KL",
+    "cfr": "GBR000890123",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "northern-star",
+    "name": "Northern Star",
+    "pln": "PZ45",
+    "rss": "X10002",
+    "administration": "England",
+    "adminPort": "Newlyn",
+    "portCode": "GBNLY",
+    "cfr": "GBR000100001",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [
+      {
+        "tripId": "D12345202608181401",
+        "endDate": "2026-08-18T00:00:00.000",
+        "user": "Alice Wilson",
+        "status": "submitted"
+      },
+      {
+        "tripId": "E45352202608201402",
+        "endDate": "2026-08-20T00:00:00.000",
+        "user": "Alice Wilson",
+        "status": "submitted"
+      },
+      {
+        "tripId": "F34245202608221410",
+        "endDate": "2026-08-22T00:00:00.000",
+        "user": "Alice Wilson",
+        "status": "submitted"
+      },
+      {
+        "tripId": "G12345202608241410",
+        "endDate": "2026-08-24T00:00:00.000",
+        "user": "Alice Wilson",
+        "status": "submitted"
+      },
+      {
+        "tripId": "H12345202608261410",
+        "endDate": "2026-08-26T00:00:00.000",
+        "user": "Alice Wilson",
+        "status": "submitted"
+      },
+      {
+        "tripId": "I12345202608281410",
+        "endDate": "2026-08-28T00:00:00.000",
+        "user": "Alice Wilson",
+        "status": "submitted"
+      },
+      {
+        "tripId": "J12345202608301410",
+        "endDate": "2026-08-30T00:00:00.000",
+        "user": "Alice Wilson",
+        "status": "submitted"
+      }
+    ],
+    "history": [
+      {
+        "dateTime": "2026-08-30T14:18:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-30T14:14:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-30T14:10:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-28T14:18:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-28T14:14:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-28T14:10:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-26T14:18:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-26T14:14:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-26T14:10:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-24T14:18:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-24T14:14:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-24T14:10:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-22T14:21:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-22T14:14:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-22T14:10:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-20T14:12:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-20T14:06:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-20T14:02:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-18T14:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-18T14:04:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-08-18T14:01:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-06-06T09:15:00.000",
+        "action": "Vessel added to user",
+        "performedBy": "Maia Bates"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "id": "sea-spray",
+    "name": "Sea Spray",
+    "pln": "FR12",
+    "rss": "X10003",
+    "administration": "Scotland",
+    "adminPort": "Fraserburgh",
+    "portCode": "FR",
+    "cfr": "GBR000100002",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "kingfisher",
+    "name": "Kingfisher",
+    "pln": "GY67",
+    "rss": "X10004",
+    "administration": "England",
+    "adminPort": "Grimsby",
+    "portCode": "GY",
+    "cfr": "GBR000100003",
+    "vesselType": "Fishing vessel",
+    "status": "inactive",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "golden-dawn",
+    "name": "Golden Dawn",
+    "pln": "LT34",
+    "rss": "X10005",
+    "administration": "England",
+    "adminPort": "Lowestoft",
+    "portCode": "LT",
+    "cfr": "GBR000100004",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "celtic-star",
+    "name": "Celtic Star",
+    "pln": "MH89",
+    "rss": "X10006",
+    "administration": "Wales",
+    "adminPort": "Milford Haven",
+    "portCode": "MH",
+    "cfr": "GBR000100005",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "ocean-voyager",
+    "name": "Ocean Voyager",
+    "pln": "BA23",
+    "rss": "X10007",
+    "administration": "Northern Ireland",
+    "adminPort": "Kilkeel",
+    "portCode": "KL",
+    "cfr": "GBR000100006",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "bonnie-lass",
+    "name": "Bonnie Lass",
+    "pln": "FR78",
+    "rss": "X10008",
+    "administration": "Scotland",
+    "adminPort": "Fraserburgh",
+    "portCode": "FR",
+    "cfr": "GBR000100007",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "harvest-moon",
+    "name": "Harvest Moon",
+    "pln": "PZ56",
+    "rss": "X10009",
+    "administration": "England",
+    "adminPort": "Newlyn",
+    "portCode": "GBNLY",
+    "cfr": "GBR000100008",
+    "vesselType": "Fishing vessel",
+    "status": "inactive",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "sea-otter",
+    "name": "Sea Otter",
+    "pln": "RX09",
+    "rss": "X10010",
+    "administration": "England",
+    "adminPort": "Hastings",
+    "portCode": "GBHTG",
+    "cfr": "GBR000100009",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [
+      {
+        "tripId": "C34245202608171402",
+        "endDate": "2026-08-17T00:00:00.000",
+        "user": "Frank Castle",
+        "status": "submitted"
+      },
+      {
+        "tripId": "F34245202608221410",
+        "endDate": "2026-08-22T00:00:00.000",
+        "user": "Frank Castle",
+        "status": "submitted"
+      }
+    ],
+    "history": [
+      {
+        "dateTime": "2026-08-17T14:20:00.000",
+        "action": "Note added",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-08-17T14:16:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-08-17T14:12:00.000",
+        "action": "Note added",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-08-17T14:10:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Frank Castle"
+      },
+      {
+        "dateTime": "2026-08-17T14:02:00.000",
+        "action": "Trip created",
+        "performedBy": "Frank Castle"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "id": "fair-wind",
+    "name": "Fair Wind",
+    "pln": "SW45",
+    "rss": "X10011",
+    "administration": "Wales",
+    "adminPort": "Swansea",
+    "portCode": "GBSWA",
+    "cfr": "GBR000100010",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "sunbeam",
+    "name": "Sunbeam",
+    "pln": "NS78",
+    "rss": "X10012",
+    "administration": "England",
+    "adminPort": "Newlyn",
+    "portCode": "GBNLY",
+    "cfr": "GBR000100011",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "moonlight",
+    "name": "Moonlight",
+    "pln": "WY12",
+    "rss": "X10013",
+    "administration": "Wales",
+    "adminPort": "Milford Haven",
+    "portCode": "MH",
+    "cfr": "GBR000100012",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "atlantic-rose",
+    "name": "Atlantic Rose",
+    "pln": "M56",
+    "rss": "X10014",
+    "administration": "Isle of Man",
+    "adminPort": "Douglas",
+    "portCode": "IMDGS",
+    "cfr": "GBR000100013",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "cornish-maid",
+    "name": "Cornish Maid",
+    "pln": "PZ89",
+    "rss": "X10015",
+    "administration": "England",
+    "adminPort": "Newlyn",
+    "portCode": "GBNLY",
+    "cfr": "GBR000100014",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "highland-piper",
+    "name": "Highland Piper",
+    "pln": "FR34",
+    "rss": "X10016",
+    "administration": "Scotland",
+    "adminPort": "Fraserburgh",
+    "portCode": "FR",
+    "cfr": "GBR000100015",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "ocean-drifter",
+    "name": "Ocean Drifter",
+    "pln": "GY12",
+    "rss": "X10017",
+    "administration": "England",
+    "adminPort": "Grimsby",
+    "portCode": "GY",
+    "cfr": "GBR000100016",
+    "vesselType": "Fishing vessel",
+    "status": "inactive",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "sea-fever",
+    "name": "Sea Fever",
+    "pln": "LT67",
+    "rss": "X10018",
+    "administration": "England",
+    "adminPort": "Lowestoft",
+    "portCode": "LT",
+    "cfr": "GBR000100017",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "welsh-dragon",
+    "name": "Welsh Dragon",
+    "pln": "MH34",
+    "rss": "X10019",
+    "administration": "Wales",
+    "adminPort": "Milford Haven",
+    "portCode": "MH",
+    "cfr": "GBR000100018",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "manx-pride",
+    "name": "Manx Pride",
+    "pln": "M23",
+    "rss": "X10020",
+    "administration": "Isle of Man",
+    "adminPort": "Douglas",
+    "portCode": "IMDGS",
+    "cfr": "GBR000100019",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  },
+  {
+    "id": "bubbles",
+    "name": "Bubbles",
+    "pln": "PZ99",
+    "rss": "X10021",
+    "administration": "England",
+    "adminPort": "Newlyn",
+    "portCode": "GBNLY",
+    "cfr": "GBR000100021",
+    "vesselType": "Fishing vessel",
+    "status": "active",
+    "trips": [],
+    "history": [],
+    "notes": []
+  }
+]

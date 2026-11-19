@@ -1,0 +1,20 @@
+{# Signed-out pages (Sign in): standard-width container, no account block or navigation #}
+{% set containerClasses = "app-width-container--standard" %}
+{% extends "layouts/page.njk" %}
+
+{% block header %}
+  {{ appAdminHeader({
+    serviceName: serviceName,
+    homeHref: "/sign-in",
+    containerClasses: containerClasses,
+    classes: "app-admin-header--public"
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ appAdminFooter({
+    containerClasses: containerClasses,
+    classes: "app-admin-footer--compact",
+    showLicenceLogo: false
+  }) }}
+{% endblock %}

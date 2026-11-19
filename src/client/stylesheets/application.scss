@@ -1,7 +1,8 @@
-@use "govuk-frontend";
+@use 'govuk-frontend';
+@use 'accessible-autocomplete/dist/accessible-autocomplete.min';
 
-@use "variables";
-@use "helpers";
-@use "core";
-@use "components";
-@use "partials";
+@use 'variables';
+@use 'helpers';
+@use 'core';
+@use 'components';
+@use 'partials';

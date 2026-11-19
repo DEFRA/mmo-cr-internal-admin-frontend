@@ -1,0 +1,50 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errorList %}
+        {{ govukErrorSummary({ titleText: "There is a problem", errorList: errorList }) }}
+      {% endif %}
+
+      {{ appPageHeading({ caption: "Vessel " + vessel.pln, text: "Add a user to " + vessel.name }) }}
+
+      <p class="govuk-body">Choose an existing user and their role on this vessel.</p>
+
+      {{ govukInsetText({
+        text: "Vessel owners receive an email invitation to register when their vessel is added to the system. Skippers should ask their vessel owner to add them from their account."
+      }) }}
+
+      <form method="post" action="/vessels/{{ vessel.id }}/users/add" novalidate>
+        <input type="hidden" name="crumb" value="{{ crumb }}">
+
+        {{ govukSelect({
+          id: "user-id",
+          name: "user-id",
+          label: { text: "User", classes: "govuk-label--s" },
+          hint: { text: "Search by name, email address or user ID." },
+          items: userOptions | toSelectItems(values["user-id"], ""),
+          formGroup: { classes: "app-autocomplete--one-half" },
+          attributes: { "data-module": "app-autocomplete", "data-result-noun": "users" },
+          errorMessage: { text: fieldErrors["user-id"] } if fieldErrors["user-id"]
+        }) }}
+
+        {{ govukRadios({
+          name: "role",
+          idPrefix: "role",
+          fieldset: { legend: { text: "User role", classes: "govuk-fieldset__legend--s" } },
+          items: [
+            { value: roles[0], text: roles[0], checked: values.role == roles[0] },
+            { value: roles[1], text: roles[1], checked: values.role == roles[1] }
+          ],
+          errorMessage: { text: fieldErrors.role } if fieldErrors.role
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({ text: "Add user to vessel", preventDoubleClick: true }) }}
+          {{ govukButton({ text: "Cancel", href: "/vessels/" + vessel.id + "#users", classes: "govuk-button--secondary" }) }}
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% set bannerId = params.id | default('app-success-banner-title') %}
+<div class="govuk-notification-banner govuk-notification-banner--success app-success-banner {{- ' ' + params.classes if params.classes }}" role="alert" aria-labelledby="{{ bannerId }}" data-module="govuk-notification-banner" data-testid="app-success-banner">
+  <div class="govuk-notification-banner__content">
+    <h2 class="govuk-notification-banner__heading" id="{{ bannerId }}">{{ params.title }}</h2>
+    {% if params.text %}
+      <p class="govuk-body">{{ params.text }}</p>
+    {% endif %}
+  </div>
+</div>

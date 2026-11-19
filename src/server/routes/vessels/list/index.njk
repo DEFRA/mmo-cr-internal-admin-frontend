@@ -1,0 +1,65 @@
+{% extends 'layouts/page.njk' %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Vessels</h1>
+
+  {{ govukButton({ text: "Export vessel data", href: exportHref, classes: "govuk-button--secondary" }) }}
+
+  {{ appListSearch({
+    action: "/vessels",
+    id: "search-vessels",
+    label: "Search vessels",
+    hint: ["Search by vessel name, PLN, RSS or CFR number"],
+    value: search,
+    filters: filters
+  }) }}
+
+  {% if vessels.length %}
+    <div class="app-table-scroll" role="region" aria-label="Vessels table, scroll to see more columns" tabindex="0">
+      <table class="govuk-table app-table" data-testid="vessels-table">
+        <colgroup>
+          <col class="app-col--18">
+          <col class="app-col--8">
+          <col class="app-col--12">
+          <col class="app-col--14">
+          <col class="app-col--14">
+          <col class="app-col--9">
+          <col class="app-col--16">
+          <col class="app-col--9">
+        </colgroup>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Vessel</th>
+            <th scope="col" class="govuk-table__header">PLN</th>
+            <th scope="col" class="govuk-table__header">RSS</th>
+            <th scope="col" class="govuk-table__header">Administration</th>
+            <th scope="col" class="govuk-table__header">Admin port</th>
+            <th scope="col" class="govuk-table__header">Port code</th>
+            <th scope="col" class="govuk-table__header">CFR number</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for vessel in vessels %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a class="govuk-link" href="/vessels/{{ vessel.id }}">{{ vessel.name }}</a></td>
+              <td class="govuk-table__cell">{{ vessel.pln }}</td>
+              <td class="govuk-table__cell">{{ vessel.rss }}</td>
+              <td class="govuk-table__cell">{{ vessel.administration }}</td>
+              <td class="govuk-table__cell">{{ vessel.adminPort }}</td>
+              <td class="govuk-table__cell">{{ vessel.portCode }}</td>
+              <td class="govuk-table__cell">{{ vessel.cfr }}</td>
+              <td class="govuk-table__cell">{{ govukTag(vessel.status | vesselStatusTag) }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if pagination %}
+      {{ govukPagination(pagination) }}
+    {% endif %}
+  {% else %}
+    <p class="govuk-body" data-testid="vessels-empty">No vessels match your search or filters.</p>
+  {% endif %}
+{% endblock %}
