@@ -90,9 +90,9 @@
       overflow-wrap: break-word;
     }
 
+    // Trip IDs stay on one line; the column is wide enough to keep them clear of PLN
     th:nth-child(2),
     td:nth-child(2) {
-      padding-right: 0;
       white-space: nowrap;
       overflow-wrap: normal;
     }
@@ -157,4 +157,43 @@
 .app-autocomplete--one-half .autocomplete__wrapper {
   @include govuk-font($size: 19);
   max-width: 390px;
+}
+
+// Hybrid trip details layout: compact trip summary, labels above values,
+// wrapping into as many columns as fit (no horizontal scrolling)
+.app-trip-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: govuk-spacing(3) govuk-spacing(6);
+  margin: 0 0 govuk-spacing(6);
+  padding: govuk-spacing(4) 0;
+  border-top: 1px solid $govuk-border-colour;
+  border-bottom: 1px solid $govuk-border-colour;
+}
+
+.app-trip-summary__item {
+  min-width: 0;
+}
+
+.app-trip-summary__key {
+  @include govuk-font($size: 16, $weight: bold);
+  margin-bottom: govuk-spacing(1);
+  color: $govuk-secondary-text-colour;
+}
+
+.app-trip-summary__value {
+  @include govuk-font($size: 19);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.app-trip-catch {
+  margin-top: govuk-spacing(6);
+}
+
+// Create and amend user: contact, address and administration fields (prototype width)
+.app-user-form__control {
+  box-sizing: border-box;
+  width: 390px;
+  max-width: 100%;
 }

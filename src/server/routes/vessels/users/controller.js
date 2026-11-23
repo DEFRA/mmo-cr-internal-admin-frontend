@@ -6,7 +6,8 @@ import {
   findUser,
   removeVesselFromUser
 } from '#/server/common/helpers/users/users-service.js'
-import { VESSEL_ROLES } from '#/server/common/helpers/users/constants.js'
+import { getAdminUser } from '#/server/common/helpers/admin-auth/admin-user.js'
+import { linkRolesFor } from '#/server/common/helpers/admin-auth/permissions.js'
 import {
   linkableUsers,
   vesselUsers
@@ -25,7 +26,15 @@ const backLink = (vessel) => ({
   href: vesselPath(vessel.id, '#users')
 })
 
-function addViewModel(store, vessel, extra = {}) {
+const rolesFor = (request) => linkRolesFor(getAdminUser(request))
+
+// Links the signed-in user may remove (FDST: skipper links only)
+const removableLinks = (request, store, vessel) => {
+  const roles = rolesFor(request)
+  return vesselUsers(store, vessel).filter((link) => roles.includes(link.role))
+}
+
+function addViewModel(request, store, vessel, extra = {}) {
   return {
     pageTitle: `Add a user to ${vessel.name}`,
     backLink: backLink(vessel),
@@ -34,18 +43,18 @@ function addViewModel(store, vessel, extra = {}) {
       value: user.id,
       text: `${user.fullName} (${user.id})`
     })),
-    roles: VESSEL_ROLES,
+    roles: rolesFor(request),
     values: {},
     ...extra
   }
 }
 
-function removeViewModel(store, vessel, extra = {}) {
+function removeViewModel(request, store, vessel, extra = {}) {
   return {
     pageTitle: `Remove a user from ${vessel.name}`,
     backLink: backLink(vessel),
     vessel,
-    links: vesselUsers(store, vessel),
+    links: removableLinks(request, store, vessel),
     values: {},
     ...extra
   }
@@ -54,7 +63,7 @@ function removeViewModel(store, vessel, extra = {}) {
 export const addUserController = {
   handler(request, h) {
     const { store, vessel } = loadVessel(request)
-    return h.view('vessels/users/add', addViewModel(store, vessel))
+    return h.view('vessels/users/add', addViewModel(request, store, vessel))
   }
 }
 
@@ -71,7 +80,7 @@ export const addUserPostController = {
     if (errors) {
       return h.view(
         'vessels/users/add',
-        addViewModel(store, vessel, {
+        addViewModel(request, store, vessel, {
           values: request.payload ?? {},
           ...errors
         })
@@ -79,11 +88,13 @@ export const addUserPostController = {
     }
 
     const user = findUser(store, values['user-id'])
-    addVesselToUser(store, user, vessel.id, values.role, actor)
+    const roles = rolesFor(request)
+    const role = roles.includes(values.role) ? values.role : roles[0]
+    addVesselToUser(store, user, vessel.id, role, actor)
     saveStore(request, store)
     flashBanner(request, {
       title: 'User added to vessel',
-      text: `${user.fullName} is now linked to ${vessel.name} as ${values.role}.`
+      text: `${user.fullName} is now linked to ${vessel.name} as ${role}.`
     })
 
     return h.redirect(vesselPath(vessel.id, '#users'))
@@ -93,14 +104,19 @@ export const addUserPostController = {
 export const removeUserController = {
   handler(request, h) {
     const { store, vessel } = loadVessel(request)
-    return h.view('vessels/users/remove', removeViewModel(store, vessel))
+    return h.view(
+      'vessels/users/remove',
+      removeViewModel(request, store, vessel)
+    )
   }
 }
 
 export const removeUserPostController = {
   handler(request, h) {
     const { store, vessel, actor } = loadVessel(request)
-    const userIds = vesselUsers(store, vessel).map(({ user }) => user.id)
+    const userIds = removableLinks(request, store, vessel).map(
+      ({ user }) => user.id
+    )
 
     if (!userIds.length) {
       return h.redirect(vesselPath(vessel.id, '#users'))
@@ -115,7 +131,7 @@ export const removeUserPostController = {
     if (errors) {
       return h.view(
         'vessels/users/remove',
-        removeViewModel(store, vessel, {
+        removeViewModel(request, store, vessel, {
           values: request.payload ?? {},
           ...errors
         })

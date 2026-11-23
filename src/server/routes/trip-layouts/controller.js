@@ -29,16 +29,22 @@ export const archiveController = {
 // the example trip's Pots and Trammel net gears only
 export const optionOneController = {
   handler(_request, h) {
-    return h.redirect(`${EXAMPLE_TRIP}?gear-example=pots-trammel`)
+    return h.redirect(`${EXAMPLE_TRIP}?gear-example=pots-trammel&layout=a`)
   }
 }
 
-// Option 2 (all information shown) is the same example with the "Other trip
-// information" rows shown in the main Trip information list
+// Option 2 (two-column information) shows trip details and record status side
+// by side, with all the example trip's gears
 export const optionTwoController = {
   handler(_request, h) {
-    return h.redirect(
-      `${EXAMPLE_TRIP}?gear-example=pots-trammel&information=all`
-    )
+    return h.redirect(`${EXAMPLE_TRIP}?layout=two-column`)
+  }
+}
+
+// Option 3 (hybrid) keeps a compact trip summary at the top, makes the catch
+// breakdown the main content and puts History and Notes in tabs below
+export const optionThreeController = {
+  handler(_request, h) {
+    return h.redirect(`${EXAMPLE_TRIP}?layout=hybrid`)
   }
 }

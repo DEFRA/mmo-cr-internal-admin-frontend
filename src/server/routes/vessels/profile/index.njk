@@ -48,10 +48,12 @@
         {% endfor %}
       </tbody>
     </table>
+    {% if permissions.linkVessels %}
     <div class="app-tab-actions">
       {{ govukButton({ text: "Add user", href: "/vessels/" + vessel.id + "/users/add" }) }}
       {{ govukButton({ text: "Remove user", href: "/vessels/" + vessel.id + "/users/remove", classes: "govuk-button--warning" }) }}
     </div>
+    {% endif %}
   {% endset %}
 
   {% set tripsHtml %}
@@ -113,9 +115,11 @@
     {% if historyPagination %}
       {{ govukPagination(historyPagination | assign({ landmarkLabel: "History pagination" })) }}
     {% endif %}
+    {% if permissions.auditLog %}
     <p class="govuk-body">
       <a class="govuk-link" href="/audit-log?s={{ vessel.pln | urlencode }}">View all history for {{ vessel.name }}</a>
     </p>
+    {% endif %}
   {% endset %}
 
   {% set notesHtml %}

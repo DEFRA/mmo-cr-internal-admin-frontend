@@ -14,6 +14,7 @@ import {
   buildPagination,
   paginate
 } from '#/server/common/helpers/forms/pagination.js'
+import { listHref } from '#/server/common/helpers/search-state.js'
 
 // Trip details layout testing shows the example trip with a subset of its gears
 // (prototype `gearExample`)
@@ -29,8 +30,8 @@ const querySchema = Joi.object({
   'gear-example': Joi.string()
     .valid(...Object.keys(GEAR_EXAMPLES))
     .optional(),
-  // Layout testing Option 2: show "Other trip information" in the main list
-  information: Joi.string().valid('all').optional()
+  // Layout testing: Option 1 (A, as-is), Option 2 (two-column), Option 3 (hybrid)
+  layout: Joi.string().valid('a', 'two-column', 'hybrid').optional()
 })
 
 function versionNotice(trip, view) {
@@ -103,7 +104,10 @@ export const profileController = {
 
     return h.view('fishing-trips/profile/index', {
       pageTitle: `Trip ${trip.tripId}`,
-      backLink: { text: 'Back to fishing trips', href: '/fishing-trips' },
+      backLink: {
+        text: 'Back to fishing trips',
+        href: listHref(request, '/fishing-trips')
+      },
       trip,
       view: { ...view, isVersionView: Boolean(query.version) },
       caption:
@@ -114,7 +118,10 @@ export const profileController = {
       ),
       creatorHref: creator ? `/users/${creator.id}` : null,
       methodLabel: submissionMethod(trip.submissionMethod)?.label,
-      showAllInformation: query.information === 'all',
+      twoColumnLayout: query.layout === 'two-column',
+      hybridLayout: query.layout === 'hybrid',
+      // The current layout, with Vessel and User tabs, is used without a layout
+      tabbedLayout: !query.layout,
       hasAmendments: trip.amendments.length > 0,
       history: history.items,
       historyPagination: buildPagination({

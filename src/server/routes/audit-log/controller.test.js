@@ -82,7 +82,7 @@ describe('#auditLog', () => {
     expect(
       $('input[name="record-type"][value="trip"]').attr('checked')
     ).toBeDefined()
-    expect($('details.app-filter').attr('open')).toBeDefined()
+    expect($('details.app-filter').attr('open')).toBeUndefined()
   })
 
   test('Should keep the filters closed for a search and show an empty message when nothing matches', async () => {

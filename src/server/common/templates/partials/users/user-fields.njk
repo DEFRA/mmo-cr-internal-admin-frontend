@@ -47,7 +47,7 @@
   name: "telephone-number",
   type: "tel",
   autocomplete: "tel",
-  classes: "govuk-!-width-one-half",
+  classes: "app-user-form__control",
   label: { text: "Telephone number (optional)", classes: "govuk-label--s" },
   value: values["telephone-number"]
 }) }}
@@ -57,7 +57,7 @@
     id: "address-line-1",
     name: "address-line-1",
     autocomplete: "address-line1",
-    classes: "govuk-!-width-one-half",
+    classes: "app-user-form__control",
     label: { text: "Address line 1" },
     value: values["address-line-1"],
     errorMessage: { text: errors["address-line-1"] } if errors["address-line-1"]
@@ -67,7 +67,7 @@
     id: "address-line-2",
     name: "address-line-2",
     autocomplete: "address-line2",
-    classes: "govuk-!-width-one-half",
+    classes: "app-user-form__control",
     label: { text: "Address line 2 (optional)" },
     value: values["address-line-2"]
   }) }}
@@ -76,7 +76,7 @@
     id: "address-town-city",
     name: "address-town-city",
     autocomplete: "address-level2",
-    classes: "govuk-!-width-one-half",
+    classes: "app-user-form__control",
     label: { text: "Town or city" },
     value: values["address-town-city"],
     errorMessage: { text: errors["address-town-city"] } if errors["address-town-city"]
@@ -86,7 +86,7 @@
     id: "address-postcode",
     name: "address-postcode",
     autocomplete: "postal-code",
-    classes: "govuk-!-width-one-half",
+    classes: "app-user-form__control",
     label: { text: "Postcode" },
     value: values["address-postcode"],
     errorMessage: { text: errors["address-postcode"] } if errors["address-postcode"]
@@ -96,7 +96,7 @@
 {{ govukSelect({
   id: "administration",
   name: "administration",
-  classes: "govuk-!-width-one-half",
+  classes: "app-user-form__control",
   label: { text: "Administration", classes: "govuk-label--s" },
   items: administrations | toSelectItems(values.administration, "Select an administration"),
   errorMessage: { text: errors.administration } if errors.administration

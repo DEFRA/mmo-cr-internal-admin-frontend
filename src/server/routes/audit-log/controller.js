@@ -95,9 +95,8 @@ export const listController = {
       search: query.s,
       filters: {
         groups: filterGroups(query, from, to),
-        clearHref: '/audit-log',
-        // A "view all history" link for a staff member opens the filters, as in the prototype
-        open: Boolean(query['performed-by'])
+        // The panel closes once a search runs; selections stay checked
+        clearHref: '/audit-log'
       },
       pagination: buildPagination({
         basePath: '/audit-log',

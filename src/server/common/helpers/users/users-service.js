@@ -145,11 +145,21 @@ export function availableVessels(store, user) {
   return store.vessels.filter((vessel) => !linked.has(vessel.id))
 }
 
+// Trips on this vessel created by this user record the link change too
+function recordOnTrips(store, user, vesselId, action, actor) {
+  store.trips
+    .filter(
+      (trip) => trip.vesselId === vesselId && trip.createdBy === user.fullName
+    )
+    .forEach((trip) => trip.history?.unshift(historyEntry(action, actor)))
+}
+
 export function addVesselToUser(store, user, vesselId, role, actor) {
   const vessel = findVessel(store, vesselId)
   user.vessels.push({ vesselId, role, linkedOn: nowIso() })
   user.history.unshift(historyEntry('Vessel added to user', actor))
   vessel.history?.unshift(historyEntry('Vessel added to user', actor))
+  recordOnTrips(store, user, vesselId, 'Vessel added', actor)
   return user
 }
 
@@ -158,6 +168,7 @@ export function removeVesselFromUser(store, user, vesselId, actor) {
   user.vessels = user.vessels.filter((link) => link.vesselId !== vesselId)
   user.history.unshift(historyEntry('Vessel removed from user', actor))
   vessel.history?.unshift(historyEntry('Vessel removed from user', actor))
+  recordOnTrips(store, user, vesselId, 'Vessel removed', actor)
   return user
 }
 

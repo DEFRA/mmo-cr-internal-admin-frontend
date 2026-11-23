@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 const SESSION_KEY = 'adminStore'
 
 // Bump when the seed data shape changes so older session copies are reseeded
-const STORE_VERSION = 6
+const STORE_VERSION = 8
 
 const seedUrl = (file) =>
   new URL(`../../mock-data/admin/${file}`, import.meta.url)

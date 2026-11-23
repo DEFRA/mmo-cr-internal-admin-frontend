@@ -1,6 +1,7 @@
 import { SUBMISSION_METHODS } from './constants.js'
 import { toIsoDate } from '../vessels/vessels-service.js'
 import { TRIP_STATUSES } from '../vessels/constants.js'
+import { toCsv } from '../csv/csv.js'
 
 const contains = (value, term) =>
   (value ?? '').toLowerCase().includes(term.toLowerCase())
@@ -27,6 +28,8 @@ export function searchTrips(
     to = {},
     vessel = '',
     createdBy = '',
+    adminPort = '',
+    rss = '',
     status = [],
     submissionMethod: methods = []
   } = {}
@@ -62,6 +65,10 @@ export function searchTrips(
     if (createdBy.trim() && !contains(trip.createdBy, createdBy.trim())) {
       return false
     }
+    if (adminPort.trim() && !contains(trip.adminPort, adminPort.trim())) {
+      return false
+    }
+    if (rss.trim() && !contains(trip.rss, rss.trim())) return false
     if (status.length && !status.includes(trip.status)) return false
     if (methods.length && !methods.includes(trip.submissionMethod)) return false
     return true
@@ -122,4 +129,51 @@ export function addTripNote(trip, text, actor) {
     performedBy: actor.name
   })
   return trip
+}
+
+/**
+ * Vessel role of the person who submitted the trip, e.g. "Owner (Nominee)",
+ * taken from their link to the trip's vessel.
+ */
+export function submitterRole(store, trip) {
+  const user = store.users.find((item) => item.fullName === trip.createdBy)
+  const link = user?.vessels.find((item) => item.vesselId === trip.vesselId)
+  return link?.role ?? trip.userRole ?? ''
+}
+
+const isoDay = (value) => (value ?? '').slice(0, 10)
+
+export function tripsToCsv(store, trips) {
+  const header = [
+    'Trip ID',
+    'Trip start date',
+    'Trip end date',
+    'Vessel',
+    'PLN',
+    'RSS',
+    'Admin port',
+    'Created by',
+    'User role',
+    'Retained catch',
+    'Status',
+    'Submission method',
+    'Created on'
+  ]
+  const rows = trips.map((trip) => [
+    trip.tripId,
+    isoDay(trip.tripStartDate),
+    isoDay(trip.tripEndDate),
+    trip.vesselName,
+    trip.pln,
+    trip.rss,
+    trip.adminPort,
+    trip.createdBy,
+    submitterRole(store, trip),
+    trip.retainedCatch,
+    statusText(trip.status),
+    submissionMethod(trip.submissionMethod)?.text ?? trip.submissionMethod,
+    trip.createdOn
+  ])
+
+  return toCsv([header, ...rows])
 }

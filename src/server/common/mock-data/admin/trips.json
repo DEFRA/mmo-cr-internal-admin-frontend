@@ -37,7 +37,7 @@
           ],
           "rows": [
             ["Cod", "COD", "36.00", "30.00", "2.00", "6.00"],
-            ["Ling", "LIN", "18.00", "16.00", "\u2013", "2.00"]
+            ["Ling", "LIN", "18.00", "16.00", "–", "2.00"]
           ]
         }
       ]
@@ -76,7 +76,7 @@
         ],
         "rows": [
           ["Cod", "COD", "36.00", "30.00", "2.00", "6.00"],
-          ["Ling", "LIN", "18.00", "16.00", "\u2013", "2.00"]
+          ["Ling", "LIN", "18.00", "16.00", "–", "2.00"]
         ]
       }
     ]
@@ -119,7 +119,7 @@
           ],
           "rows": [
             ["Cod", "COD", "25.00", "22.00", "1.00", "3.00"],
-            ["Haddock", "HAD", "15.00", "14.00", "\u2013", "1.00"]
+            ["Haddock", "HAD", "15.00", "14.00", "–", "1.00"]
           ]
         }
       ]
@@ -158,7 +158,7 @@
         ],
         "rows": [
           ["Cod", "COD", "25.00", "22.00", "1.00", "3.00"],
-          ["Haddock", "HAD", "15.00", "14.00", "\u2013", "1.00"]
+          ["Haddock", "HAD", "15.00", "14.00", "–", "1.00"]
         ]
       }
     ]
@@ -201,7 +201,7 @@
           ],
           "rows": [
             ["Herring", "HER", "30.00", "25.00", "1.00", "5.00"],
-            ["Mackerel", "MAC", "20.00", "17.00", "\u2013", "3.00"]
+            ["Mackerel", "MAC", "20.00", "17.00", "–", "3.00"]
           ]
         }
       ]
@@ -240,7 +240,7 @@
         ],
         "rows": [
           ["Herring", "HER", "30.00", "25.00", "1.00", "5.00"],
-          ["Mackerel", "MAC", "20.00", "17.00", "\u2013", "3.00"]
+          ["Mackerel", "MAC", "20.00", "17.00", "–", "3.00"]
         ]
       }
     ]
@@ -363,7 +363,7 @@
           ],
           "rows": [
             ["Herring", "HER", "35.00", "30.00", "1.00", "5.00"],
-            ["Cod", "COD", "18.00", "15.00", "\u2013", "3.00"]
+            ["Cod", "COD", "18.00", "15.00", "–", "3.00"]
           ]
         }
       ]
@@ -402,7 +402,7 @@
         ],
         "rows": [
           ["Herring", "HER", "35.00", "30.00", "1.00", "5.00"],
-          ["Cod", "COD", "18.00", "15.00", "\u2013", "3.00"]
+          ["Cod", "COD", "18.00", "15.00", "–", "3.00"]
         ]
       }
     ]
@@ -445,7 +445,7 @@
           ],
           "rows": [
             ["Herring", "HER", "40.00", "32.00", "2.00", "8.00"],
-            ["Mackerel", "MAC", "25.00", "20.00", "\u2013", "5.00"]
+            ["Mackerel", "MAC", "25.00", "20.00", "–", "5.00"]
           ]
         }
       ]
@@ -484,7 +484,7 @@
         ],
         "rows": [
           ["Herring", "HER", "40.00", "32.00", "2.00", "8.00"],
-          ["Mackerel", "MAC", "25.00", "20.00", "\u2013", "5.00"]
+          ["Mackerel", "MAC", "25.00", "20.00", "–", "5.00"]
         ]
       }
     ]
@@ -584,7 +584,74 @@
     "status": "submitted",
     "submissionMethod": "helpline",
     "createdOn": "2026-06-17T17:01:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-16T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-06-17T17:09:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Beam trawl",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Common sole", "SOL", "15.00", "–", "–", "–"],
+            ["John Dory", "JOD", "20.00", "–", "–", "–"]
+          ]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-17T17:09:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-17T17:05:00.000",
+        "action": "Trip submitted via Helpline",
+        "performedBy": "John Smith"
+      },
+      {
+        "dateTime": "2026-06-17T17:01:00.000",
+        "action": "Trip created",
+        "performedBy": "John Smith"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Beam trawl",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Common sole", "SOL", "15.00", "–", "–", "–"],
+          ["John Dory", "JOD", "20.00", "–", "–", "–"]
+        ]
+      }
+    ]
   },
   {
     "tripId": "B43254202606161654",
@@ -599,7 +666,76 @@
     "status": "submitted",
     "submissionMethod": "web",
     "createdOn": "2026-06-16T16:54:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-16T00:00:00.000",
+    "departurePort": "Shoreham",
+    "returnPort": "Shoreham",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBHTG",
+    "receivedOn": "2026-06-16T17:02:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Bottom otter trawl",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Common dab", "DAB", "1.50", "–", "–", "–"],
+            ["Starry smooth-hound", "SDS", "2.70", "–", "–", "–"],
+            ["Blue ling", "BLI", "13.00", "–", "–", "–"]
+          ]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-16T17:02:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-16T16:58:00.000",
+        "action": "Trip submitted via Web",
+        "performedBy": "Joe Bloggs"
+      },
+      {
+        "dateTime": "2026-06-16T16:54:00.000",
+        "action": "Trip created",
+        "performedBy": "Joe Bloggs"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Bottom otter trawl",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Common dab", "DAB", "1.50", "–", "–", "–"],
+          ["Starry smooth-hound", "SDS", "2.70", "–", "–", "–"],
+          ["Blue ling", "BLI", "13.00", "–", "–", "–"]
+        ]
+      }
+    ]
   },
   {
     "tripId": "C54235202606161532",
@@ -614,7 +750,68 @@
     "status": "late",
     "submissionMethod": "app",
     "createdOn": "2026-06-16T15:32:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-15T00:00:00.000",
+    "departurePort": "Swansea",
+    "returnPort": "Swansea",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBMLF",
+    "receivedOn": "2026-06-16T15:40:00.000",
+    "lateSubmission": "Yes",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Pots",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Edible crab", "CRE", "30.00", "20.00", "–", "–"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-16T15:40:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-16T15:36:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Paul Smith"
+      },
+      {
+        "dateTime": "2026-06-16T15:32:00.000",
+        "action": "Trip created",
+        "performedBy": "Paul Smith"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Pots",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["Edible crab", "CRE", "30.00", "20.00", "–", "–"]]
+      }
+    ]
   },
   {
     "tripId": "B23441202606151456",
@@ -629,7 +826,74 @@
     "status": "submitted",
     "submissionMethod": "app",
     "createdOn": "2026-06-15T14:56:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-15T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-06-15T15:04:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Pots",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["European lobster", "LBE", "12.00", "–", "–", "–"],
+            ["Edible crab", "CRE", "32.00", "–", "–", "–"]
+          ]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-15T15:04:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-15T15:00:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "John Smith"
+      },
+      {
+        "dateTime": "2026-06-15T14:56:00.000",
+        "action": "Trip created",
+        "performedBy": "John Smith"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Pots",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["European lobster", "LBE", "12.00", "–", "–", "–"],
+          ["Edible crab", "CRE", "32.00", "–", "–", "–"]
+        ]
+      }
+    ]
   },
   {
     "tripId": "A45352202606151201",
@@ -1069,7 +1333,74 @@
     "status": "submitted",
     "submissionMethod": "web",
     "createdOn": "2026-06-13T12:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-13T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-06-13T12:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Seine nets (not specified)",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Mackerel", "MAC", "25.00", "–", "–", "–"],
+            ["Herring", "HER", "18.00", "–", "–", "–"]
+          ]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-13T12:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-13T12:04:00.000",
+        "action": "Trip submitted via Web",
+        "performedBy": "Alice Wilson"
+      },
+      {
+        "dateTime": "2026-06-13T12:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Alice Wilson"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Seine nets (not specified)",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Mackerel", "MAC", "25.00", "–", "–", "–"],
+          ["Herring", "HER", "18.00", "–", "–", "–"]
+        ]
+      }
+    ]
   },
   {
     "tripId": "B10002202606121100",
@@ -1084,7 +1415,68 @@
     "status": "late",
     "submissionMethod": "helpline",
     "createdOn": "2026-06-12T11:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-12T00:00:00.000",
+    "departurePort": "Fraserburgh",
+    "returnPort": "Fraserburgh",
+    "userRole": "Owner (Nominee)",
+    "portCode": "FR",
+    "receivedOn": "2026-06-12T11:08:00.000",
+    "lateSubmission": "Yes",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Bottom otter trawl",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Haddock", "HAD", "40.00", "35.00", "–", "–"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-12T11:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-12T11:04:00.000",
+        "action": "Trip submitted via Helpline",
+        "performedBy": "Grace Turner"
+      },
+      {
+        "dateTime": "2026-06-12T11:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Grace Turner"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Bottom otter trawl",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["Haddock", "HAD", "40.00", "35.00", "–", "–"]]
+      }
+    ]
   },
   {
     "tripId": "C10003202606111000",
@@ -1099,7 +1491,68 @@
     "status": "submitted",
     "submissionMethod": "app",
     "createdOn": "2026-06-11T10:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-11T00:00:00.000",
+    "departurePort": "Grimsby",
+    "returnPort": "Grimsby",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GY",
+    "receivedOn": "2026-06-11T10:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Bottom otter trawl",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Cod", "COD", "22.00", "–", "–", "–"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-11T10:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-11T10:04:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Emma Hughes"
+      },
+      {
+        "dateTime": "2026-06-11T10:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Emma Hughes"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Bottom otter trawl",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["Cod", "COD", "22.00", "–", "–", "–"]]
+      }
+    ]
   },
   {
     "tripId": "D10004202606100900",
@@ -1114,7 +1567,81 @@
     "status": "amended",
     "submissionMethod": "web",
     "createdOn": "2026-06-10T09:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-10T00:00:00.000",
+    "departurePort": "Lowestoft",
+    "returnPort": "Lowestoft",
+    "userRole": "Owner (Nominee)",
+    "portCode": "LT",
+    "receivedOn": "2026-06-10T09:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Beam trawl",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Sole", "SOL", "10.00", "–", "–", "–"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [
+      {
+        "number": 1,
+        "dateTime": "2026-06-11T10:08:00.000",
+        "amendedBy": "Lucy Harper",
+        "reason": "Corrected the retained weight following a call with Liam.",
+        "retainedCatch": "No",
+        "gears": [
+          {
+            "name": "Beam trawl",
+            "measurements": "Not recorded",
+            "subrectangle": "Not recorded",
+            "columns": [
+              "Species",
+              "FAO code",
+              "Weight (kg)",
+              "Retained weight (kg)",
+              "Weight below minimum size (kg)",
+              "Weight discarded (kg)"
+            ],
+            "rows": [["Sole", "SOL", "10.00", "–", "–", "–"]]
+          }
+        ]
+      }
+    ],
+    "history": [
+      {
+        "dateTime": "2026-06-11T10:08:00.000",
+        "action": "Amendment 1: Corrected the retained weight following a call with Liam",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-10T09:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-10T09:04:00.000",
+        "action": "Trip submitted via Web",
+        "performedBy": "Liam Baker"
+      },
+      {
+        "dateTime": "2026-06-10T09:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Liam Baker"
+      }
+    ]
   },
   {
     "tripId": "E10005202606090800",
@@ -1129,7 +1656,68 @@
     "status": "submitted",
     "submissionMethod": "app",
     "createdOn": "2026-06-09T08:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-09T00:00:00.000",
+    "departurePort": "Milford Haven",
+    "returnPort": "Milford Haven",
+    "userRole": "Owner (Nominee)",
+    "portCode": "MH",
+    "receivedOn": "2026-06-09T08:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Bottom otter trawl",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Whiting", "WHG", "12.00", "–", "–", "–"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-09T08:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-09T08:04:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Noah Evans"
+      },
+      {
+        "dateTime": "2026-06-09T08:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Noah Evans"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Bottom otter trawl",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["Whiting", "WHG", "12.00", "–", "–", "–"]]
+      }
+    ]
   },
   {
     "tripId": "F10006202606080700",
@@ -1144,7 +1732,68 @@
     "status": "late",
     "submissionMethod": "helpline",
     "createdOn": "2026-06-08T07:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-08T00:00:00.000",
+    "departurePort": "Kilkeel",
+    "returnPort": "Kilkeel",
+    "userRole": "Owner (Nominee)",
+    "portCode": "KL",
+    "receivedOn": "2026-06-08T07:08:00.000",
+    "lateSubmission": "Yes",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Handlines and pole lines (hand operated)",
+          "measurements": "2 rods and lines used, 6 hooks left in the water",
+          "subrectangle": "31E9",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Mackerel", "MAC", "18.00", "16.00", "–", "2.00"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-08T07:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-08T07:04:00.000",
+        "action": "Trip submitted via Helpline",
+        "performedBy": "Olivia Roberts"
+      },
+      {
+        "dateTime": "2026-06-08T07:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Olivia Roberts"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Handlines and pole lines (hand operated)",
+        "measurements": "2 rods and lines used, 6 hooks left in the water",
+        "subrectangle": "31E9",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["Mackerel", "MAC", "18.00", "16.00", "–", "2.00"]]
+      }
+    ]
   },
   {
     "tripId": "G10007202606070600",
@@ -1159,7 +1808,74 @@
     "status": "submitted",
     "submissionMethod": "web",
     "createdOn": "2026-06-07T06:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-07T00:00:00.000",
+    "departurePort": "Fraserburgh",
+    "returnPort": "Fraserburgh",
+    "userRole": "Owner (Nominee)",
+    "portCode": "FR",
+    "receivedOn": "2026-06-07T06:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Gillnets (set)",
+          "measurements": "90 mm mesh, 150 m of net hauled, 30 m of net left in the water",
+          "subrectangle": "32F1",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Pollack", "POL", "14.00", "12.00", "1.00", "2.00"],
+            ["Cod", "COD", "9.00", "8.00", "–", "1.00"]
+          ]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-07T06:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-07T06:04:00.000",
+        "action": "Trip submitted via Web",
+        "performedBy": "Ava Walker"
+      },
+      {
+        "dateTime": "2026-06-07T06:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Ava Walker"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Gillnets (set)",
+        "measurements": "90 mm mesh, 150 m of net hauled, 30 m of net left in the water",
+        "subrectangle": "32F1",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Pollack", "POL", "14.00", "12.00", "1.00", "2.00"],
+          ["Cod", "COD", "9.00", "8.00", "–", "1.00"]
+        ]
+      }
+    ]
   },
   {
     "tripId": "H10008202606060500",
@@ -1174,7 +1890,87 @@
     "status": "amended",
     "submissionMethod": "automated",
     "createdOn": "2026-06-06T05:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-06T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-06-06T05:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Pots",
+          "measurements": "40 pots deployed, 6 pots left in the water",
+          "subrectangle": "30E8",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Edible crab", "CRE", "12.00", "10.00", "1.00", "2.00"],
+            ["European lobster", "LBE", "4.00", "4.00", "–", "–"]
+          ]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [
+      {
+        "number": 1,
+        "dateTime": "2026-06-07T06:08:00.000",
+        "amendedBy": "Lucy Harper",
+        "reason": "Corrected the retained weight following a call with Sophia.",
+        "retainedCatch": "Yes",
+        "gears": [
+          {
+            "name": "Pots",
+            "measurements": "40 pots deployed, 6 pots left in the water",
+            "subrectangle": "30E8",
+            "columns": [
+              "Species",
+              "FAO code",
+              "Weight (kg)",
+              "Retained weight (kg)",
+              "Weight below minimum size (kg)",
+              "Weight discarded (kg)"
+            ],
+            "rows": [
+              ["Edible crab", "CRE", "12.00", "11.00", "1.00", "2.00"],
+              ["European lobster", "LBE", "4.00", "4.00", "–", "–"]
+            ]
+          }
+        ]
+      }
+    ],
+    "history": [
+      {
+        "dateTime": "2026-06-07T06:08:00.000",
+        "action": "Amendment 1: Corrected the retained weight following a call with Sophia",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-06T05:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-06T05:04:00.000",
+        "action": "Trip submitted via automated service",
+        "performedBy": "Sophia Wright"
+      },
+      {
+        "dateTime": "2026-06-06T05:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Sophia Wright"
+      }
+    ]
   },
   {
     "tripId": "I10009202606050400",
@@ -1189,7 +1985,68 @@
     "status": "submitted",
     "submissionMethod": "web",
     "createdOn": "2026-06-05T04:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-05T00:00:00.000",
+    "departurePort": "Hastings",
+    "returnPort": "Hastings",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBHTG",
+    "receivedOn": "2026-06-05T04:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Beam trawl",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["European plaice", "PLE", "8.00", "–", "–", "–"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-05T04:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-05T04:04:00.000",
+        "action": "Trip submitted via Web",
+        "performedBy": "Mia Green"
+      },
+      {
+        "dateTime": "2026-06-05T04:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Mia Green"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Beam trawl",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["European plaice", "PLE", "8.00", "–", "–", "–"]]
+      }
+    ]
   },
   {
     "tripId": "J10010202606040300",
@@ -1204,7 +2061,68 @@
     "status": "late",
     "submissionMethod": "helpline",
     "createdOn": "2026-06-04T03:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-04T00:00:00.000",
+    "departurePort": "Swansea",
+    "returnPort": "Swansea",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBSWA",
+    "receivedOn": "2026-06-04T03:08:00.000",
+    "lateSubmission": "Yes",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Handlines and pole lines (hand operated)",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["European seabass", "BSS", "14.00", "–", "–", "–"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-04T03:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-04T03:04:00.000",
+        "action": "Trip submitted via Helpline",
+        "performedBy": "Ethan Adams"
+      },
+      {
+        "dateTime": "2026-06-04T03:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Ethan Adams"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Handlines and pole lines (hand operated)",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["European seabass", "BSS", "14.00", "–", "–", "–"]]
+      }
+    ]
   },
   {
     "tripId": "K10011202606030200",
@@ -1219,7 +2137,68 @@
     "status": "submitted",
     "submissionMethod": "app",
     "createdOn": "2026-06-03T02:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-03T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-06-03T02:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Handlines and pole lines (hand operated)",
+          "measurements": "Not recorded",
+          "subrectangle": "Not recorded",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Pollack", "POL", "9.00", "–", "–", "–"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-03T02:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-03T02:04:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Lucas Nelson"
+      },
+      {
+        "dateTime": "2026-06-03T02:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Lucas Nelson"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Handlines and pole lines (hand operated)",
+        "measurements": "Not recorded",
+        "subrectangle": "Not recorded",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["Pollack", "POL", "9.00", "–", "–", "–"]]
+      }
+    ]
   },
   {
     "tripId": "L10012202606020100",
@@ -1234,7 +2213,81 @@
     "status": "amended",
     "submissionMethod": "web",
     "createdOn": "2026-06-02T01:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-02T00:00:00.000",
+    "departurePort": "Milford Haven",
+    "returnPort": "Milford Haven",
+    "userRole": "Owner (Nominee)",
+    "portCode": "MH",
+    "receivedOn": "2026-06-02T01:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Handlines and pole lines (hand operated)",
+          "measurements": "2 rods and lines used, 6 hooks left in the water",
+          "subrectangle": "31E9",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Mackerel", "MAC", "18.00", "16.00", "–", "2.00"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [
+      {
+        "number": 1,
+        "dateTime": "2026-06-03T02:08:00.000",
+        "amendedBy": "Lucy Harper",
+        "reason": "Corrected the retained weight following a call with Mason.",
+        "retainedCatch": "No",
+        "gears": [
+          {
+            "name": "Handlines and pole lines (hand operated)",
+            "measurements": "2 rods and lines used, 6 hooks left in the water",
+            "subrectangle": "31E9",
+            "columns": [
+              "Species",
+              "FAO code",
+              "Weight (kg)",
+              "Retained weight (kg)",
+              "Weight below minimum size (kg)",
+              "Weight discarded (kg)"
+            ],
+            "rows": [["Mackerel", "MAC", "18.00", "17.00", "–", "2.00"]]
+          }
+        ]
+      }
+    ],
+    "history": [
+      {
+        "dateTime": "2026-06-03T02:08:00.000",
+        "action": "Amendment 1: Corrected the retained weight following a call with Mason",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-02T01:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-02T01:04:00.000",
+        "action": "Trip submitted via Web",
+        "performedBy": "Mason Carter"
+      },
+      {
+        "dateTime": "2026-06-02T01:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Mason Carter"
+      }
+    ]
   },
   {
     "tripId": "M10013202606010000",
@@ -1249,7 +2302,74 @@
     "status": "submitted",
     "submissionMethod": "automated",
     "createdOn": "2026-06-01T00:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-01T00:00:00.000",
+    "departurePort": "Douglas",
+    "returnPort": "Douglas",
+    "userRole": "Owner (Nominee)",
+    "portCode": "IMDGS",
+    "receivedOn": "2026-06-01T00:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Gillnets (set)",
+          "measurements": "90 mm mesh, 150 m of net hauled, 30 m of net left in the water",
+          "subrectangle": "32F1",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Pollack", "POL", "14.00", "12.00", "1.00", "2.00"],
+            ["Cod", "COD", "9.00", "8.00", "–", "1.00"]
+          ]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-01T00:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-01T00:04:00.000",
+        "action": "Trip submitted via automated service",
+        "performedBy": "Logan Mitchell"
+      },
+      {
+        "dateTime": "2026-06-01T00:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Logan Mitchell"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Gillnets (set)",
+        "measurements": "90 mm mesh, 150 m of net hauled, 30 m of net left in the water",
+        "subrectangle": "32F1",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Pollack", "POL", "14.00", "12.00", "1.00", "2.00"],
+          ["Cod", "COD", "9.00", "8.00", "–", "1.00"]
+        ]
+      }
+    ]
   },
   {
     "tripId": "N10014202606172300",
@@ -1264,7 +2384,74 @@
     "status": "submitted",
     "submissionMethod": "web",
     "createdOn": "2026-06-17T23:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-17T00:00:00.000",
+    "departurePort": "Newlyn",
+    "returnPort": "Newlyn",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GBNLY",
+    "receivedOn": "2026-06-17T23:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Pots",
+          "measurements": "40 pots deployed, 6 pots left in the water",
+          "subrectangle": "30E8",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Edible crab", "CRE", "12.00", "10.00", "1.00", "2.00"],
+            ["European lobster", "LBE", "4.00", "4.00", "–", "–"]
+          ]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-17T23:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-17T23:04:00.000",
+        "action": "Trip submitted via Web",
+        "performedBy": "Charlotte Perez"
+      },
+      {
+        "dateTime": "2026-06-17T23:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Charlotte Perez"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Pots",
+        "measurements": "40 pots deployed, 6 pots left in the water",
+        "subrectangle": "30E8",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Edible crab", "CRE", "12.00", "10.00", "1.00", "2.00"],
+          ["European lobster", "LBE", "4.00", "4.00", "–", "–"]
+        ]
+      }
+    ]
   },
   {
     "tripId": "O10015202606182200",
@@ -1279,7 +2466,68 @@
     "status": "late",
     "submissionMethod": "helpline",
     "createdOn": "2026-06-18T22:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-18T00:00:00.000",
+    "departurePort": "Fraserburgh",
+    "returnPort": "Fraserburgh",
+    "userRole": "Owner (Nominee)",
+    "portCode": "FR",
+    "receivedOn": "2026-06-18T22:08:00.000",
+    "lateSubmission": "Yes",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Handlines and pole lines (hand operated)",
+          "measurements": "2 rods and lines used, 6 hooks left in the water",
+          "subrectangle": "31E9",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Mackerel", "MAC", "18.00", "16.00", "–", "2.00"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-18T22:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-18T22:04:00.000",
+        "action": "Trip submitted via Helpline",
+        "performedBy": "Amelia Rivera"
+      },
+      {
+        "dateTime": "2026-06-18T22:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Amelia Rivera"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Handlines and pole lines (hand operated)",
+        "measurements": "2 rods and lines used, 6 hooks left in the water",
+        "subrectangle": "31E9",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["Mackerel", "MAC", "18.00", "16.00", "–", "2.00"]]
+      }
+    ]
   },
   {
     "tripId": "P10016202606192100",
@@ -1294,7 +2542,74 @@
     "status": "submitted",
     "submissionMethod": "app",
     "createdOn": "2026-06-19T21:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-19T00:00:00.000",
+    "departurePort": "Grimsby",
+    "returnPort": "Grimsby",
+    "userRole": "Owner (Nominee)",
+    "portCode": "GY",
+    "receivedOn": "2026-06-19T21:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Gillnets (set)",
+          "measurements": "90 mm mesh, 150 m of net hauled, 30 m of net left in the water",
+          "subrectangle": "32F1",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Pollack", "POL", "14.00", "12.00", "1.00", "2.00"],
+            ["Cod", "COD", "9.00", "8.00", "–", "1.00"]
+          ]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-19T21:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-19T21:04:00.000",
+        "action": "Trip submitted via App",
+        "performedBy": "Harper Cooper"
+      },
+      {
+        "dateTime": "2026-06-19T21:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Harper Cooper"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Gillnets (set)",
+        "measurements": "90 mm mesh, 150 m of net hauled, 30 m of net left in the water",
+        "subrectangle": "32F1",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [
+          ["Pollack", "POL", "14.00", "12.00", "1.00", "2.00"],
+          ["Cod", "COD", "9.00", "8.00", "–", "1.00"]
+        ]
+      }
+    ]
   },
   {
     "tripId": "Q10017202606202000",
@@ -1309,7 +2624,87 @@
     "status": "amended",
     "submissionMethod": "web",
     "createdOn": "2026-06-20T20:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-20T00:00:00.000",
+    "departurePort": "Lowestoft",
+    "returnPort": "Lowestoft",
+    "userRole": "Owner (Nominee)",
+    "portCode": "LT",
+    "receivedOn": "2026-06-20T20:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "Yes",
+      "gears": [
+        {
+          "name": "Pots",
+          "measurements": "40 pots deployed, 6 pots left in the water",
+          "subrectangle": "30E8",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [
+            ["Edible crab", "CRE", "12.00", "10.00", "1.00", "2.00"],
+            ["European lobster", "LBE", "4.00", "4.00", "–", "–"]
+          ]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [
+      {
+        "number": 1,
+        "dateTime": "2026-06-21T21:08:00.000",
+        "amendedBy": "Lucy Harper",
+        "reason": "Corrected the retained weight following a call with Evelyn.",
+        "retainedCatch": "Yes",
+        "gears": [
+          {
+            "name": "Pots",
+            "measurements": "40 pots deployed, 6 pots left in the water",
+            "subrectangle": "30E8",
+            "columns": [
+              "Species",
+              "FAO code",
+              "Weight (kg)",
+              "Retained weight (kg)",
+              "Weight below minimum size (kg)",
+              "Weight discarded (kg)"
+            ],
+            "rows": [
+              ["Edible crab", "CRE", "12.00", "11.00", "1.00", "2.00"],
+              ["European lobster", "LBE", "4.00", "4.00", "–", "–"]
+            ]
+          }
+        ]
+      }
+    ],
+    "history": [
+      {
+        "dateTime": "2026-06-21T21:08:00.000",
+        "action": "Amendment 1: Corrected the retained weight following a call with Evelyn",
+        "performedBy": "Lucy Harper"
+      },
+      {
+        "dateTime": "2026-06-20T20:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-20T20:04:00.000",
+        "action": "Trip submitted via Web",
+        "performedBy": "Evelyn Reed"
+      },
+      {
+        "dateTime": "2026-06-20T20:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Evelyn Reed"
+      }
+    ]
   },
   {
     "tripId": "R10018202606211900",
@@ -1324,6 +2719,67 @@
     "status": "submitted",
     "submissionMethod": "automated",
     "createdOn": "2026-06-21T19:00:00.000",
-    "hasProfile": false
+    "hasProfile": true,
+    "tripStartDate": "2026-06-21T00:00:00.000",
+    "departurePort": "Milford Haven",
+    "returnPort": "Milford Haven",
+    "userRole": "Owner (Nominee)",
+    "portCode": "MH",
+    "receivedOn": "2026-06-21T19:08:00.000",
+    "lateSubmission": "No",
+    "original": {
+      "retainedCatch": "No",
+      "gears": [
+        {
+          "name": "Handlines and pole lines (hand operated)",
+          "measurements": "2 rods and lines used, 6 hooks left in the water",
+          "subrectangle": "31E9",
+          "columns": [
+            "Species",
+            "FAO code",
+            "Weight (kg)",
+            "Retained weight (kg)",
+            "Weight below minimum size (kg)",
+            "Weight discarded (kg)"
+          ],
+          "rows": [["Mackerel", "MAC", "18.00", "16.00", "–", "2.00"]]
+        }
+      ]
+    },
+    "notes": [],
+    "amendments": [],
+    "history": [
+      {
+        "dateTime": "2026-06-21T19:08:00.000",
+        "action": "Trip received",
+        "performedBy": "System"
+      },
+      {
+        "dateTime": "2026-06-21T19:04:00.000",
+        "action": "Trip submitted via automated service",
+        "performedBy": "Abigail Bailey"
+      },
+      {
+        "dateTime": "2026-06-21T19:00:00.000",
+        "action": "Trip created",
+        "performedBy": "Abigail Bailey"
+      }
+    ],
+    "gears": [
+      {
+        "name": "Handlines and pole lines (hand operated)",
+        "measurements": "2 rods and lines used, 6 hooks left in the water",
+        "subrectangle": "31E9",
+        "columns": [
+          "Species",
+          "FAO code",
+          "Weight (kg)",
+          "Retained weight (kg)",
+          "Weight below minimum size (kg)",
+          "Weight discarded (kg)"
+        ],
+        "rows": [["Mackerel", "MAC", "18.00", "16.00", "–", "2.00"]]
+      }
+    ]
   }
 ]

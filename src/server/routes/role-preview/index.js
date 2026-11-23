@@ -7,7 +7,7 @@ import {
 
 /**
  * Prototype helper: switches the signed-in user's role so role-based views
- * can be previewed. Per-role permissions are still to be agreed (brief §8.10).
+ * can be previewed. Permissions follow the prototype (see permissions.js).
  */
 export const rolePreview = {
   plugin: {

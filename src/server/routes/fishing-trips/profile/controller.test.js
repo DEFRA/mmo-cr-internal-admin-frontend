@@ -89,20 +89,14 @@ describe('#fishingTripProfile', () => {
     )
   })
 
-  test('Should return not found for unknown trips, trips without a profile and missing amendments', async () => {
+  test('Should return not found for unknown trips and missing amendments', async () => {
     const statuses = await Promise.all(
-      [
-        '/fishing-trips/Z99999',
-        '/fishing-trips/A12345202606171701',
-        `${AMENDED}?version=amendment-9`
-      ].map(async (url) => (await agent.get(url)).statusCode)
+      ['/fishing-trips/Z99999', `${AMENDED}?version=amendment-9`].map(
+        async (url) => (await agent.get(url)).statusCode
+      )
     )
 
-    expect(statuses).toEqual([
-      statusCodes.notFound,
-      statusCodes.notFound,
-      statusCodes.notFound
-    ])
+    expect(statuses).toEqual([statusCodes.notFound, statusCodes.notFound])
   })
 
   test('Should add a numbered note at the top and record it in the history', async () => {
@@ -130,5 +124,62 @@ describe('#fishingTripProfile', () => {
     expect(versions).toHaveLength(4)
     expect(versions.join('|')).toContain('Original')
     expect(versions.join('|')).toContain('Amendment 3')
+  })
+
+  test('Should record the vessel being removed from the trip creator in History', async () => {
+    await agent.post('/users/1237/vessels/remove', { vessel: 'sea-otter' })
+    const $ = load(
+      (await agent.get('/fishing-trips/C34245202608171402')).result
+    )
+
+    expect(
+      $('[data-testid="trip-history"] tbody tr:first-child td:nth-child(2)')
+        .text()
+        .trim()
+    ).toBe('Vessel removed')
+  })
+
+  test('Should show vessel and user details in their own tabs', async () => {
+    const $ = load(
+      (await agent.get('/fishing-trips/J12345202608301410')).result
+    )
+    const text = (selector) =>
+      $(selector)
+        .map((_i, el) => $(el).text().trim())
+        .get()
+
+    expect(
+      text('[data-testid="trip-information"] .govuk-summary-list__key')
+    ).toEqual([
+      'Status',
+      'PLN',
+      'Trip start date',
+      'Trip end date',
+      'Retained catch',
+      'Admin port',
+      'Port code',
+      'Created on',
+      'Received on',
+      'Late submission',
+      'Submission method'
+    ])
+    expect($('.govuk-details')).toHaveLength(0)
+    expect(text('.govuk-tabs__tab')).toEqual([
+      'Catch breakdown',
+      'Vessel',
+      'User',
+      'History',
+      'Notes'
+    ])
+    expect(text('[data-testid="trip-vessel"] tbody td')).toEqual([
+      'Northern Star',
+      'PZ45',
+      'Newlyn',
+      'Newlyn'
+    ])
+    expect(text('[data-testid="trip-user"] tbody td')).toEqual([
+      'Alice Wilson',
+      'Owner (Nominee)'
+    ])
   })
 })

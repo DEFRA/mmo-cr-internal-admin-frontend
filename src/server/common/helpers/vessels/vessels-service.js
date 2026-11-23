@@ -79,10 +79,12 @@ export function linkableUsers(store, vessel) {
  */
 export function filterVesselTrips(
   trips,
-  { date, user = '', status = [] } = {}
+  { from, to, user = '', status = [] } = {}
 ) {
   return trips.filter((trip) => {
-    if (date && trip.endDate.slice(0, 10) !== date) return false
+    const endDate = trip.endDate.slice(0, 10)
+    if (from && endDate < from) return false
+    if (to && endDate > to) return false
     if (user.trim() && !contains(trip.user, user.trim())) return false
     if (status.length && !status.includes(trip.status)) return false
     return true
