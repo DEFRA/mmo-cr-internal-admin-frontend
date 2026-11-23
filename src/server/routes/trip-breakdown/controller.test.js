@@ -26,7 +26,7 @@ describe('#tripBreakdown', () => {
     await server.stop({ timeout: 0 })
   })
 
-  test('Should list catch entries 10 per page and link trips that have details', async () => {
+  test('Should list catch entries 10 per page and link every trip ID', async () => {
     const { result, statusCode } = await agent.get('/trip-breakdown')
     const $ = load(result)
 
@@ -38,12 +38,14 @@ describe('#tripBreakdown', () => {
       species(load((await agent.get('/trip-breakdown?page=5')).result))
     ).toHaveLength(2)
 
-    const unlinked = load(
+    const other = load(
       (await agent.get('/trip-breakdown?s=A12345202606171701')).result
     )
-    expect(unlinked('[data-testid="breakdown-table"] tbody a')).toHaveLength(0)
     expect(
-      unlinked('[data-testid="breakdown-table"] tbody td:last-child')
+      other('[data-testid="breakdown-table"] tbody a').first().attr('href')
+    ).toBe('/fishing-trips/A12345202606171701')
+    expect(
+      other('[data-testid="breakdown-table"] tbody td:last-child')
         .first()
         .text()
     ).toBe('–')

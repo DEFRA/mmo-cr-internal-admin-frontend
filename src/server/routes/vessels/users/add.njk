@@ -29,14 +29,15 @@
           errorMessage: { text: fieldErrors["user-id"] } if fieldErrors["user-id"]
         }) }}
 
+        {% set roleItems = [] %}
+        {% for role in roles %}
+          {% set roleItems = (roleItems.push({ value: role, text: role, checked: values.role == role or roles.length == 1 }), roleItems) %}
+        {% endfor %}
         {{ govukRadios({
           name: "role",
           idPrefix: "role",
           fieldset: { legend: { text: "User role", classes: "govuk-fieldset__legend--s" } },
-          items: [
-            { value: roles[0], text: roles[0], checked: values.role == roles[0] },
-            { value: roles[1], text: roles[1], checked: values.role == roles[1] }
-          ],
+          items: roleItems,
           errorMessage: { text: fieldErrors.role } if fieldErrors.role
         }) }}
 

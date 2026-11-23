@@ -23,7 +23,9 @@
             <td class="govuk-table__cell">{{ version.dateTime | formatDate("d MMMM yyyy, HH:mm") }}</td>
             <td class="govuk-table__cell">{{ version.by }}</td>
             <td class="govuk-table__cell">{{ version.reason }}</td>
-            <td class="govuk-table__cell"><a class="govuk-link" href="/fishing-trips/{{ trip.tripId }}/pdf">Download PDF<span class="govuk-visually-hidden"> for {{ version.label }}</span></a></td>
+            <td class="govuk-table__cell">
+              {% if permissions.exportData %}<a class="govuk-link" href="/fishing-trips/{{ trip.tripId }}/pdf">Download PDF<span class="govuk-visually-hidden"> for {{ version.label }}</span></a>{% endif %}
+            </td>
           </tr>
         {% endfor %}
       </tbody>

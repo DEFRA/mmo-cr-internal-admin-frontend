@@ -3,7 +3,9 @@
 {% block content %}
   <h1 class="govuk-heading-xl">Users</h1>
 
+  {% if permissions.manageUsers %}
   {{ govukButton({ text: "Create a new user", href: "/users/create" }) }}
+  {% endif %}
 
   {{ appListSearch({
     action: "/users",

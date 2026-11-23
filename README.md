@@ -86,7 +86,7 @@ and a mock sign-in ([ADR 0001](docs/adr/0001-mock-sign-in-and-session-mock-data.
   deactivate, add or remove a vessel, notes), the **Vessels** section (list with
   search, filters, pagination and CSV export, vessel profile with Users, Fishing
   trips, History and Notes tabs, add or remove a user) and the **Fishing trips**
-  section (list with search, date range and other filters, trip details with Catch
+  section (list with search, date range and other filters and CSV export, trip details with Catch
   breakdown, History and Notes tabs, original and amended versions, version history)
   and the **Trip breakdown** page (catch by species with search, filters, pagination
   and CSV export) and the **Audit log** (search, date, staff member and record type
@@ -94,8 +94,16 @@ and a mock sign-in ([ADR 0001](docs/adr/0001-mock-sign-in-and-session-mock-data.
   update the service message).
 - The trip details layout **Archive** page lists the earlier layout options; each
   opens the current trip details page, as the archived variants are not built.
-  **Option 1** opens the example trip with its Pots and Trammel net gears only, and
-  **Option 2** does the same with "Other trip information" shown in the main list.
+  **Option 1** opens the example trip in layout A (as-is) with its Pots and Trammel net gears only. Trip details pages otherwise show Vessel and User tabs, as in the prototype.
+  **Option 2 (two-column information)** shows trip details and record status side by side (`?layout=two-column`).
+  **Option 3 (hybrid)** shows a compact trip summary, the catch breakdown as the
+  main content and History and Notes in tabs below (`?layout=hybrid`).
+- Role-based access follows the prototype
+  (`src/server/common/helpers/admin-auth/permissions.js`): navigation, actions and
+  pages are limited by role, and blocked pages redirect to Users. Switch roles with
+  `/role-preview/{role-key}` (for example `/role-preview/full-ops`).
+- List pages remember their search, filters and page, so "Back to ..." links from
+  a user, vessel or trip return to the same results.
 - Deactivated users can be reactivated from their profile (their previous status is
   restored).
 - Amend catch recording, Download PDF and Access catch recording show a "not

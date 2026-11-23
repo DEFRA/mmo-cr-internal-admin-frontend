@@ -1,6 +1,6 @@
 import Joi from 'joi'
 
-import { listController } from './list/controller.js'
+import { exportController, listController } from './list/controller.js'
 import { profileController } from './profile/controller.js'
 import { versionsController } from './versions/controller.js'
 import { notesPostController } from './notes/controller.js'
@@ -27,6 +27,11 @@ export const fishingTrips = {
     register(server) {
       server.route([
         { method: 'GET', path: '/fishing-trips', ...listController },
+        {
+          method: 'GET',
+          path: '/fishing-trips/export',
+          ...exportController
+        },
         withTrip('GET', '/fishing-trips/{tripId}', profileController),
         withTrip('GET', '/fishing-trips/{tripId}/versions', versionsController),
         withTrip('POST', '/fishing-trips/{tripId}/notes', notesPostController)

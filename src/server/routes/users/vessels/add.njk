@@ -17,7 +17,7 @@
           name: "vessel",
           classes: "govuk-!-width-one-half",
           label: { text: "Vessel", classes: "govuk-label--s" },
-          hint: { text: "Search by vessel name, PLN or RSS number." },
+          hint: { text: "Search by vessel name, PLN (vessel reference) or RSS number." },
           items: vesselOptions | toSelectItems(values.vessel, ""),
           formGroup: { classes: "app-autocomplete--one-half" },
           attributes: { "data-module": "app-autocomplete", "data-result-noun": "vessels" },

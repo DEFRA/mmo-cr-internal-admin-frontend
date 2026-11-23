@@ -1,7 +1,18 @@
 {% extends 'layouts/page.njk' %}
 
 {% block content %}
-  {{ appPageHeading({ caption: caption, text: "Trip " + trip.tripId }) }}
+  {% set amendButton %}
+    {% if permissions.amendCatch %}
+      {{ govukButton({ text: "Amend catch recording", href: "/fishing-trips/" + trip.tripId + "/amend", isStartButton: true }) }}
+    {% endif %}
+  {% endset %}
+
+  {# Layout testing Option 2 (two-column information) has a hidden heading and the action first #}
+  {% if twoColumnLayout %}
+    <h1 class="govuk-visually-hidden">Trip details</h1>
+  {% else %}
+    {{ appPageHeading({ caption: caption, text: "Trip " + trip.tripId }) }}
+  {% endif %}
 
   {% if notice %}
     <div class="govuk-inset-text app-inset-text--profile" data-testid="trip-version-notice">
@@ -12,6 +23,8 @@
       {% endif %}
     </div>
   {% endif %}
+
+  {% if twoColumnLayout %}{{ amendButton | safe }}{% endif %}
 
   <h2 class="govuk-heading-m">Trip information</h2>
 
@@ -47,12 +60,66 @@
     {% set otherRows = otherRows.concat([{ key: { text: "Amendment reason" }, value: { text: view.amendment.reason } }]) %}
   {% endif %}
 
-  {# Layout testing Option 2 shows all the trip information in one list #}
-  {% if showAllInformation %}
+  {#
+    Layout testing Option 3 (hybrid): a compact summary of all the trip
+    information, the catch breakdown as the main content and History and
+    Notes in tabs below. Option 2 shows trip details and record status in two
+    columns.
+  #}
+  {% if hybridLayout %}
+    <dl class="app-trip-summary" data-testid="trip-information">
+      {% for row in mainRows.concat(otherRows) %}
+        <div class="app-trip-summary__item">
+          <dt class="app-trip-summary__key">{{ row.key.text }}</dt>
+          <dd class="app-trip-summary__value">{% if row.value.html %}{{ row.value.html | safe }}{% else %}{{ row.value.text }}{% endif %}</dd>
+        </div>
+      {% endfor %}
+    </dl>
+  {% elif twoColumnLayout %}
+    {% set tripColumn = [
+      { key: { text: "Trip ID" }, value: { text: trip.tripId } },
+      { key: { text: "Vessel name" }, value: { html: vesselHtml } },
+      { key: { text: "PLN" }, value: { text: trip.pln } },
+      { key: { text: "Created by" }, value: { html: creatorHtml } },
+      { key: { text: "User role" }, value: { text: trip.userRole } },
+      { key: { text: "Departure date" }, value: { text: trip.tripStartDate | formatDate("d MMMM yyyy") } },
+      { key: { text: "Departure port" }, value: { text: trip.departurePort } },
+      { key: { text: "Return date" }, value: { text: trip.tripEndDate | formatDate("d MMMM yyyy") } },
+      { key: { text: "Return port" }, value: { text: trip.returnPort } }
+    ] %}
+    {% set statusColumn = [
+      { key: { text: "Status" }, value: { html: govukTag(view.status | tripStatusTag) } },
+      { key: { text: "Created on" }, value: { text: trip.createdOn | formatDate("d MMMM yyyy, HH:mm") } },
+      { key: { text: "Received on" }, value: { text: trip.receivedOn | formatDate("d MMMM yyyy, HH:mm") } },
+      { key: { text: "Submission method" }, value: { text: methodLabel } },
+      { key: { text: "Amended" }, value: { text: "Yes" if hasAmendments else "No" } },
+      { key: { text: "Retained catch" }, value: { text: view.retainedCatch } },
+      { key: { text: "Admin port" }, value: { text: trip.adminPort } },
+      { key: { text: "Admin port code" }, value: { text: trip.portCode } }
+    ] %}
+    {% if view.amendment %}
+      {% set statusColumn = statusColumn.concat([{ key: { text: "Amendment reason" }, value: { text: view.amendment.reason } }]) %}
+    {% endif %}
+    <div class="govuk-grid-row" data-testid="trip-information">
+      <div class="govuk-grid-column-one-half">
+        {{ govukSummaryList({ classes: "govuk-!-margin-bottom-9 app-summary-list--profile", rows: tripColumn }) }}
+      </div>
+      <div class="govuk-grid-column-one-half">
+        {{ govukSummaryList({ classes: "govuk-!-margin-bottom-9 app-summary-list--profile", rows: statusColumn }) }}
+      </div>
+    </div>
+  {% elif tabbedLayout %}
+    {# Current layout: vessel and user details are in their own tabs #}
+    {% set tripRows = [
+      mainRows[0],
+      { key: { text: "PLN" }, value: { text: trip.pln } },
+      { key: { text: "Trip start date" }, value: { text: trip.tripStartDate | formatDate("d MMMM yyyy") } },
+      { key: { text: "Trip end date" }, value: { text: trip.tripEndDate | formatDate("d MMMM yyyy") } }
+    ] %}
     {{ govukSummaryList({
       classes: "govuk-!-margin-bottom-9 app-summary-list--profile",
       attributes: { "data-testid": "trip-information" },
-      rows: mainRows.concat(otherRows)
+      rows: tripRows.concat(otherRows)
     }) }}
   {% else %}
     {{ govukSummaryList({
@@ -67,7 +134,7 @@
     {{ govukDetails({ summaryText: "Other trip information", html: otherHtml }) }}
   {% endif %}
 
-  {{ govukButton({ text: "Amend catch recording", href: "/fishing-trips/" + trip.tripId + "/amend", isStartButton: true }) }}
+  {% if not twoColumnLayout %}{{ amendButton | safe }}{% endif %}
 
   {% set catchHtml %}
     <h2 class="govuk-heading-l">Catch breakdown</h2>
@@ -120,9 +187,51 @@
     {% if historyPagination %}
       {{ govukPagination(historyPagination | assign({ landmarkLabel: "History pagination" })) }}
     {% endif %}
+    {% if permissions.auditLog %}
     <p class="govuk-body">
       <a class="govuk-link" href="/audit-log?s={{ trip.tripId }}">View all history for this trip</a>
     </p>
+    {% endif %}
+  {% endset %}
+
+  {% set vesselTabHtml %}
+    <h2 class="govuk-heading-l">Vessel</h2>
+    <table class="govuk-table" data-testid="trip-vessel">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Vessel</th>
+          <th scope="col" class="govuk-table__header">PLN</th>
+          <th scope="col" class="govuk-table__header">Departure port</th>
+          <th scope="col" class="govuk-table__header">Return port</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ vesselHtml | safe }}</td>
+          <td class="govuk-table__cell">{{ trip.pln }}</td>
+          <td class="govuk-table__cell">{{ trip.departurePort }}</td>
+          <td class="govuk-table__cell">{{ trip.returnPort }}</td>
+        </tr>
+      </tbody>
+    </table>
+  {% endset %}
+
+  {% set userTabHtml %}
+    <h2 class="govuk-heading-l">User</h2>
+    <table class="govuk-table" data-testid="trip-user">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Role</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ creatorHtml | safe }}</td>
+          <td class="govuk-table__cell">{{ trip.userRole }}</td>
+        </tr>
+      </tbody>
+    </table>
   {% endset %}
 
   {% set notesHtml %}
@@ -138,14 +247,38 @@
     }) }}
   {% endset %}
 
-  {{ govukTabs({
-    classes: "app-profile-tabs app-profile-tabs--tight",
-    items: [
-      { label: "Catch breakdown", id: "catch-breakdown", panel: { html: catchHtml } },
-      { label: "History", id: "history", panel: { html: historyHtml } },
-      { label: "Notes", id: "notes", panel: { html: notesHtml } }
-    ]
-  }) }}
+  {% if hybridLayout %}
+    <section class="app-trip-catch" id="catch-breakdown" data-testid="trip-catch-breakdown">
+      {{ catchHtml | safe }}
+    </section>
+    {{ govukTabs({
+      classes: "app-profile-tabs",
+      items: [
+        { label: "History", id: "history", panel: { html: historyHtml } },
+        { label: "Notes", id: "notes", panel: { html: notesHtml } }
+      ]
+    }) }}
+  {% elif tabbedLayout %}
+    {{ govukTabs({
+      classes: "app-profile-tabs app-profile-tabs--tight",
+      items: [
+        { label: "Catch breakdown", id: "catch-breakdown", panel: { html: catchHtml } },
+        { label: "Vessel", id: "vessel", panel: { html: vesselTabHtml } },
+        { label: "User", id: "user", panel: { html: userTabHtml } },
+        { label: "History", id: "history", panel: { html: historyHtml } },
+        { label: "Notes", id: "notes", panel: { html: notesHtml } }
+      ]
+    }) }}
+  {% else %}
+    {{ govukTabs({
+      classes: "app-profile-tabs app-profile-tabs--tight",
+      items: [
+        { label: "Catch breakdown", id: "catch-breakdown", panel: { html: catchHtml } },
+        { label: "History", id: "history", panel: { html: historyHtml } },
+        { label: "Notes", id: "notes", panel: { html: notesHtml } }
+      ]
+    }) }}
+  {% endif %}
 
   <div class="app-tab-actions" data-testid="trip-actions">
     {% if view.kind != "original" %}
@@ -154,6 +287,8 @@
     {% if hasAmendments %}
       {{ govukButton({ text: "View amended records", href: "/fishing-trips/" + trip.tripId + "/versions", classes: "govuk-button--secondary" }) }}
     {% endif %}
+    {% if permissions.exportData %}
     {{ govukButton({ text: "Download PDF", href: "/fishing-trips/" + trip.tripId + "/pdf", classes: "govuk-button--secondary" }) }}
+    {% endif %}
   </div>
 {% endblock %}

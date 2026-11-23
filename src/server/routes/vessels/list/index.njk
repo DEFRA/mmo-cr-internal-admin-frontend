@@ -3,7 +3,9 @@
 {% block content %}
   <h1 class="govuk-heading-xl">Vessels</h1>
 
+  {% if permissions.exportData %}
   {{ govukButton({ text: "Export vessel data", href: exportHref, classes: "govuk-button--secondary" }) }}
+  {% endif %}
 
   {{ appListSearch({
     action: "/vessels",

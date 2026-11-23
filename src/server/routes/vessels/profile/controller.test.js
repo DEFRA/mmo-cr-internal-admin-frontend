@@ -61,7 +61,7 @@ describe('#vesselProfile', () => {
     const byDate = load(
       (
         await agent.get(
-          '/vessels/northern-star?trip-end-date-day=20&trip-end-date-month=8&trip-end-date-year=2026'
+          '/vessels/northern-star?trip-end-date-from-day=20&trip-end-date-from-month=8&trip-end-date-from-year=2026&trip-end-date-to-day=20&trip-end-date-to-month=8&trip-end-date-to-year=2026'
         )
       ).result
     )
@@ -75,7 +75,7 @@ describe('#vesselProfile', () => {
     expect(rows(byStatus, 'vessel-trips')).toEqual([
       '14 June 2026 A12345202606151302 John Smith Amended'
     ])
-    expect(byDate('#trip-trip-end-date-day').val()).toBe('20')
+    expect(byDate('#trip-trip-end-date-from-day').val()).toBe('20')
   })
 
   test('Should page the history 5 rows at a time', async () => {

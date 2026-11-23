@@ -19,13 +19,17 @@ import {
   buildPagination,
   paginate
 } from '#/server/common/helpers/forms/pagination.js'
+import { listHref } from '#/server/common/helpers/search-state.js'
 
 const datePart = Joi.string().trim().allow('').max(4).default('')
 
 const querySchema = Joi.object({
-  'trip-end-date-day': datePart,
-  'trip-end-date-month': datePart,
-  'trip-end-date-year': datePart,
+  'trip-end-date-from-day': datePart,
+  'trip-end-date-from-month': datePart,
+  'trip-end-date-from-year': datePart,
+  'trip-end-date-to-day': datePart,
+  'trip-end-date-to-month': datePart,
+  'trip-end-date-to-year': datePart,
   user: Joi.string().trim().allow('').max(100).default(''),
   status: Joi.array()
     .items(Joi.string().valid(...TRIP_STATUSES.map((status) => status.value)))
@@ -34,13 +38,19 @@ const querySchema = Joi.object({
   'history-page': Joi.number().integer().min(1).default(1)
 })
 
-function tripFilterGroups(query, date) {
+const datePartsFrom = (query, prefix) => ({
+  day: query[`${prefix}-day`],
+  month: query[`${prefix}-month`],
+  year: query[`${prefix}-year`]
+})
+
+function tripFilterGroups(query, range) {
   return [
     {
-      type: 'date',
+      type: 'date-range',
       name: 'trip-end-date',
       legend: 'Trip end date',
-      value: date
+      value: range
     },
     { type: 'text', name: 'user', legend: 'User', value: query.user },
     {
@@ -67,13 +77,13 @@ export const profileController = {
     const { store, vessel } = loadVessel(request)
     const { query } = request
 
-    const date = {
-      day: query['trip-end-date-day'],
-      month: query['trip-end-date-month'],
-      year: query['trip-end-date-year']
+    const range = {
+      from: datePartsFrom(query, 'trip-end-date-from'),
+      to: datePartsFrom(query, 'trip-end-date-to')
     }
     const trips = filterVesselTrips(vessel.trips, {
-      date: toIsoDate(date),
+      from: toIsoDate(range.from),
+      to: toIsoDate(range.to),
       user: query.user,
       status: query.status
     })
@@ -86,7 +96,10 @@ export const profileController = {
 
     return h.view('vessels/profile/index', {
       pageTitle: vessel.name,
-      backLink: { text: 'Back to vessels', href: '/vessels' },
+      backLink: {
+        text: 'Back to vessels',
+        href: listHref(request, '/vessels')
+      },
       vessel,
       statusText: vesselStatusLabel(vessel.status),
       users: vesselUsers(store, vessel),
@@ -96,7 +109,7 @@ export const profileController = {
         .map((trip) => trip.tripId),
       tripFilters: {
         idPrefix: 'trip',
-        groups: tripFilterGroups(query, date),
+        groups: tripFilterGroups(query, range),
         clearHref: vesselPath(vessel.id, '#fishing-trips')
       },
       history: history.items,

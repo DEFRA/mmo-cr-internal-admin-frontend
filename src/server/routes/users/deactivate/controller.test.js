@@ -36,7 +36,7 @@ describe('#deactivateUser', () => {
     expect($('[data-testid="app-success-banner"]').text()).toContain(
       'Paul Smith can no longer access the service. Their records have been kept.'
     )
-    expect($('.govuk-tag').text().trim()).toBe('Deactivated')
+    expect($('.govuk-tag').first().text().trim()).toBe('Deactivated')
     expect($('a[href="/users/1236/reactivate"]').text()).toBe('Reactivate user')
   })
 

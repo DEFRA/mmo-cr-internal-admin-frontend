@@ -41,7 +41,7 @@ describe('#tripLayoutsArchive', () => {
 
     expect(statusCode).toBe(statusCodes.found)
     expect(headers.location).toBe(
-      '/fishing-trips/C34245202608171402?gear-example=pots-trammel'
+      '/fishing-trips/C34245202608171402?gear-example=pots-trammel&layout=a'
     )
     expect(
       $('#catch-breakdown h3')
@@ -51,20 +51,55 @@ describe('#tripLayoutsArchive', () => {
     expect($('[data-testid="catch-table"]')).toHaveLength(2)
   })
 
-  test('Should open Option 2 with all the trip information in one list', async () => {
+  test('Should open Option 2 with trip details and status in two columns', async () => {
     const agent = await createAgent(server).signIn()
     const { headers } = await agent.get('/trip-layouts/option-2')
     const $ = load((await agent.get(headers.location)).result)
-    const keys = $('[data-testid="trip-information"] .govuk-summary-list__key')
-      .map((_i, el) => $(el).text().trim())
+    const columns = $(
+      '[data-testid="trip-information"] .govuk-grid-column-one-half'
+    )
+      .map((_i, el) =>
+        $(el)
+          .find('.govuk-summary-list__key')
+          .map((_j, key) => $(key).text().trim())
+          .get()
+          .join('|')
+      )
       .get()
 
     expect(headers.location).toBe(
-      '/fishing-trips/C34245202608171402?gear-example=pots-trammel&information=all'
+      '/fishing-trips/C34245202608171402?layout=two-column'
     )
-    expect(keys).toHaveLength(16)
-    expect(keys.slice(-2)).toEqual(['Late submission', 'Submission method'])
-    expect($('.govuk-details')).toHaveLength(0)
-    expect($('[data-testid="catch-table"]')).toHaveLength(2)
+    expect($('h1').text()).toBe('Trip details')
+    expect($('h1').hasClass('govuk-visually-hidden')).toBe(true)
+    expect(columns).toEqual([
+      'Trip ID|Vessel name|PLN|Created by|User role|Departure date|Departure port|Return date|Return port',
+      'Status|Created on|Received on|Submission method|Amended|Retained catch|Admin port|Admin port code'
+    ])
+    expect($('[data-testid="catch-table"]')).toHaveLength(3)
+  })
+
+  test('Should show the hybrid layout for option 3', async () => {
+    const agent = await createAgent(server).signIn()
+    const redirect = await agent.get('/trip-layouts/option-3')
+    const $ = load(
+      (await agent.get('/fishing-trips/C34245202608171402?layout=hybrid'))
+        .result
+    )
+
+    expect(redirect.headers.location).toBe(
+      '/fishing-trips/C34245202608171402?layout=hybrid'
+    )
+    expect($('.app-trip-summary__key').first().text()).toBe('Status')
+    expect($('.app-trip-summary__key').text()).toContain('Admin port')
+    expect(
+      $('[data-testid="trip-catch-breakdown"] [data-testid="catch-table"]')
+        .length
+    ).toBeGreaterThan(0)
+    expect(
+      $('.govuk-tabs__tab')
+        .map((_i, el) => $(el).text().trim())
+        .get()
+    ).toEqual(['History', 'Notes'])
   })
 })

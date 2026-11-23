@@ -26,7 +26,7 @@ describe('#fishingTripsList', () => {
     await server.stop({ timeout: 0 })
   })
 
-  test('Should list trips 10 per page and only link trips with a profile', async () => {
+  test('Should list trips 10 per page and link every trip ID', async () => {
     const { result, statusCode } = await agent.get('/fishing-trips')
     const $ = load(result)
 
@@ -36,7 +36,9 @@ describe('#fishingTripsList', () => {
     expect($('a[href="/fishing-trips/J12345202608301410"]').text().trim()).toBe(
       'J12345202608301410'
     )
-    expect($('a[href="/fishing-trips/A12345202606171701"]')).toHaveLength(0)
+    expect(
+      $('[data-testid="trips-table"] tbody td:nth-child(2) a')
+    ).toHaveLength(10)
     expect(
       tripIds(load((await agent.get('/fishing-trips?page=4')).result))
     ).toHaveLength(2)
@@ -95,6 +97,41 @@ describe('#fishingTripsList', () => {
 
     expect($('[data-testid="trips-empty"]').text()).toBe(
       'No fishing trips match your filters.'
+    )
+  })
+
+  test('Should filter by admin port and RSS number', async () => {
+    const $ = load(
+      (await agent.get('/fishing-trips?admin-port=hastings&rss=X10010')).result
+    )
+
+    expect(tripIds($).sort()).toEqual([
+      'C34245202608171402',
+      'I10009202606050400'
+    ])
+    expect($('input[name="admin-port"]').val()).toBe('hastings')
+  })
+
+  test('Should export the filtered trips with admin port, RSS and user role', async () => {
+    const { result, headers } = await agent.get(
+      '/fishing-trips/export?admin-port=hastings&rss=X10010'
+    )
+    const [header, ...rows] = result.trim().split(/\r?\n/)
+
+    expect(headers['content-type']).toContain('text/csv')
+    expect(header).toContain('RSS,Admin port,Created by,User role')
+    expect(rows).toHaveLength(2)
+    expect(result).toContain('X10010,Hastings,Frank Castle,Owner (Nominee)')
+  })
+
+  test('Should keep the search for the back link from a trip', async () => {
+    await agent.get('/fishing-trips?admin-port=hastings&page=1')
+    const $ = load(
+      (await agent.get('/fishing-trips/C34245202608171402')).result
+    )
+
+    expect($('.govuk-back-link').attr('href')).toBe(
+      '/fishing-trips?admin-port=hastings&page=1'
     )
   })
 })

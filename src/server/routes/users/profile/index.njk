@@ -20,6 +20,7 @@
 
   {% set statusHtml %}
     {{ govukTag(user.status | userStatusTag) }}
+    {% if permissions.deactivateUsers %}
     <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">
       {% if user.status == "deactivated" %}
         <a class="govuk-link" href="/users/{{ user.id }}/reactivate">Reactivate user</a>
@@ -27,6 +28,7 @@
         <a class="govuk-link" href="/users/{{ user.id }}/deactivate">Deactivate user</a>
       {% endif %}
     </p>
+    {% endif %}
   {% endset %}
 
   {% set rows = [
@@ -52,23 +54,29 @@
 
   {{ govukSummaryList({ rows: rows, classes: "app-summary-list--profile" }) }}
 
-  {{ govukButton({ text: "Amend user", href: "/users/" + user.id + "/amend", classes: "govuk-button--secondary" }) }}
-  <div>
-    {{ govukButton({ text: "Access catch recording", href: "/users/" + user.id + "/access-catch-recording", isStartButton: true }) }}
-  </div>
+  {% if permissions.manageUsers %}
+    {{ govukButton({ text: "Amend user", href: "/users/" + user.id + "/amend", classes: "govuk-button--secondary" }) }}
+  {% endif %}
+  {% if permissions.accessCatchRecording %}
+    <div>
+      {{ govukButton({ text: "Access catch recording", href: "/users/" + user.id + "/access-catch-recording", isStartButton: true }) }}
+    </div>
+  {% endif %}
 
   {% set vesselsHtml %}
     <h2 class="govuk-heading-l">Vessels</h2>
+    {% if permissions.linkVessels %}
     <div class="govuk-button-group">
       {{ govukButton({ text: "Add a vessel", href: "/users/" + user.id + "/vessels/add" }) }}
       {{ govukButton({ text: "Remove a vessel", href: "/users/" + user.id + "/vessels/remove", classes: "govuk-button--warning" }) }}
     </div>
+    {% endif %}
     {% if vessels.length %}
       <table class="govuk-table" data-testid="user-vessels">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Vessel</th>
-            <th scope="col" class="govuk-table__header">Vessel reference</th>
+            <th scope="col" class="govuk-table__header">Vessel reference (PLN)</th>
             <th scope="col" class="govuk-table__header">User role</th>
             <th scope="col" class="govuk-table__header">Linked on</th>
           </tr>
@@ -91,7 +99,32 @@
 
   {% set tripsHtml %}
     <h2 class="govuk-heading-l">Fishing trips</h2>
-    <p class="govuk-body">No fishing trips recorded for this user.</p>
+    {% if trips.length %}
+      <table class="govuk-table" data-testid="user-trips">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Trip end date</th>
+            <th scope="col" class="govuk-table__header">Trip ID</th>
+            <th scope="col" class="govuk-table__header">Vessel</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for trip in trips %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{ trip.tripEndDate | formatDate("d MMMM yyyy") }}</td>
+              <td class="govuk-table__cell">
+                {% if trip.hasProfile %}<a class="govuk-link" href="/fishing-trips/{{ trip.tripId }}">{{ trip.tripId }}</a>{% else %}{{ trip.tripId }}{% endif %}
+              </td>
+              <td class="govuk-table__cell">{{ trip.vesselName }}</td>
+              <td class="govuk-table__cell">{{ govukTag(trip.status | tripStatusTag) }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="govuk-body">No fishing trips recorded for this user.</p>
+    {% endif %}
     <p class="govuk-body">
       <a class="govuk-link" href="/fishing-trips?created-by={{ user.fullName | urlencode }}">View all fishing trips for {{ user.fullName }}</a>
     </p>
@@ -129,6 +162,7 @@
       action: "/users/" + user.id + "/notes",
       crumb: crumb,
       notes: user.notes,
+      readOnly: not permissions.userNotes,
       emptyText: "No notes recorded for this user."
     }) }}
   {% endset %}
