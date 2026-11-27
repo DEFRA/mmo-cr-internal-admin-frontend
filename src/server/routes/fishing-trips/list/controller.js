@@ -5,7 +5,6 @@ import {
   searchTrips,
   tripsToCsv
 } from '#/server/common/helpers/trips/trips-service.js'
-import { exportHref } from '#/server/common/helpers/csv/csv.js'
 import {
   SUBMISSION_METHODS,
   TRIPS_PAGE_SIZE
@@ -142,7 +141,6 @@ export const listController = {
       pageTitle: 'Fishing trips',
       trips: items,
       search: query.s,
-      exportHref: exportHref('/fishing-trips/export', query),
       filters: {
         groups: filterGroups(query, range),
         clearHref: '/fishing-trips'

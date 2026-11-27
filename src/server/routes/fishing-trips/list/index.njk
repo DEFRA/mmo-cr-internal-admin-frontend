@@ -3,10 +3,6 @@
 {% block content %}
   <h1 class="govuk-heading-xl">Fishing trips</h1>
 
-  {% if permissions.exportData %}
-  {{ govukButton({ text: "Export trip data", href: exportHref, classes: "govuk-button--secondary" }) }}
-  {% endif %}
-
   {% if permissions.tripBreakdown %}
   <p class="govuk-body"><a class="govuk-link" href="/trip-breakdown">View trip breakdown (catch by species)</a></p>
   {% endif %}

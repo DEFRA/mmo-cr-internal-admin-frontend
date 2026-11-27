@@ -37,9 +37,11 @@ describe('#userProfile', () => {
       'User ID',
       'Email address',
       'Phone number',
-      'Postal address',
+      'Address',
+      'Status',
+      'Assisted digital status',
       'Administration',
-      'Status'
+      'Created on'
     ])
     expect($('a[href="/users/1235/deactivate"]').text()).toBe('Deactivate user')
     expect(
@@ -57,6 +59,12 @@ describe('#userProfile', () => {
     expect(paul('.govuk-summary-list').text()).toContain('Not provided')
     expect(john('[data-testid="user-vessels"] tbody').text()).toContain(
       'Lady Jane'
+    )
+    expect(john('.govuk-summary-list__value').eq(4).html().trim()).toBe(
+      "3 Fisherman's Row<br>Newlyn<br>Penzance<br>Cornwall<br>TR18 5HW"
+    )
+    expect(john('[data-testid="user-vessels"] th').eq(1).text()).toBe(
+      'Vessel reference'
     )
   })
 

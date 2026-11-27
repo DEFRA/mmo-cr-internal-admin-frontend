@@ -1,8 +1,7 @@
 import {
   archiveController,
   optionOneController,
-  optionTwoController,
-  optionThreeController
+  optionTwoController
 } from './controller.js'
 
 export const tripLayouts = {
@@ -24,11 +23,6 @@ export const tripLayouts = {
           method: 'GET',
           path: '/trip-layouts/option-2',
           ...optionTwoController
-        },
-        {
-          method: 'GET',
-          path: '/trip-layouts/option-3',
-          ...optionThreeController
         }
       ])
     }

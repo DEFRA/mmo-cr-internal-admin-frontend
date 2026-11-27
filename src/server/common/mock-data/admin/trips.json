@@ -1063,8 +1063,8 @@
             "Weight discarded (kg)"
           ],
           "rows": [
-            ["Edible crab", "CRE", "18", "14", "1", "4"],
-            ["Whelk", "WHE", "26", "22", "1", "4"]
+            ["Edible crab", "CRE", "18.00", "14.00", "1.00", "4.00"],
+            ["Whelk", "WHE", "26.00", "22.00", "1.00", "4.00"]
           ]
         },
         {
@@ -1079,7 +1079,7 @@
             "Weight below minimum size (kg)",
             "Weight discarded (kg)"
           ],
-          "rows": [["Common sole", "SOL", "8", "6", "1", "2"]]
+          "rows": [["Common sole", "SOL", "8.00", "6.00", "1.00", "2.00"]]
         },
         {
           "name": "Dredge",
@@ -1156,8 +1156,8 @@
           "Weight discarded (kg)"
         ],
         "rows": [
-          ["Edible crab", "CRE", "18", "14", "1", "4"],
-          ["Whelk", "WHE", "26", "22", "1", "4"]
+          ["Edible crab", "CRE", "18.00", "14.00", "1.00", "4.00"],
+          ["Whelk", "WHE", "26.00", "22.00", "1.00", "4.00"]
         ]
       },
       {
@@ -1172,7 +1172,7 @@
           "Weight below minimum size (kg)",
           "Weight discarded (kg)"
         ],
-        "rows": [["Common sole", "SOL", "8", "6", "1", "2"]]
+        "rows": [["Common sole", "SOL", "8.00", "6.00", "1.00", "2.00"]]
       },
       {
         "name": "Dredge",

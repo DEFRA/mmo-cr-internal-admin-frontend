@@ -54,28 +54,13 @@
     { key: { text: "Created on" }, value: { text: trip.createdOn | formatDate("d MMMM yyyy, HH:mm") } },
     { key: { text: "Received on" }, value: { text: trip.receivedOn | formatDate("d MMMM yyyy, HH:mm") } },
     { key: { text: "Late submission" }, value: { text: trip.lateSubmission } },
-    { key: { text: "Submission method" }, value: { text: methodLabel } }
+    { key: { text: "Submission method" }, value: { text: methodLabel } },
+    { key: { text: "Amended" }, value: { text: "Yes" if hasAmendments else "No" } },
+    { key: { text: "Amendment reason" }, value: { text: view.amendment.reason if view.amendment else "N/A" } }
   ] %}
-  {% if view.amendment %}
-    {% set otherRows = otherRows.concat([{ key: { text: "Amendment reason" }, value: { text: view.amendment.reason } }]) %}
-  {% endif %}
 
-  {#
-    Layout testing Option 3 (hybrid): a compact summary of all the trip
-    information, the catch breakdown as the main content and History and
-    Notes in tabs below. Option 2 shows trip details and record status in two
-    columns.
-  #}
-  {% if hybridLayout %}
-    <dl class="app-trip-summary" data-testid="trip-information">
-      {% for row in mainRows.concat(otherRows) %}
-        <div class="app-trip-summary__item">
-          <dt class="app-trip-summary__key">{{ row.key.text }}</dt>
-          <dd class="app-trip-summary__value">{% if row.value.html %}{{ row.value.html | safe }}{% else %}{{ row.value.text }}{% endif %}</dd>
-        </div>
-      {% endfor %}
-    </dl>
-  {% elif twoColumnLayout %}
+  {# Layout testing Option 2 shows trip details and record status in two columns #}
+  {% if twoColumnLayout %}
     {% set tripColumn = [
       { key: { text: "Trip ID" }, value: { text: trip.tripId } },
       { key: { text: "Vessel name" }, value: { html: vesselHtml } },
@@ -247,18 +232,7 @@
     }) }}
   {% endset %}
 
-  {% if hybridLayout %}
-    <section class="app-trip-catch" id="catch-breakdown" data-testid="trip-catch-breakdown">
-      {{ catchHtml | safe }}
-    </section>
-    {{ govukTabs({
-      classes: "app-profile-tabs",
-      items: [
-        { label: "History", id: "history", panel: { html: historyHtml } },
-        { label: "Notes", id: "notes", panel: { html: notesHtml } }
-      ]
-    }) }}
-  {% elif tabbedLayout %}
+  {% if tabbedLayout %}
     {{ govukTabs({
       classes: "app-profile-tabs app-profile-tabs--tight",
       items: [

@@ -30,8 +30,8 @@ const querySchema = Joi.object({
   'gear-example': Joi.string()
     .valid(...Object.keys(GEAR_EXAMPLES))
     .optional(),
-  // Layout testing: Option 1 (A, as-is), Option 2 (two-column), Option 3 (hybrid)
-  layout: Joi.string().valid('a', 'two-column', 'hybrid').optional()
+  // Layout testing: Option 1 (A, as-is), Option 2 (two-column)
+  layout: Joi.string().valid('a', 'two-column').optional()
 })
 
 function versionNotice(trip, view) {
@@ -119,7 +119,6 @@ export const profileController = {
       creatorHref: creator ? `/users/${creator.id}` : null,
       methodLabel: submissionMethod(trip.submissionMethod)?.label,
       twoColumnLayout: query.layout === 'two-column',
-      hybridLayout: query.layout === 'hybrid',
       // The current layout, with Vessel and User tabs, is used without a layout
       tabbedLayout: !query.layout,
       hasAmendments: trip.amendments.length > 0,

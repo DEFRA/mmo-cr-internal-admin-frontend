@@ -317,7 +317,7 @@ Also seed Frank Castle (1237), Peter Petrelli (1238), Alice Wilson (1239) and Et
 ![Newly created](../admin-screens/21b-users-profile-newly-created.png)
 
 - Back link **Back to users**. Caption "User profile", H1 = full name.
-- Summary rows: **Full name**, **User ID**, **Email address** (mailto link), **Phone number** ("Not provided" if empty), **Postal address** (multi-line, "Not provided" if empty), **Administration**, **Status** (tag, with a **Deactivate user** link below it, or **Reactivate user** when deactivated).
+- Summary rows: **Full name**, **User ID**, **Email address** (mailto link), **Phone number** ("Not provided" if empty), **Address** (multi-line including county, "Not provided" if empty), **Status** (tag, with a **Deactivate user** link below it, or **Reactivate user** when deactivated), **Assisted digital status**, **Administration**, **Created on**.
 - Users created in this session show extra rows (U5a): **Assisted digital support**, **Invitation email: Sent (simulated)**, **Created on**. **`TBC`: confirm the final row set** (older template U6 shows Assisted digital status + Created on for every user).
 - Buttons: **Amend user** (secondary → U7) and **Access catch recording ›** (start button). Its destination is `#` in the prototype, so it is **`TBC`**.
 - Tabs:
@@ -361,7 +361,7 @@ Also seed Frank Castle (1237), Peter Petrelli (1238), Alice Wilson (1239) and Et
 - **User role on vessel**: select with Owner (Nominee) and Skipper (Master).
 - Buttons: **Add a vessel** and **Cancel** (link → profile).
 - Validation: free text not chosen from the list gives "Select a vessel from the results". Server-side messages are `TBC`. Suggested: "Select a vessel" and "Select a user role".
-- Success → profile with the "Vessel added" banner. A row appears in the Vessels tab: Vessel, Vessel reference (PLN), User role, Linked on (today).
+- Success → profile with the "Vessel added" banner. A row appears in the Vessels tab: Vessel, Vessel reference, User role, Linked on (today).
 
 ### U10. Remove a vessel (`/users/{userId}/vessels/remove`)
 
@@ -440,7 +440,7 @@ This is the Fishing trips list pre-filtered by `created-by={name}`. Build it in 
 ### 8.7 Trip details layout (design comparison)
 
 - Option 1 = `layout=a` (concise information). Option 2 = `layout=a2` (all information shown).
-- Archive variants: A (as-is) · B (two columns, labels above values) · B2 (split table with vessel and user details) · C (wider tabs on the right) · D (more trip information shown) · E (all sections on one page) · E2 (vessel and user in trip information) · F (balanced content columns) · F2 (full-width catch, paired History and Notes).
+- Archive variants: A (as-is) · A2 (all information shown) · B (two columns, labels above values) · B2 (split table with vessel and user details) · C (wider tabs on the right) · E (all sections on one page) · E2 (vessel and user in trip information) · F (balanced content columns) · F2 (full-width catch, paired History and Notes).
 - **`TBC`: pick one layout for production. Build the archive only if the team asks for it.**
 
 ### 8.8 Audit log (`/audit-log`)
