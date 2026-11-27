@@ -104,7 +104,7 @@
 }
 
 // Column widths for list tables (percent of table width)
-@each $width in (5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 22) {
+@each $width in (5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 22, 23) {
   .app-col--#{$width} {
     width: $width * 1%;
   }
@@ -157,38 +157,6 @@
 .app-autocomplete--one-half .autocomplete__wrapper {
   @include govuk-font($size: 19);
   max-width: 390px;
-}
-
-// Hybrid trip details layout: compact trip summary, labels above values,
-// wrapping into as many columns as fit (no horizontal scrolling)
-.app-trip-summary {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: govuk-spacing(3) govuk-spacing(6);
-  margin: 0 0 govuk-spacing(6);
-  padding: govuk-spacing(4) 0;
-  border-top: 1px solid $govuk-border-colour;
-  border-bottom: 1px solid $govuk-border-colour;
-}
-
-.app-trip-summary__item {
-  min-width: 0;
-}
-
-.app-trip-summary__key {
-  @include govuk-font($size: 16, $weight: bold);
-  margin-bottom: govuk-spacing(1);
-  color: $govuk-secondary-text-colour;
-}
-
-.app-trip-summary__value {
-  @include govuk-font($size: 19);
-  margin: 0;
-  overflow-wrap: anywhere;
-}
-
-.app-trip-catch {
-  margin-top: govuk-spacing(6);
 }
 
 // Create and amend user: contact, address and administration fields (prototype width)

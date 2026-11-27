@@ -27,6 +27,17 @@ describe('#tripLayoutsArchive', () => {
     expect($('.govuk-back-link').attr('href')).toBe('/')
     expect($('[aria-current="page"]').first().text()).toBe('Fishing trips')
     expect(links).toHaveLength(9)
+    expect(links.map((_i, el) => $(el).text().split(/[ :]/)[0]).get()).toEqual([
+      'A',
+      'A2',
+      'B',
+      'B2',
+      'C',
+      'E',
+      'E2',
+      'F',
+      'F2'
+    ])
     expect(links.first().text()).toBe('A (as-is) (opens in new tab)')
     expect(links.map((_i, el) => $(el).attr('href')).get()).toEqual(
       Array(9).fill('/fishing-trips/C34245202608171402')
@@ -77,29 +88,5 @@ describe('#tripLayoutsArchive', () => {
       'Status|Created on|Received on|Submission method|Amended|Retained catch|Admin port|Admin port code'
     ])
     expect($('[data-testid="catch-table"]')).toHaveLength(3)
-  })
-
-  test('Should show the hybrid layout for option 3', async () => {
-    const agent = await createAgent(server).signIn()
-    const redirect = await agent.get('/trip-layouts/option-3')
-    const $ = load(
-      (await agent.get('/fishing-trips/C34245202608171402?layout=hybrid'))
-        .result
-    )
-
-    expect(redirect.headers.location).toBe(
-      '/fishing-trips/C34245202608171402?layout=hybrid'
-    )
-    expect($('.app-trip-summary__key').first().text()).toBe('Status')
-    expect($('.app-trip-summary__key').text()).toContain('Admin port')
-    expect(
-      $('[data-testid="trip-catch-breakdown"] [data-testid="catch-table"]')
-        .length
-    ).toBeGreaterThan(0)
-    expect(
-      $('.govuk-tabs__tab')
-        .map((_i, el) => $(el).text().trim())
-        .get()
-    ).toEqual(['History', 'Notes'])
   })
 })

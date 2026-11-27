@@ -139,6 +139,31 @@ describe('#fishingTripProfile', () => {
     ).toBe('Vessel removed')
   })
 
+  test('Should show whether the trip was amended and why', async () => {
+    const amended = load((await agent.get(AMENDED)).result)
+    const submitted = load(
+      (await agent.get('/fishing-trips/C34245202608171402')).result
+    )
+    const summary = ($) =>
+      $('[data-testid="trip-information"] .govuk-summary-list__row')
+        .map((_i, row) => clean($(row).text()))
+        .get()
+        .slice(-3)
+
+    expect(summary(amended)[0]).toContain('Submission method')
+    expect(summary(amended)[1]).toBe('Amended Yes')
+    expect(summary(amended)[2]).toMatch(/^Amendment reason (?!N\/A)/)
+    expect(summary(submitted).slice(1)).toEqual([
+      'Amended No',
+      'Amendment reason N/A'
+    ])
+    expect(rows(submitted, 'catch-table').slice(0, 3)).toEqual([
+      'Edible crab CRE 18.00 14.00 1.00 4.00',
+      'Whelk WHE 26.00 22.00 1.00 4.00',
+      'Common sole SOL 8.00 6.00 1.00 2.00'
+    ])
+  })
+
   test('Should show vessel and user details in their own tabs', async () => {
     const $ = load(
       (await agent.get('/fishing-trips/J12345202608301410')).result
@@ -161,7 +186,9 @@ describe('#fishingTripProfile', () => {
       'Created on',
       'Received on',
       'Late submission',
-      'Submission method'
+      'Submission method',
+      'Amended',
+      'Amendment reason'
     ])
     expect($('.govuk-details')).toHaveLength(0)
     expect(text('.govuk-tabs__tab')).toEqual([

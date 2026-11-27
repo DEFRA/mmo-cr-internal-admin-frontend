@@ -13,7 +13,7 @@
     {% if user.email %}<a class="govuk-link" href="mailto:{{ user.email }}">{{ user.email }}</a>{% else %}{{ notProvided }}{% endif %}
   {% endset %}
 
-  {% set addressLines = [user.address.line1, user.address.line2, user.address.town, user.address.postcode] | select %}
+  {% set addressLines = [user.address.line1, user.address.line2, user.address.town, user.address.county, user.address.postcode] | select %}
   {% set addressHtml %}
     {% if addressLines | length %}{% for line in addressLines %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}{% else %}{{ notProvided }}{% endif %}
   {% endset %}
@@ -36,21 +36,15 @@
     { key: { text: "User ID" }, value: { text: user.id } },
     { key: { text: "Email address" }, value: { html: emailHtml } },
     { key: { text: "Phone number" }, value: { text: user.telephone or notProvided } },
-    { key: { text: "Postal address" }, value: { html: addressHtml } }
+    { key: { text: "Address" }, value: { html: addressHtml } },
+    { key: { text: "Status" }, value: { html: statusHtml } },
+    { key: { text: "Assisted digital status" }, value: { text: "Yes" if user.assistedDigital == "yes" else "No" } },
+    { key: { text: "Administration" }, value: { text: user.administration } }
   ] %}
   {% if user.createdInPortal %}
-    {% set rows = rows.concat([{ key: { text: "Assisted digital support" }, value: { text: "Yes" if user.assistedDigital == "yes" else "No" } }]) %}
+    {% set rows = rows.concat([{ key: { text: "Invitation email" }, value: { text: user.invitationEmail } }]) %}
   {% endif %}
-  {% set rows = rows.concat([
-    { key: { text: "Administration" }, value: { text: user.administration } },
-    { key: { text: "Status" }, value: { html: statusHtml } }
-  ]) %}
-  {% if user.createdInPortal %}
-    {% set rows = rows.concat([
-      { key: { text: "Invitation email" }, value: { text: user.invitationEmail } },
-      { key: { text: "Created on" }, value: { text: user.createdOn | formatDate("d MMMM yyyy") } }
-    ]) %}
-  {% endif %}
+  {% set rows = rows.concat([{ key: { text: "Created on" }, value: { text: user.createdOn | formatDate("d MMMM yyyy") } }]) %}
 
   {{ govukSummaryList({ rows: rows, classes: "app-summary-list--profile" }) }}
 
@@ -76,7 +70,7 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Vessel</th>
-            <th scope="col" class="govuk-table__header">Vessel reference (PLN)</th>
+            <th scope="col" class="govuk-table__header">Vessel reference</th>
             <th scope="col" class="govuk-table__header">User role</th>
             <th scope="col" class="govuk-table__header">Linked on</th>
           </tr>

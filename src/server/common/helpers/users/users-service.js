@@ -114,7 +114,10 @@ export function createUser(store, values, actor) {
 }
 
 export function amendUser(user, values, actor) {
-  Object.assign(user, detailsFromForm(values))
+  const details = detailsFromForm(values)
+  // The amend form has no county field, so keep any existing county
+  details.address.county = user.address?.county
+  Object.assign(user, details)
   user.history.unshift(historyEntry('User details amended', actor))
   return user
 }

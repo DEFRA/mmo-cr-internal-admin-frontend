@@ -5,14 +5,14 @@ const EXAMPLE_TRIP = '/fishing-trips/C34245202608171402'
 // are not built, so each link opens the current trip details page.
 const ARCHIVED_LAYOUTS = [
   'A (as-is)',
-  'C: wider tabs on the right',
+  'A2: all information shown',
   'B: two columns, labels above values',
   'B2: split table with vessel and user details',
+  'C: wider tabs on the right',
   'E: all sections on one page',
   'E2: vessel and user in trip information',
   'F: balanced content columns',
-  'F2: full-width catch, paired History and Notes',
-  'D: more trip information shown'
+  'F2: full-width catch, paired History and Notes'
 ]
 
 export const archiveController = {
@@ -38,13 +38,5 @@ export const optionOneController = {
 export const optionTwoController = {
   handler(_request, h) {
     return h.redirect(`${EXAMPLE_TRIP}?layout=two-column`)
-  }
-}
-
-// Option 3 (hybrid) keeps a compact trip summary at the top, makes the catch
-// breakdown the main content and puts History and Notes in tabs below
-export const optionThreeController = {
-  handler(_request, h) {
-    return h.redirect(`${EXAMPLE_TRIP}?layout=hybrid`)
   }
 }
